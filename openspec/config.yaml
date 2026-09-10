@@ -1,0 +1,24 @@
+schema: spec-driven
+githubCopilot:
+  cloudAgent: false
+
+context: |
+  Twin is a Python 3.12.12 Gradio ChatInterface app under backend/src/ (MiniMax-M2.5 via OpenAI-compatible client).
+  Pins: backend/requirements.txt (runtime) and backend/requirements-dev.txt (pytest, Playwright).
+  Tests: pytest units under backend/tests/unit/; Playwright drives Gradio chat, not a live MiniMax suite in v1.
+  Agent constitution: ai-specs/AGENTS.md. Standards: ai-specs/standards/python.md, ai-specs/standards/testing.md, ai-specs/standards/context7.md.
+  Product specs: openspec/specs/. Do not invent product specs for tooling-only work.
+  Language: English for repo content and for chat with the user.
+
+rules:
+  proposal:
+    - Stay twin-native (Python/Gradio/MiniMax). Do not invent product specs for tooling-only changes.
+    - OS-only / tooling-only changes set skip_specs: true and must not invent product specs.
+    - Always include a Non-goals section.
+  design:
+    - Stay twin-native. File layout and apply order must match existing backend/.venv + requirements.txt.
+    - Project skills live under ai-specs/skills/. OpenSpec CLI skills stay under .github/skills/.
+  tasks:
+    - Keep tasks small. Each task must include verification.
+    - Do not invent product specs.
+    - Archive only after explicit user approval. Do not archive in apply.
