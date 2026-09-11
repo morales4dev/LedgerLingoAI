@@ -15,6 +15,14 @@ Read this file first. Product specs live in `openspec/specs/`. Agent standards l
 - OpenSpec CLI skills: `.github/skills/` (do not move them into `ai-specs`).
 - Product specs: `openspec/specs/`.
 
+### Project Architecture & Sub-Module Directory Map
+
+This repository is split into specific micro-domains. When working inside these folders, respect their local architectures and internal rule files:
+
+- `backend/src/` — Core Python backend entry points, API routes, and configuration wrappers.
+- `backend/src/greeting/` — CrewAI Greeting Module. Contains the localized multi-agent workflows, task definitions, and UI interfaces.
+	- Local rules pointer: Refer to [backend/src/greeting/AGENTS.md](../backend/src/greeting/AGENTS.md) before making edits or otherwise working in this module.
+
 ## Load skills
 
 Load OpenSpec CLI skills from `.github/skills/` when proposing, applying, updating, syncing, or archiving a change. Load project skills from `ai-specs/skills/` when the user asks for that workflow (for example `adversarial-review` before archive).
