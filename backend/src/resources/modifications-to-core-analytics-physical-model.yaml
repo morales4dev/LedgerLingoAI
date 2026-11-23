@@ -1,0 +1,116 @@
+# ==============================================================================
+# Modifications to formalize-core-analytics-model (Bump version 1.0.0 -> 1.1.0)
+# ==============================================================================
+
+module:
+  name: formalize-core-analytics-model
+  layer: physical_data_model
+  version: "1.1.0"
+  source_of_truth: true
+
+# Append under `tables:`
+tables_additions:
+  - name: tag
+    qualified_name: core.tag
+    alias: tag
+    object_type: table
+    description: >
+      Controlled semantic tag master classifying GL accounts into financial
+      statement lines and analytical adjustments (e.g., cogs, opex, current_asset).
+    grain: "1 row per tag (tag_code)"
+    primary_key:
+      - tag_code
+    columns:
+      - name: tag_code
+        data_type: TEXT
+        nullable: false
+        role: primary_key
+        description: Unique canonical semantic tag identifier.
+      - name: tag_name
+        data_type: TEXT
+        nullable: false
+        role: attribute
+        description: Human-readable label for the tag.
+      - name: tag_category
+        data_type: TEXT
+        nullable: false
+        role: dimension
+        description: Tag namespace/group (e.g., pnl_line, bs_line, ebitda_adjustment).
+      - name: description
+        data_type: TEXT
+        nullable: true
+        role: attribute
+        description: Accounting definition of accounts eligible for this tag.
+      - name: created_at
+        data_type: TIMESTAMPTZ
+        nullable: false
+        role: technical_timestamp
+        default: "NOW()"
+        analytical_filter_allowed: false
+        description: Technical record creation timestamp in core.
+
+  - name: gl_account_tag
+    qualified_name: core.gl_account_tag
+    alias: gat
+    object_type: table
+    description: >
+      Many-to-many bridge table mapping GL accounts to semantic reporting tags.
+      Must be queried via EXISTS predicates to prevent double-counting.
+    grain: "1 row per GL account and tag pair (account_code, tag_code)"
+    primary_key:
+      - account_code
+      - tag_code
+    columns:
+      - name: account_code
+        data_type: TEXT
+        nullable: false
+        role: primary_key_foreign_key
+        references: core.gl_account.account_code
+        constraint_name: fk_gat_account
+        description: Foreign key referencing core.gl_account.
+      - name: tag_code
+        data_type: TEXT
+        nullable: false
+        role: primary_key_foreign_key
+        references: core.tag.tag_code
+        constraint_name: fk_gat_tag
+        description: Foreign key referencing core.tag.
+      - name: created_at
+        data_type: TIMESTAMPTZ
+        nullable: false
+        role: technical_timestamp
+        default: "NOW()"
+        analytical_filter_allowed: false
+        description: Technical record creation timestamp in core.
+
+# Append under `relationships:`
+relationships_additions:
+  - name: gl_account_to_account_tags
+    from_table: core.gl_account_tag
+    from_alias: gat
+    from_column: account_code
+    to_table: core.gl_account
+    to_alias: gla
+    to_column: account_code
+    cardinality: many_to_one
+    join_type: INNER
+    constraint_name: fk_gat_account
+    join_rule: >
+      Prefer EXISTS subqueries over direct INNER JOIN when filtering journal_entry_line
+      by tag_code to avoid duplicating line amounts across multi-tagged accounts.
+
+  - name: tag_master_to_account_tags
+    from_table: core.gl_account_tag
+    from_alias: gat
+    from_column: tag_code
+    to_table: core.tag
+    to_alias: tag
+    to_column: tag_code
+    cardinality: many_to_one
+    join_type: INNER
+    constraint_name: fk_gat_tag
+
+# Append under `time_semantics.excluded_technical_timestamps:`
+excluded_technical_timestamps_additions:
+  - core.tag.created_at
+  - core.gl_account_tag.created_at

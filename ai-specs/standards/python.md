@@ -17,7 +17,7 @@
 - Layout: app under `backend/src/`, venv `backend/.venv`, install with uv.
 - Create the venv with `uv venv`. Install packages with `uv pip install --python backend/.venv/bin/python`. Never bare `pip install`.
 - Pin only direct runtime deps in `backend/requirements.txt`. Do not pin unused transitives (fastapi, uvicorn, httpx). Do not add unpinned agent SDKs.
-- Runtime: Python 3.12.12 (documented; not a pip pin).
+- Runtime: Python 3.13.3 (documented; not a pip pin).
 - App: Gradio `ChatInterface` under `backend/src/`.
 - Model client: MiniMax-M2.5 via the **sync** OpenAI-compatible `OpenAI()` client (`openai`). Chat stays sync. Do not document or rewrite the loop as async.
 - Current runtime pins:

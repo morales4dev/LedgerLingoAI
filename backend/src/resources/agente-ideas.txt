@@ -1,0 +1,96 @@
+================================================================================
+ARQUITECTURA MVP: ACCOUNTING-QUESTION-ORCHESTRATION (SISTEMA AGÉNTICO FINANCIERO)
+================================================================================
+
+1. ENFOQUE DEL BUCLE AGÉNTICO
+--------------------------------------------------------------------------------
+Para convertir preguntas en lenguaje natural de profesionales contables en un
+Structured Intent (métricas, dimensiones, filtros, períodos), se recomienda un
+bucle de tipo Plan-and-Execute (o ReAct acotado) con validación determinista de
+esquema.
+
+El agente NO debe generar SQL directamente en esta capa. Su función es resolver
+ambigüedades semánticas en un ciclo cerrado (máximo 3 a 5 iteraciones) hasta
+emitir un JSON válido y determinista.
+
+Pasos del ciclo:
+  A) Planificación y Descomposición (Thought):
+     Extrae elementos preliminares e identifica ambigüedades:
+     - Métrica (ej. Margen bruto -> ¿fórmula exacta en el catálogo?)
+     - Dimensión (ej. División -> valor buscado: "retail")
+     - Filtro (ej. Escenario = Real vs. Presupuesto)
+     - Período (ej. "Último trimestre" -> ¿calendario o año fiscal?)
+
+  B) Ejecución de Herramientas de Descubrimiento (Action):
+     Herramientas de solo lectura para aterrizar términos al modelo de datos:
+     - get_semantic_catalog(query): Busca definiciones oficiales y cuentas
+       contables agrupadas.
+     - resolve_dimension_values(dimension, search_term): Traduce términos de
+       negocio a IDs exactos (ej. "retail" -> DIV_04_RETAIL_ES).
+     - get_fiscal_calendar(reference_date): Traduce expresiones relativas
+       ("último trimestre", "YTD") a fechas exactas según cierre fiscal.
+
+  C) Validación y Reflexión (Observation & Reflection):
+     Evalúa el resultado contra un esquema estricto (Pydantic / JSON Schema):
+     - Caso A (Éxito): Todos los campos mapeados a IDs válidos -> Emite JSON.
+     - Caso B (Ambigüedad): Dos cuentas posibles o falta filtro obligatorio ->
+       Detiene el bucle y lanza pregunta de aclaración (Human-in-the-loop).
+     - Caso C (Error de esquema): Incompatibilidad contable/técnica ->
+       Devuelve el error al agente para autocorrección en la siguiente iteración.
+
+
+2. ESTRUCTURA DEL OUTPUT ESPERADO (STRUCTURED INTENT)
+--------------------------------------------------------------------------------
+Ejemplo de salida determinista hacia el motor de consultas (SQL / OLAP):
+
+{
+  "status": "READY", // o "NEEDS_CLARIFICATION"
+  "intent": {
+    "metrics": ["GROSS_MARGIN_PCT", "GROSS_MARGIN_AMT"],
+    "dimensions": ["SCENARIO"],
+    "filters": [
+      { "field": "BUSINESS_UNIT", "operator": "EQ", "value": "DIV_04_RETAIL" },
+      { "field": "SCENARIO", "operator": "IN", "value": ["ACTUAL", "BUDGET"] }
+    ],
+    "time_period": {
+      "type": "FISCAL_QUARTER",
+      "start_date": "2026-07-01",
+      "end_date": "2026-09-30",
+      "comparison": "VS_BUDGET"
+    }
+  },
+  "clarification_question": null
+}
+
+
+3. REGLAS CLAVE PARA EL MVP
+--------------------------------------------------------------------------------
+- Separar semántica de SQL: El orquestador solo llena la capa semántica. Un
+  motor determinista posterior traduce el JSON a SQL o llamadas al ERP/DW.
+- Control de alucinaciones contables: Prohibir en el system prompt asumir
+  criterios (caja vs. devengo, consolidado vs. individual, moneda) si no son
+  explícitos en la pregunta o en reglas por defecto documentadas.
+- Límite de iteraciones: Configurar max_iterations = 4. Si no resuelve, pedir
+  al usuario que reformule o aclare.
+
+
+4. DIFERENCIA ENTRE "DIMENSIONS" Y "FILTERS" EN EL JSON
+--------------------------------------------------------------------------------
+Aunque conceptualmente ambos son dimensiones del modelo estrella/OLAP (como
+BUSINESS_UNIT, SCENARIO o CURRENCY), en el JSON cumplen roles distintos:
+
+- dimensions = Ejes de desglose (equivalente a GROUP BY en SQL).
+  Define cómo se abre o agrupa la tabla de resultados.
+- filters = Recorte de datos (equivalente a WHERE en SQL).
+  Define qué subconjunto específico de valores traer.
+
+Matriz de decisión para el System Prompt / Validador:
+  1. "...de la división Retail..."
+     -> filters: BUSINESS_UNIT = RETAIL | dimensions: No (valor único fijado)
+  2. "...desglosado por división..."
+     -> filters: No (trae todas) | dimensions: BUSINESS_UNIT
+  3. "...Real vs. Presupuesto..."
+     -> filters: SCENARIO IN [ACTUAL, BUDGET] | dimensions: SCENARIO (para verlos separados)
+  4. "...en euros..."
+     -> filters: CURRENCY = EUR | dimensions: No (contexto fijo)
+================================================================================

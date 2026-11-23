@@ -1,0 +1,240 @@
+# ==============================================================================
+# Module: mvp-accounting-semantics (Layer 2 - Semantic Layer)
+# Description: Versioned accounting definitions, base concepts, metrics,
+#              time/currency policies, and dimensions for the Financial
+#              Statements Natural Language Analytics MVP.
+# Depends on: formalize-core-analytics-model (v1.1.0 + core.tag / core.gl_account_tag)
+# ==============================================================================
+
+module:
+  name: mvp-accounting-semantics
+  layer: semantic_layer
+  version: "1.0.0"
+  depends_on:
+    - formalize-core-analytics-model
+  metrics_catalog: "metrics.yaml"
+
+# ==============================================================================
+# 1. GLOBAL ACCOUNTING, TIME, CURRENCY & DIMENSION POLICIES
+# ==============================================================================
+policies:
+  accounting_basis:
+    framework: "IFRS Conceptual Framework (IASB DP/2013/1)"
+    recognition_basis: "accrual"
+    null_handling: "COALESCE(jel.debit_amount, 0) and COALESCE(jel.credit_amount, 0)"
+    tag_resolution_rule: >
+      Resolve tag filters using `EXISTS (SELECT 1 FROM core.gl_account_tag gat
+      WHERE gat.account_code = jel.account_code AND gat.tag_code = :tag)`
+      rather than an INNER JOIN to prevent double-counting when accounts carry
+      multiple tags.
+
+  time_semantics:
+    primary_date_column: "core.journal_entry_header.posting_date"
+    discrete_axes:
+      year: "core.journal_entry_header.fiscal_year"
+      period: "core.journal_entry_header.fiscal_period"
+    behaviors:
+      flow:
+        description: "Activity accumulated strictly within the requested period window."
+        filter_rule: "jeh.posting_date >= :period_start AND jeh.posting_date < :period_end_exclusive"
+      point_in_time:
+        description: "Cumulative balance from inception up to the reporting cut-off date."
+        filter_rule: "jeh.posting_date < :period_end_exclusive"
+
+  currency_policy:
+    source_column: "core.journal_entry_header.currency"
+    fx_conversion_supported: false
+    rule: >
+      No dynamic FX conversion is performed in the MVP. Queries spanning multiple
+      currencies must either filter by a single currency or explicitly GROUP BY
+      jeh.currency. Never sum amounts across different currencies.
+
+  dimensions:
+    company_code:
+      column: "core.journal_entry_header.company_code"
+      description: "Legal entity owning the accounting entry."
+    profit_center:
+      column: "core.journal_entry_line.profit_center"
+      description: "Segment or business unit attribution for P&L and margin reporting."
+    cost_center:
+      column: "core.journal_entry_line.cost_center"
+      description: "Departmental attribution for expense tracking."
+    country:
+      column: "core.gl_account.country"
+      description: >
+        Country scope resolved strictly via core.gl_account.country.
+        Unlinked tables (core.vendor, core.customer) are prohibited in financial queries.
+    fiscal_year:
+      column: "core.journal_entry_header.fiscal_year"
+      description: "Discrete accounting fiscal year."
+    fiscal_period:
+      column: "core.journal_entry_header.fiscal_period"
+      description: "Discrete accounting period within the fiscal year."
+
+# ==============================================================================
+# 2. BASE CONCEPTS (Atomic Building Blocks Mapped to `core` + Tags)
+# ==============================================================================
+base_concepts:
+  # --- Level A: Top-Level IFRS Elements (Mapped via `gla.account_type`) ---
+  total_revenue:
+    ifrs_element: "Income"
+    ifrs_reference: "DP/2013/1 Section 2 (para. 2.37a, 2.43)"
+    description: "All inflows or enhancements of assets resulting in increases in equity (ordinary revenue and gains)."
+    filter:
+      account_type: "revenue"
+    expression: "SUM(COALESCE(jel.credit_amount, 0) - COALESCE(jel.debit_amount, 0))"
+    time_behavior: "flow"
+
+  total_expense:
+    ifrs_element: "Expenses"
+    ifrs_reference: "DP/2013/1 Section 2 (para. 2.37b, 2.44)"
+    description: "All outflows, depletions of assets, or incurrences of liabilities resulting in decreases in equity."
+    filter:
+      account_type: "expense"
+    expression: "SUM(COALESCE(jel.debit_amount, 0) - COALESCE(jel.credit_amount, 0))"
+    time_behavior: "flow"
+
+  total_assets:
+    ifrs_element: "Asset"
+    ifrs_reference: "DP/2013/1 Section 2 (para. 2.11)"
+    description: "Present economic resources controlled by the entity as a result of past events."
+    filter:
+      account_type: "asset"
+    expression: "SUM(COALESCE(jel.debit_amount, 0) - COALESCE(jel.credit_amount, 0))"
+    time_behavior: "point_in_time"
+
+  total_liabilities:
+    ifrs_element: "Liability"
+    ifrs_reference: "DP/2013/1 Section 2 (para. 2.11)"
+    description: "Present obligations of the entity to transfer an economic resource as a result of past events."
+    filter:
+      account_type: "liability"
+    expression: "SUM(COALESCE(jel.credit_amount, 0) - COALESCE(jel.debit_amount, 0))"
+    time_behavior: "point_in_time"
+
+  recorded_equity:
+    ifrs_element: "Equity"
+    ifrs_reference: "DP/2013/1 Section 5 (para. 5.2)"
+    description: "Recorded equity accounts (share capital, reserves, retained earnings from closed periods)."
+    filter:
+      account_type: "equity"
+    expression: "SUM(COALESCE(jel.credit_amount, 0) - COALESCE(jel.debit_amount, 0))"
+    time_behavior: "point_in_time"
+
+  # --- Level B: Tag-Granular Sub-Concepts (Mapped via `gla.account_type` + `core.gl_account_tag`) ---
+  operating_revenue:
+    ifrs_element: "Income"
+    description: "Revenue arising in the course of ordinary operating activities."
+    filter:
+      account_type: "revenue"
+      tag: "operating_revenue"
+    expression: "SUM(COALESCE(jel.credit_amount, 0) - COALESCE(jel.debit_amount, 0))"
+    time_behavior: "flow"
+
+  other_non_operating_income:
+    ifrs_element: "Income"
+    description: "Non-operating income and financial income (e.g., interest income, FX gains)."
+    filter:
+      account_type: "revenue"
+      tag: "non_operating_income"
+    expression: "SUM(COALESCE(jel.credit_amount, 0) - COALESCE(jel.debit_amount, 0))"
+    time_behavior: "flow"
+
+  cost_of_goods_sold:
+    ifrs_element: "Expenses"
+    description: "Direct costs attributable to the production or purchase of goods/services sold (COGS)."
+    filter:
+      account_type: "expense"
+      tag: "cogs"
+    expression: "SUM(COALESCE(jel.debit_amount, 0) - COALESCE(jel.credit_amount, 0))"
+    time_behavior: "flow"
+
+  operating_expenses_excl_cogs:
+    ifrs_element: "Expenses"
+    description: "Indirect operating expenses (SG&A, R&D, payroll, facilities, including D&A)."
+    filter:
+      account_type: "expense"
+      tag: "opex"
+    expression: "SUM(COALESCE(jel.debit_amount, 0) - COALESCE(jel.credit_amount, 0))"
+    time_behavior: "flow"
+
+  depreciation_amortization:
+    ifrs_element: "Expenses"
+    description: "Non-cash depreciation and amortization charges on tangible and intangible assets."
+    filter:
+      account_type: "expense"
+      tag: "depreciation_amortization"
+    expression: "SUM(COALESCE(jel.debit_amount, 0) - COALESCE(jel.credit_amount, 0))"
+    time_behavior: "flow"
+
+  finance_costs:
+    ifrs_element: "Expenses"
+    description: "Interest expense and other borrowing/financing costs."
+    filter:
+      account_type: "expense"
+      tag: "finance_cost"
+    expression: "SUM(COALESCE(jel.debit_amount, 0) - COALESCE(jel.credit_amount, 0))"
+    time_behavior: "flow"
+
+  income_tax_expense:
+    ifrs_element: "Expenses"
+    description: "Corporate income tax expense recognized in profit or loss."
+    filter:
+      account_type: "expense"
+      tag: "income_tax"
+    expression: "SUM(COALESCE(jel.debit_amount, 0) - COALESCE(jel.credit_amount, 0))"
+    time_behavior: "flow"
+
+  current_assets:
+    ifrs_element: "Asset"
+    description: "Assets expected to be realized, sold, or consumed within 12 months or the normal operating cycle."
+    filter:
+      account_type: "asset"
+      tag: "current_asset"
+    expression: "SUM(COALESCE(jel.debit_amount, 0) - COALESCE(jel.credit_amount, 0))"
+    time_behavior: "point_in_time"
+
+  cash_and_equivalents:
+    ifrs_element: "Asset"
+    description: "Cash on hand, demand deposits, and short-term highly liquid investments."
+    filter:
+      account_type: "asset"
+      tag: "cash_and_equivalents"
+    expression: "SUM(COALESCE(jel.debit_amount, 0) - COALESCE(jel.credit_amount, 0))"
+    time_behavior: "point_in_time"
+
+  accounts_receivable:
+    ifrs_element: "Asset"
+    description: "Trade receivables owed by customers for goods or services delivered."
+    filter:
+      account_type: "asset"
+      tag: "accounts_receivable"
+    expression: "SUM(COALESCE(jel.debit_amount, 0) - COALESCE(jel.credit_amount, 0))"
+    time_behavior: "point_in_time"
+
+  inventory:
+    ifrs_element: "Asset"
+    description: "Assets held for sale in the ordinary course of business or in production."
+    filter:
+      account_type: "asset"
+      tag: "inventory"
+    expression: "SUM(COALESCE(jel.debit_amount, 0) - COALESCE(jel.credit_amount, 0))"
+    time_behavior: "point_in_time"
+
+  current_liabilities:
+    ifrs_element: "Liability"
+    description: "Obligations expected to be settled within 12 months or the normal operating cycle."
+    filter:
+      account_type: "liability"
+      tag: "current_liability"
+    expression: "SUM(COALESCE(jel.credit_amount, 0) - COALESCE(jel.debit_amount, 0))"
+    time_behavior: "point_in_time"
+
+  financial_debt:
+    ifrs_element: "Liability"
+    description: "Short-term and long-term interest-bearing borrowings and lease liabilities."
+    filter:
+      account_type: "liability"
+      tag: "financial_debt"
+    expression: "SUM(COALESCE(jel.credit_amount, 0) - COALESCE(jel.debit_amount, 0))"
+    time_behavior: "point_in_time"

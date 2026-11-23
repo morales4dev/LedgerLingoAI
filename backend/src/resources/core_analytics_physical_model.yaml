@@ -1,0 +1,391 @@
+# ==============================================================================
+# Module: formalize-core-analytics-model (Layer 1 - Physical Data Model)
+# Description: Single physical source of truth for the Financial Statements
+#              Natural Language Analytics MVP. Strictly scoped to approved
+#              PostgreSQL `core` tables.
+# ==============================================================================
+
+module:
+  name: formalize-core-analytics-model
+  layer: physical_data_model
+  version: "1.0.0"
+  source_of_truth: true
+
+database:
+  engine: postgresql
+  environment: sandbox
+  database_identifier: "${POSTGRES_DB}" # Replace or inject actual sandbox DB name
+  approved_schemas:
+    - core
+
+governance:
+  access_mode: read_only
+  allowed_statements:
+    - SELECT
+  excluded_schemas:
+    - raw
+    - stg
+    - reject
+    - audit
+    - pg_catalog
+    - information_schema
+  guardrails:
+    allow_runtime_introspection: false
+    allow_openmetadata: false
+    allow_unlisted_tables_or_views: false
+    allow_implicit_cross_joins: false
+    define_business_metrics_here: false # Deferred to semantic-layer
+
+tables:
+  - name: gl_account
+    qualified_name: core.gl_account
+    alias: gla
+    object_type: table
+    description: >
+      General Ledger Chart of Accounts master, including account classifications,
+      country and industry scope, and parent-child hierarchy.
+    grain: "1 row per GL account (account_code)"
+    primary_key:
+      - account_code
+    columns:
+      - name: account_code
+        data_type: TEXT
+        nullable: false
+        role: primary_key
+        description: Unique General Ledger account identifier.
+      - name: account_name
+        data_type: TEXT
+        nullable: true
+        role: attribute
+        description: Human-readable name of the GL account.
+      - name: account_type
+        data_type: TEXT
+        nullable: true
+        role: attribute
+        description: Account classification (e.g., Asset, Liability, Equity, Revenue, Expense).
+      - name: country
+        data_type: TEXT
+        nullable: true
+        role: attribute
+        description: Country scope associated with the account.
+      - name: industry
+        data_type: TEXT
+        nullable: true
+        role: attribute
+        description: Industry classification associated with the account.
+      - name: parent_account_code
+        data_type: TEXT
+        nullable: true
+        role: foreign_key_self
+        references: core.gl_account.account_code
+        description: Parent account code in the Chart of Accounts hierarchy (NULL for root nodes).
+      - name: created_at
+        data_type: TIMESTAMPTZ
+        nullable: false
+        role: technical_timestamp
+        default: "NOW()"
+        analytical_filter_allowed: false
+        description: Technical record creation timestamp in core (not an accounting date).
+
+  - name: journal_entry_header
+    qualified_name: core.journal_entry_header
+    alias: jeh
+    object_type: table
+    description: >
+      Accounting document headers containing company code, fiscal year and period,
+      posting and document dates, currency, and business process metadata.
+    grain: "1 row per accounting document (document_id)"
+    primary_key:
+      - document_id
+    columns:
+      - name: document_id
+        data_type: TEXT
+        nullable: false
+        role: primary_key
+        description: Unique accounting document / journal entry identifier.
+      - name: company_code
+        data_type: TEXT
+        nullable: false
+        role: dimension
+        description: Legal entity / company code owning the accounting entry.
+      - name: fiscal_year
+        data_type: INTEGER
+        nullable: true
+        role: time_dimension
+        description: Accounting fiscal year (e.g., 2025, 2026).
+      - name: fiscal_period
+        data_type: INTEGER
+        nullable: true
+        role: time_dimension
+        description: Accounting fiscal period number within the fiscal year (e.g., 1 to 12).
+      - name: posting_date
+        data_type: DATE
+        nullable: true
+        role: time_dimension
+        description: Primary effective accounting date on which the entry posts to the ledger.
+      - name: document_date
+        data_type: DATE
+        nullable: true
+        role: time_dimension
+        description: Original source document date (e.g., invoice or receipt date).
+      - name: created_at_ts
+        data_type: TIMESTAMPTZ
+        nullable: true
+        role: technical_timestamp
+        analytical_filter_allowed: false
+        description: Source system entry timestamp.
+      - name: document_type
+        data_type: TEXT
+        nullable: true
+        role: attribute
+        description: Accounting document category (e.g., invoice, payment, manual journal).
+      - name: currency
+        data_type: TEXT
+        nullable: true
+        role: attribute
+        description: Transaction / document currency code.
+      - name: exchange_rate
+        data_type: "NUMERIC(18,6)"
+        nullable: true
+        role: attribute
+        description: Exchange rate applied to the document.
+      - name: reference
+        data_type: TEXT
+        nullable: true
+        role: attribute
+        description: External or cross-system document reference number.
+      - name: header_text
+        data_type: TEXT
+        nullable: true
+        role: attribute
+        description: Document-level narrative description.
+      - name: created_by
+        data_type: TEXT
+        nullable: true
+        role: attribute
+        description: User or system identifier that created the entry.
+      - name: source
+        data_type: TEXT
+        nullable: true
+        role: attribute
+        description: Originating module or source system.
+      - name: business_process
+        data_type: TEXT
+        nullable: true
+        role: attribute
+        description: Business process tag (e.g., P2P, O2C, R2R).
+      - name: loaded_at
+        data_type: TIMESTAMPTZ
+        nullable: false
+        role: technical_timestamp
+        default: "NOW()"
+        analytical_filter_allowed: false
+        description: ETL ingestion timestamp into core (excluded from financial reporting filters).
+
+  - name: journal_entry_line
+    qualified_name: core.journal_entry_line
+    alias: jel
+    object_type: table
+    description: >
+      Individual accounting line items recording debit, credit, and signed amounts
+      per GL account, cost center, and profit center.
+    grain: "1 row per journal entry line (document_id, line_no)"
+    primary_key:
+      - document_id
+      - line_no
+    columns:
+      - name: document_id
+        data_type: TEXT
+        nullable: false
+        role: primary_key_foreign_key
+        references: core.journal_entry_header.document_id
+        constraint_name: fk_jel_header
+        description: Foreign key referencing the parent accounting document header.
+      - name: line_no
+        data_type: INTEGER
+        nullable: false
+        role: primary_key
+        description: Sequential line number within document_id.
+      - name: account_code
+        data_type: TEXT
+        nullable: false
+        role: foreign_key
+        references: core.gl_account.account_code
+        constraint_name: fk_jel_account
+        description: Foreign key referencing the General Ledger account.
+      - name: posting_key
+        data_type: TEXT
+        nullable: true
+        role: attribute
+        description: Accounting posting key indicating debit/credit and account sub-type behavior.
+      - name: debit_amount
+        data_type: "NUMERIC(18,2)"
+        nullable: true
+        role: measure_raw
+        description: Debit monetary amount on the line.
+      - name: credit_amount
+        data_type: "NUMERIC(18,2)"
+        nullable: true
+        role: measure_raw
+        description: Credit monetary amount on the line.
+      - name: amount
+        data_type: "NUMERIC(18,2)"
+        nullable: true
+        role: measure_raw
+        description: Net signed monetary amount on the line.
+      - name: cost_center
+        data_type: TEXT
+        nullable: true
+        role: dimension
+        description: Cost center attribution for expense/cost tracking.
+      - name: profit_center
+        data_type: TEXT
+        nullable: true
+        role: dimension
+        description: Profit center attribution for segment/unit reporting.
+      - name: tax_code
+        data_type: TEXT
+        nullable: true
+        role: dimension
+        description: Tax classification code applied to the line.
+      - name: loaded_at
+        data_type: TIMESTAMPTZ
+        nullable: false
+        role: technical_timestamp
+        default: "NOW()"
+        analytical_filter_allowed: false
+        description: ETL ingestion timestamp into core (excluded from financial reporting filters).
+
+  - name: vendor
+    qualified_name: core.vendor
+    alias: vnd
+    object_type: table
+    description: >
+      Master directory of vendors/suppliers and their country attributes.
+      Standalone lookup table in MVP (no FK link to journal_entry tables).
+    grain: "1 row per vendor (vendor_id)"
+    primary_key:
+      - vendor_id
+    columns:
+      - name: vendor_id
+        data_type: TEXT
+        nullable: false
+        role: primary_key
+        description: Unique vendor identifier.
+      - name: vendor_name
+        data_type: TEXT
+        nullable: true
+        role: attribute
+        description: Name of the vendor/supplier.
+      - name: country
+        data_type: TEXT
+        nullable: true
+        role: attribute
+        description: Country where the vendor is registered or located.
+      - name: created_at
+        data_type: TIMESTAMPTZ
+        nullable: false
+        role: technical_timestamp
+        default: "NOW()"
+        analytical_filter_allowed: false
+        description: Technical record creation timestamp in core.
+
+  - name: customer
+    qualified_name: core.customer
+    alias: cst
+    object_type: table
+    description: >
+      Master directory of customers and their country attributes.
+      Standalone lookup table in MVP (no FK link to journal_entry tables).
+    grain: "1 row per customer (customer_id)"
+    primary_key:
+      - customer_id
+    columns:
+      - name: customer_id
+        data_type: TEXT
+        nullable: false
+        role: primary_key
+        description: Unique customer identifier.
+      - name: customer_name
+        data_type: TEXT
+        nullable: true
+        role: attribute
+        description: Name of the customer.
+      - name: country
+        data_type: TEXT
+        nullable: true
+        role: attribute
+        description: Country where the customer is registered or located.
+      - name: created_at
+        data_type: TIMESTAMPTZ
+        nullable: false
+        role: technical_timestamp
+        default: "NOW()"
+        analytical_filter_allowed: false
+        description: Technical record creation timestamp in core.
+
+relationships:
+  - name: journal_header_to_lines
+    from_table: core.journal_entry_line
+    from_alias: jel
+    from_column: document_id
+    to_table: core.journal_entry_header
+    to_alias: jeh
+    to_column: document_id
+    cardinality: many_to_one
+    join_type: INNER
+    constraint_name: fk_jel_header
+
+  - name: journal_lines_to_gl_account
+    from_table: core.journal_entry_line
+    from_alias: jel
+    from_column: account_code
+    to_table: core.gl_account
+    to_alias: gla
+    to_column: account_code
+    cardinality: many_to_one
+    join_type: INNER
+    constraint_name: fk_jel_account
+
+  - name: gl_account_parent_hierarchy
+    from_table: core.gl_account
+    from_alias: gla
+    from_column: parent_account_code
+    to_table: core.gl_account
+    to_alias: parent_gla
+    to_column: account_code
+    cardinality: many_to_one
+    join_type: LEFT
+    optional: true
+
+  unlinked_tables:
+    tables:
+      - core.vendor
+      - core.customer
+    rule: >
+      No physical foreign keys exist between journal_entry_header/journal_entry_line
+      and vendor/customer. Agents may query vendor or customer standalone, but must
+      never fabricate joins against journal entries.
+
+time_semantics:
+  primary_fiscal_axes:
+    year_column: core.journal_entry_header.fiscal_year
+    period_column: core.journal_entry_header.fiscal_period
+    usage: Discrete fiscal year and accounting period filtering and grouping.
+  primary_posting_date:
+    column: core.journal_entry_header.posting_date
+    usage: >
+      Effective ledger posting date for date-range activity and point-in-time
+      cumulative queries (e.g., posting_date <= target_date).
+  secondary_document_date:
+    column: core.journal_entry_header.document_date
+    usage: >
+      Source document date; use only when the user explicitly requests original
+      document/invoice dates rather than accounting posting dates.
+  excluded_technical_timestamps:
+    - core.gl_account.created_at
+    - core.journal_entry_header.created_at_ts
+    - core.journal_entry_header.loaded_at
+    - core.journal_entry_line.loaded_at
+    - core.vendor.created_at
+    - core.customer.created_at

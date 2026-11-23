@@ -1,0 +1,154 @@
+# ==============================================================================
+# Golden Dataset & Fixed Validation Question Suite for mvp-accounting-semantics
+# ==============================================================================
+
+seed_data:
+  tags:
+    - { tag_code: "operating_revenue", tag_category: "pnl_line" }
+    - { tag_code: "non_operating_income", tag_category: "pnl_line" }
+    - { tag_code: "cogs", tag_category: "pnl_line" }
+    - { tag_code: "opex", tag_category: "pnl_line" }
+    - { tag_code: "depreciation_amortization", tag_category: "ebitda_adjustment" }
+    - { tag_code: "finance_cost", tag_category: "pnl_line" }
+    - { tag_code: "income_tax", tag_category: "pnl_line" }
+    - { tag_code: "current_asset", tag_category: "bs_line" }
+    - { tag_code: "cash_and_equivalents", tag_category: "bs_line" }
+    - { tag_code: "accounts_receivable", tag_category: "bs_line" }
+    - { tag_code: "inventory", tag_category: "bs_line" }
+    - { tag_code: "current_liability", tag_category: "bs_line" }
+    - { tag_code: "financial_debt", tag_category: "bs_line" }
+
+  gl_accounts:
+    - { account_code: "1000", account_name: "Cash & Bank", account_type: "asset", country: "ES" }
+    - { account_code: "1100", account_name: "Trade Receivables", account_type: "asset", country: "ES" }
+    - { account_code: "1200", account_name: "Inventory", account_type: "asset", country: "ES" }
+    - { account_code: "2000", account_name: "Trade Payables", account_type: "liability", country: "ES" }
+    - { account_code: "2100", account_name: "Short-Term Bank Loan", account_type: "liability", country: "ES" }
+    - { account_code: "3000", account_name: "Share Capital", account_type: "equity", country: "ES" }
+    - { account_code: "4000", account_name: "Product Sales", account_type: "revenue", country: "ES" }
+    - { account_code: "5000", account_name: "Cost of Goods Sold", account_type: "expense", country: "ES" }
+    - { account_code: "6000", account_name: "Salaries & Admin", account_type: "expense", country: "ES" }
+    - { account_code: "6800", account_name: "Depreciation Expense", account_type: "expense", country: "ES" }
+
+  gl_account_tags:
+    - { account_code: "1000", tag_code: "current_asset" }
+    - { account_code: "1000", tag_code: "cash_and_equivalents" }
+    - { account_code: "1100", tag_code: "current_asset" }
+    - { account_code: "1100", tag_code: "accounts_receivable" }
+    - { account_code: "1200", tag_code: "current_asset" }
+    - { account_code: "1200", tag_code: "inventory" }
+    - { account_code: "2000", tag_code: "current_liability" }
+    - { account_code: "2100", tag_code: "current_liability" }
+    - { account_code: "2100", tag_code: "financial_debt" }
+    - { account_code: "4000", tag_code: "operating_revenue" }
+    - { account_code: "5000", tag_code: "cogs" }
+    - { account_code: "6000", tag_code: "opex" }
+    - { account_code: "6800", tag_code: "opex" } # Multi-tagged: OPEX + D&A
+    - { account_code: "6800", tag_code: "depreciation_amortization" }
+
+  journal_entries:
+    # Doc 1 (2026-01-15): Initial equity funding & bank loan (EUR)
+    - header: { document_id: "DOC-001", company_code: "COMP_ES", fiscal_year: 2026, fiscal_period: 1, posting_date: "2026-01-15", currency: "EUR" }
+      lines:
+        - { line_no: 1, account_code: "1000", debit_amount: 1000.00, credit_amount: 0.00 }
+        - { line_no: 2, account_code: "3000", debit_amount: 0.00, credit_amount: 600.00 }
+        - { line_no: 3, account_code: "2100", debit_amount: 0.00, credit_amount: 400.00 }
+
+    # Doc 2 (2026-01-20): Inventory purchase on credit (EUR)
+    - header: { document_id: "DOC-002", company_code: "COMP_ES", fiscal_year: 2026, fiscal_period: 1, posting_date: "2026-01-20", currency: "EUR" }
+      lines:
+        - { line_no: 1, account_code: "1200", debit_amount: 300.00, credit_amount: 0.00 }
+        - { line_no: 2, account_code: "2000", debit_amount: 0.00, credit_amount: 300.00 }
+
+    # Doc 3 (2026-02-10): Credit sale + COGS recognition (EUR)
+    - header: { document_id: "DOC-003", company_code: "COMP_ES", fiscal_year: 2026, fiscal_period: 2, posting_date: "2026-02-10", currency: "EUR" }
+      lines:
+        - { line_no: 1, account_code: "1100", debit_amount: 500.00, credit_amount: 0.00 }
+        - { line_no: 2, account_code: "4000", debit_amount: 0.00, credit_amount: 500.00 }
+        - { line_no: 3, account_code: "5000", debit_amount: 200.00, credit_amount: 0.00 }
+        - { line_no: 4, account_code: "1200", debit_amount: 0.00, credit_amount: 200.00 }
+
+    # Doc 4 (2026-02-28): Payroll & Depreciation posting (EUR)
+    - header: { document_id: "DOC-004", company_code: "COMP_ES", fiscal_year: 2026, fiscal_period: 2, posting_date: "2026-02-28", currency: "EUR" }
+      lines:
+        - { line_no: 1, account_code: "6000", debit_amount: 100.00, credit_amount: 0.00 }
+        - { line_no: 2, account_code: "1000", debit_amount: 0.00, credit_amount: 100.00 }
+        - { line_no: 3, account_code: "6800", debit_amount: 50.00, credit_amount: 0.00 }
+        - { line_no: 4, account_code: "1000", debit_amount: 0.00, credit_amount: 50.00 }
+
+    # Doc 5 (2026-02-15): USD transaction to test currency isolation
+    - header: { document_id: "DOC-005", company_code: "COMP_ES", fiscal_year: 2026, fiscal_period: 2, posting_date: "2026-02-15", currency: "USD" }
+      lines:
+        - { line_no: 1, account_code: "1000", debit_amount: 200.00, credit_amount: 0.00 }
+        - { line_no: 2, account_code: "4000", debit_amount: 0.00, credit_amount: 200.00 }
+
+# ==============================================================================
+# FIXED GOLDEN QUESTIONS (Proof of Semantics)
+# ==============================================================================
+validation_questions:
+  - id: "GQ-01"
+    question: "What is our gross profit and gross margin % for COMP_ES in February 2026 in EUR?"
+    tests_semantics: ["flow_period_filter", "gross_profit", "gross_margin_pct", "single_currency_filter"]
+    expected_interpretation:
+      metrics: ["gross_profit", "gross_margin_pct"]
+      filters: { company_code: "COMP_ES", fiscal_year: 2026, fiscal_period: 2, currency: "EUR" }
+    expected_result:
+      gross_profit: 300.00       # 500 revenue - 200 COGS
+      gross_margin_pct: 60.00    # (300 / 500) * 100
+
+  - id: "GQ-02"
+    question: "Calculate Operating Profit (EBIT) and EBITDA for COMP_ES in Q1 2026 in EUR."
+    tests_semantics: ["multi_tag_no_double_counting", "operating_profit", "ebitda"]
+    expected_interpretation:
+      metrics: ["operating_profit", "ebitda"]
+      filters: { company_code: "COMP_ES", posting_date_gte: "2026-01-01", posting_date_lt: "2026-04-01", currency: "EUR" }
+    expected_result:
+      operating_profit: 150.00   # 500 rev - 200 COGS - 150 OPEX (100 salaries + 50 depr)
+      ebitda: 200.00             # 150 EBIT + 50 D&A (verifies 6800 is not double-counted)
+
+  - id: "GQ-03"
+    question: "What is our Working Capital, Current Ratio, and Quick Ratio as of 2026-02-28 in EUR?"
+    tests_semantics: ["point_in_time_cutoff", "working_capital", "current_ratio", "quick_ratio"]
+    expected_interpretation:
+      metrics: ["working_capital", "current_ratio", "quick_ratio"]
+      filters: { company_code: "COMP_ES", posting_date_lt: "2026-03-01", currency: "EUR" }
+    expected_result:
+      # Current Assets = Cash (1000 - 100 - 50 = 850) + AR (500) + Inv (300 - 200 = 100) = 1450
+      # Current Liabilities = AP (300) + ST Loan (400) = 700
+      working_capital: 750.00    # 1450 - 700
+      current_ratio: 2.07        # 1450 / 700 (2.0714...)
+      quick_ratio: 1.93          # (1450 - 100) / 700 (1.9285...)
+
+  - id: "GQ-04"
+    question: "Show total operating revenue for Spain in February 2026."
+    tests_semantics: ["country_resolution_via_gla", "multi_currency_grouping_guardrail"]
+    expected_interpretation:
+      metrics: ["operating_revenue"]
+      filters: { "gla.country": "ES", fiscal_year: 2026, fiscal_period: 2 }
+      group_by: ["jeh.currency"] # Triggered automatically because currency was not specified
+    expected_result:
+      - { currency: "EUR", operating_revenue: 500.00 }
+      - { currency: "USD", operating_revenue: 200.00 }
+
+  - id: "GQ-05"
+    question: "What is our gross margin % in January 2026 in EUR?"
+    tests_semantics: ["zero_division_handling"]
+    expected_interpretation:
+      metrics: ["gross_margin_pct"]
+      filters: { fiscal_year: 2026, fiscal_period: 1, currency: "EUR" }
+    expected_result:
+      gross_margin_pct: null     # Operating revenue is 0 in Jan 2026 -> must return NULL, not error
+
+  - id: "GQ-06"
+    question: "Run the untagged P&L reconciliation check for 2026."
+    tests_semantics: ["governance_audit_check"]
+    expected_result:
+      untagged_pnl_check: 0.00   # Proves 100% of posted revenue/expense lines are mapped to tags
+
+  - id: "GQ-07"
+    question: "Show me operating revenue broken down by customer country."
+    tests_semantics: ["non_goal_rejection_unlinked_tables"]
+    expected_behavior: "REFUSE_WITH_EXPLANATION"
+    reason: >
+      core.customer has no physical foreign key to journal entries in MVP;
+      country breakdowns are only supported via core.gl_account.country.

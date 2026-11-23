@@ -1,0 +1,208 @@
+# ==============================================================================
+# Module: mvp-accounting-semantics - Derived Metrics Catalog
+# Description: First 20 derived accounting metrics ordered from simplest to
+#              most complex, referencing base_concepts in mvp-accounting-semantics.yaml.
+# ==============================================================================
+
+metrics:
+  # ----------------------------------------------------------------------------
+  # Core P&L Subtotals (DP/2013/1 para. 2.39 & 8.16)
+  # ----------------------------------------------------------------------------
+  gross_profit:
+    name: "Gross Profit"
+    description: "Operating revenue minus direct cost of goods sold (COGS)."
+    ifrs_reference: "DP/2013/1 Section 8 (para. 8.16b)"
+    formula:
+      type: "subtract"
+      left: "operating_revenue"
+      right: "cost_of_goods_sold"
+
+  total_operating_costs:
+    name: "Total Operating Costs"
+    description: "Sum of direct cost of goods sold and indirect operating expenses."
+    formula:
+      type: "add"
+      operands:
+        - "cost_of_goods_sold"
+        - "operating_expenses_excl_cogs"
+
+  operating_profit:
+    name: "Operating Profit (EBIT)"
+    description: "Profit earned from core operations before finance items and income taxes."
+    ifrs_reference: "DP/2013/1 Section 8 (para. 8.16a)"
+    formula:
+      type: "subtract"
+      left: "gross_profit"
+      right: "operating_expenses_excl_cogs"
+
+  ebitda:
+    name: "EBITDA"
+    description: "Operating profit before non-cash depreciation and amortization charges."
+    ifrs_reference: "DP/2013/1 Section 8 (para. 8.16c)"
+    formula:
+      type: "add"
+      operands:
+        - "operating_profit"
+        - "depreciation_amortization"
+
+  net_finance_result:
+    name: "Net Finance Income / (Cost)"
+    description: "Non-operating and financial income minus finance costs."
+    formula:
+      type: "subtract"
+      left: "other_non_operating_income"
+      right: "finance_costs"
+
+  profit_before_tax:
+    name: "Profit Before Tax (EBT)"
+    description: "Operating profit plus net finance result, prior to corporate income tax."
+    formula:
+      type: "add"
+      operands:
+        - "operating_profit"
+        - "net_finance_result"
+
+  net_income:
+    name: "Net Income (Profit or Loss)"
+    description: "Bottom-line profit or loss for the period (Total Revenue minus Total Expense)."
+    ifrs_reference: "DP/2013/1 Section 2 (para. 2.39) & Section 8 (para. 8.22)"
+    formula:
+      type: "subtract"
+      left: "total_revenue"
+      right: "total_expense"
+
+  # ----------------------------------------------------------------------------
+  # Core Balance Sheet Subtotals (DP/2013/1 Section 5)
+  # ----------------------------------------------------------------------------
+  net_assets:
+    name: "Net Assets (Total Equity)"
+    description: "Residual interest in total assets after deducting all liabilities at cut-off date."
+    ifrs_reference: "DP/2013/1 Section 5 (para. 5.2 - 5.3)"
+    formula:
+      type: "subtract"
+      left: "total_assets"
+      right: "total_liabilities"
+
+  working_capital:
+    name: "Net Working Capital"
+    description: "Short-term liquidity buffer calculated as current assets minus current liabilities."
+    formula:
+      type: "subtract"
+      left: "current_assets"
+      right: "current_liabilities"
+
+  net_debt:
+    name: "Net Financial Debt"
+    description: "Total interest-bearing financial debt minus cash and cash equivalents."
+    formula:
+      type: "subtract"
+      left: "financial_debt"
+      right: "cash_and_equivalents"
+
+  # ----------------------------------------------------------------------------
+  # Profitability Margins (Percentage Ratios)
+  # ----------------------------------------------------------------------------
+  gross_margin_pct:
+    name: "Gross Margin (%)"
+    description: "Gross profit as a percentage of operating revenue."
+    formula:
+      type: "ratio_pct"
+      numerator: "gross_profit"
+      denominator: "operating_revenue"
+    zero_division: "return_null"
+
+  operating_margin_pct:
+    name: "Operating Margin (EBIT %)"
+    description: "Operating profit as a percentage of operating revenue."
+    formula:
+      type: "ratio_pct"
+      numerator: "operating_profit"
+      denominator: "operating_revenue"
+    zero_division: "return_null"
+
+  ebitda_margin_pct:
+    name: "EBITDA Margin (%)"
+    description: "EBITDA as a percentage of operating revenue."
+    formula:
+      type: "ratio_pct"
+      numerator: "ebitda"
+      denominator: "operating_revenue"
+    zero_division: "return_null"
+
+  net_profit_margin_pct:
+    name: "Net Profit Margin (%)"
+    description: "Net income as a percentage of total revenue."
+    formula:
+      type: "ratio_pct"
+      numerator: "net_income"
+      denominator: "total_revenue"
+    zero_division: "return_null"
+
+  # ----------------------------------------------------------------------------
+  # Liquidity & Solvency Ratios
+  # ----------------------------------------------------------------------------
+  current_ratio:
+    name: "Current Ratio"
+    description: "Ability to cover short-term obligations with current assets (Current Assets / Current Liabilities)."
+    formula:
+      type: "divide"
+      numerator: "current_assets"
+      denominator: "current_liabilities"
+    zero_division: "return_null"
+
+  quick_ratio:
+    name: "Quick Ratio (Acid-Test)"
+    description: "Immediate liquidity excluding inventory ((Current Assets - Inventory) / Current Liabilities)."
+    formula:
+      type: "divide"
+      numerator:
+        type: "subtract"
+        left: "current_assets"
+        right: "inventory"
+      denominator: "current_liabilities"
+    zero_division: "return_null"
+
+  debt_to_equity:
+    name: "Debt-to-Equity Ratio"
+    description: "Financial leverage comparing total liabilities to total net assets (equity)."
+    ifrs_reference: "DP/2013/1 Section 5 (para. 5.39a - cash leverage)"
+    formula:
+      type: "divide"
+      numerator: "total_liabilities"
+      denominator: "net_assets"
+    zero_division: "return_null"
+
+  # ----------------------------------------------------------------------------
+  # Return & Governance / Audit Metrics
+  # ----------------------------------------------------------------------------
+  roa_pct:
+    name: "Return on Assets (ROA %)"
+    description: "Net income generated per unit of total assets at period end."
+    ifrs_reference: "DP/2013/1 Section 8 (para. 8.6 - return on economic resources)"
+    formula:
+      type: "ratio_pct"
+      numerator: "net_income"
+      denominator: "total_assets"
+    zero_division: "return_null"
+
+  roe_pct:
+    name: "Return on Equity (ROE %)"
+    description: "Net income generated per unit of net assets (total equity) at period end."
+    formula:
+      type: "ratio_pct"
+      numerator: "net_income"
+      denominator: "net_assets"
+    zero_division: "return_null"
+
+  untagged_pnl_check:
+    name: "Untagged P&L Reconciliation Check"
+    description: >
+      Governance check ensuring all posted revenue and expense accounts are mapped
+      to P&L tags (must equal 0; non-zero indicates untagged GL accounts).
+    formula:
+      type: "subtract"
+      left: "net_income"
+      right:
+        type: "subtract"
+        left: "profit_before_tax"
+        right: "income_tax_expense"
