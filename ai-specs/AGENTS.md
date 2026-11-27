@@ -51,7 +51,7 @@ Do not add analytics behavior, new callers, or stateful interactions unless an O
 
 - Agent OS: `ai-specs/` (this file, `standards/`, `skills/`).
 - Product specs: `openspec/specs/`.
-- Operator onboarding: root `README.md`. Do not dump this constitution into README.
+- Operator onboarding: `backend/README.md`. Do not dump this constitution into README.
 
 Update docs that the change makes stale.
 
