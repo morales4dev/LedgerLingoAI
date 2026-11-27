@@ -12,7 +12,7 @@ Read this file first. Product specs live in `openspec/specs/`. Agent standards l
 - Constitution: this file.
 - Agent standards: `ai-specs/standards/` (`python.md`, `testing.md`, `context7.md`). Never `ai-specs/specs/`.
 - Project skills: `ai-specs/skills/`.
-- OpenSpec CLI skills: `.github/skills/` (do not move them into `ai-specs`).
+- OpenSpec CLI skills: `.agents/skills/` (do not move them into `ai-specs`).
 - Product specs: `openspec/specs/`.
 
 ### Project Architecture & Sub-Module Directory Map
@@ -25,7 +25,7 @@ This repository is split into specific micro-domains. When working inside these 
 
 ## Load skills
 
-Load OpenSpec CLI skills from `.github/skills/` when proposing, applying, updating, syncing, or archiving a change. Load project skills from `ai-specs/skills/` when the user asks for that workflow (for example `adversarial-review` before archive).
+Load OpenSpec CLI skills from `.agents/skills/` when proposing, applying, updating, syncing, or archiving a change. Load project skills from `ai-specs/skills/` when the user asks for that workflow (for example `adversarial-review` before archive).
 
 ## Stack and testing
 

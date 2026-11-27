@@ -12,12 +12,15 @@ context: |
 
 rules:
   proposal:
-    - Stay twin-native (Python/Gradio/MiniMax). Do not invent product specs for tooling-only changes.
-    - OS-only / tooling-only changes set skip_specs: true and must not invent product specs.
+    - Stay twin-native (Python/Gradio/MiniMax). Do not invent product specs for
+      tooling-only changes.
+    - "OS-only / tooling-only changes set skip_specs: true and must not invent product specs."
     - Always include a Non-goals section.
   design:
-    - Stay twin-native. File layout and apply order must match existing backend/.venv + requirements.txt.
-    - Project skills live under ai-specs/skills/. OpenSpec CLI skills stay under .github/skills/.
+    - Stay twin-native. File layout and apply order must match existing
+      backend/.venv + requirements.txt.
+    - Project skills live under ai-specs/skills/. OpenSpec CLI skills stay under
+      .agents/skills/.
   tasks:
     - Keep tasks small. Each task must include verification.
     - Do not invent product specs.
