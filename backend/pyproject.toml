@@ -9,6 +9,7 @@ description = "Script-first agentic core for LedgerLingoAI"
 requires-python = ">=3.12,<3.14"
 dependencies = [
     "jsonschema>=4.26.0",
+    "litellm>=1.63,<2",
     "openai>=1.68,<3",
     "openai-agents>=0.20.0",
     "pydantic>=2.10,<3",
@@ -24,9 +25,5 @@ ledgerlingo = "ledgerlingo.cli:main"
 dev = [
     "pytest>=8,<10",
 ]
-proxy = [
-    "litellm[proxy]>=1.63,<2",
-]
-
 [tool.setuptools.packages.find]
 where = ["src"]

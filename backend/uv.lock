@@ -85,15 +85,6 @@ wheels = [
 ]
 
 [[package]]
-name = "annotated-doc"
-version = "0.0.7"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/annotated-doc/0.0.7/annotated_doc-0.0.7.tar.gz", hash = "sha256:0a30ef8f5322a4173720ae6712dc9a5e58f5a19868f3f167b4b5778db066c2b5", size = 10764, upload-time = "2026-11-18T11:06:55Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/annotated-doc/0.0.7/annotated_doc-0.0.7-py3-none-any.whl", hash = "sha256:6bc31bbbec6dfaaedc1676dbc11dbda96fe22a2b5c400e9ebad113fec44a9dc6", size = 5286, upload-time = "2026-11-19T07:51:58Z" },
-]
-
-[[package]]
 name = "annotated-types"
 version = "0.8.0"
 source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
@@ -116,130 +107,12 @@ wheels = [
 ]
 
 [[package]]
-name = "apscheduler"
-version = "3.11.3"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-dependencies = [
-    { name = "tzlocal" },
-]
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/apscheduler/3.11.3/apscheduler-3.11.3.tar.gz", hash = "sha256:cd2fcc9330039a81a5893472ad49facf23a6d5604cbe1d918c835c6de7834d5a", size = 110312, upload-time = "2026-06-28T19:39:22Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/apscheduler/3.11.3/apscheduler-3.11.3-py3-none-any.whl", hash = "sha256:bbeb2ec02d23d3c06a6c07ed7f0f3939ada6680eb121fae809a69bb42c537a30", size = 66024, upload-time = "2026-07-17T06:06:17Z" },
-]
-
-[[package]]
 name = "attrs"
 version = "26.1.0"
 source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
 sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/attrs/26.1/attrs-26.1.0.tar.gz", hash = "sha256:d03ceb89cb322a8fd706d4fb91940737b6642aa36998fe130a9bc96c985eff32", size = 952055, upload-time = "2026-03-19T14:22:25Z" }
 wheels = [
     { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/attrs/26.1/attrs-26.1.0-py3-none-any.whl", hash = "sha256:c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309", size = 67548, upload-time = "2026-03-25T09:30:31Z" },
-]
-
-[[package]]
-name = "azure-core"
-version = "1.41.0"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-dependencies = [
-    { name = "requests" },
-    { name = "typing-extensions" },
-]
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/azure-core/1.41/azure_core-1.41.0.tar.gz", hash = "sha256:f46ff5dfcd230f25cf1c19e8a34b8dc08a337b2503e268bb600a16c00db8ad5a", size = 381042, upload-time = "2026-05-07T23:30:54Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/azure-core/1.41/azure_core-1.41.0-py3-none-any.whl", hash = "sha256:522b4011e8180b1a3dcd2024396a4e7fe9ac37fb8597db47163d230b5efe892d", size = 220920, upload-time = "2026-05-13T10:31:27Z" },
-]
-
-[[package]]
-name = "azure-identity"
-version = "1.27.0"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-dependencies = [
-    { name = "azure-core" },
-    { name = "cryptography" },
-    { name = "msal" },
-    { name = "msal-extensions" },
-    { name = "typing-extensions" },
-]
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/azure-identity/1.27/azure_identity-1.27.0.tar.gz", hash = "sha256:6a4c50e25e8e9a47b324a95ad024897e56cb3c6241e0094e93b126a2bf71edc5", size = 331360, upload-time = "2026-10-26T21:17:39Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/azure-identity/1.27/azure_identity-1.27.0-py3-none-any.whl", hash = "sha256:92fd2a93c0d2f777dac6c04e5fd7d5734f6643582b983544ef66b4575844e46d", size = 203474, upload-time = "2026-10-27T08:15:25Z" },
-]
-
-[[package]]
-name = "azure-storage-blob"
-version = "12.31.1"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-dependencies = [
-    { name = "azure-core" },
-    { name = "cryptography" },
-    { name = "isodate" },
-    { name = "typing-extensions" },
-]
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/azure-storage-blob/12.31.1/azure_storage_blob-12.31.1.tar.gz", hash = "sha256:0d6e5b860a1357efc602db04cfa7c9950ac86126edcf7db89320cde281555fe5", size = 672417, upload-time = "2026-10-29T23:34:05Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/azure-storage-blob/12.31.1/azure_storage_blob-12.31.1-py3-none-any.whl", hash = "sha256:9e012d5f4ab658b7cb8a4581329d7a7aa2bf5f39b4d63baeefaae7f9e90fe6f0", size = 455904, upload-time = "2026-10-30T09:09:50Z" },
-]
-
-[[package]]
-name = "backoff"
-version = "2.2.1"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backoff/2.2.1/backoff-2.2.1.tar.gz", hash = "sha256:03f829f5bb1923180821643f8753b0502c3b682293992485b0eef2807afa5cba", size = 17001, upload-time = "2022-10-05T19:19:32Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backoff/2.2.1/backoff-2.2.1-py3-none-any.whl", hash = "sha256:63579f9a0628e06278f7e47b7d7d5b6ce20dc65c5e96a6f3ca99a6adca0396e8", size = 15148, upload-time = "2022-10-09T05:33:55Z" },
-]
-
-[[package]]
-name = "backports-zstd"
-version = "1.8.0"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0.tar.gz", hash = "sha256:9dae4f4c481716e3db473d667457b4f508ff7459c0931b567a5c9677fb3db316", size = 1006566, upload-time = "2026-10-10T16:36:40Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-cp312-cp312-macosx_10_13_x86_64.whl", hash = "sha256:6e024aee6bfd04094fce60133b0e6bd0f8027cdb2823157880bc87f1ffdfee21", size = 439718, upload-time = "2026-11-25T21:51:18Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:d810d83c8a703f424ed2a49aa271078c91b530da2d8c104bd88207e68d116de8", size = 368337, upload-time = "2026-10-10T16:34:58Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-cp312-cp312-manylinux2010_i686.manylinux_2_12_i686.manylinux_2_28_i686.whl", hash = "sha256:d057948e8cffa19f0cc8668e06fd502ad8a69f398e91a426b39dcc5eeb197c2f", size = 509148, upload-time = "2026-10-10T16:34:59Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:6aa762cf369d9bfca1e013eaad562f8e129d71b7a82f0c459870d6d21651bcb3", size = 478911, upload-time = "2026-10-10T16:35:01Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-cp312-cp312-manylinux2014_ppc64le.manylinux_2_17_ppc64le.manylinux_2_28_ppc64le.whl", hash = "sha256:0b9d6c4ca7d927fd094badcf9174ee5c82ddb4855fe14658806c8c8a07d4a165", size = 584283, upload-time = "2026-10-10T16:35:03Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-cp312-cp312-manylinux2014_s390x.manylinux_2_17_s390x.manylinux_2_28_s390x.whl", hash = "sha256:74d85b8ce50aea247289be183f853e67c106959c4048ce286b26c4663b06bb6d", size = 643167, upload-time = "2026-10-10T16:35:05Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:f9e9aa28a44db1897fb637f037175566f3b75890d4bae6cae7ba34f1df1e0804", size = 496867, upload-time = "2026-10-10T16:35:07Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-cp312-cp312-manylinux_2_34_riscv64.manylinux_2_39_riscv64.whl", hash = "sha256:2c431f3cdc7eb663a42574e27a8604a18181ea4e193504f222d8e61c6f5f8b78", size = 571623, upload-time = "2026-10-10T16:35:09Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-cp312-cp312-musllinux_1_2_aarch64.whl", hash = "sha256:e0431230a67e8f07210efe654abda9844a55c3bf57d74e60425d9d65770b1de4", size = 484948, upload-time = "2026-10-10T16:35:10Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-cp312-cp312-musllinux_1_2_i686.whl", hash = "sha256:9b62b6c8c5a43b294d4358c2016bfbc507cc574315ffa75346ccf0b621746461", size = 512635, upload-time = "2026-10-10T16:35:12Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-cp312-cp312-musllinux_1_2_ppc64le.whl", hash = "sha256:869ab7e5421873dfbdbf646d52b4e8d711093972819c06c6daf3249a1ec6e0e7", size = 588696, upload-time = "2026-10-10T16:35:14Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-cp312-cp312-musllinux_1_2_riscv64.whl", hash = "sha256:ec1a796429674ebc0e2d48feb3b6658bf49d3ae840b0c0e14ad50c4d6b7341fe", size = 568895, upload-time = "2026-10-10T16:35:16Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-cp312-cp312-musllinux_1_2_s390x.whl", hash = "sha256:775b701a576769df053cfb7d9456b06223b40e329c010be6cc178fe9e404a3d2", size = 633610, upload-time = "2026-10-10T16:35:18Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:ab77a2e6e21c57e8341bb7656c71d1a1653151ebe787b3f092ce86a02543eb52", size = 501407, upload-time = "2026-10-10T16:35:19Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-cp312-cp312-win32.whl", hash = "sha256:f99b44c2c13fc60f65ad568bf7401d9540370f996b1040793a34988324e3b712", size = 293065, upload-time = "2026-10-10T16:35:21Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-cp312-cp312-win_amd64.whl", hash = "sha256:1eddf59fedaf19dd3a8e9c597add7eb6f0d51d4467a0924b2dcd2c118ed18ff5", size = 330563, upload-time = "2026-10-10T16:35:22Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-cp312-cp312-win_arm64.whl", hash = "sha256:2b3247a7a916b90f155b4133eedaceadd0c37b4149ee32e4d74fe512a14be89b", size = 322189, upload-time = "2026-10-10T16:35:24Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-cp313-cp313-android_24_arm64_v8a.whl", hash = "sha256:4e92ff4ce96b3c61d25900875b6cf1ee249349b8e419abd80893ec9b8026444e", size = 401586, upload-time = "2026-10-10T16:35:26Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-cp313-cp313-android_24_x86_64.whl", hash = "sha256:0c2e652b4fbc2e6b7bd05a09b6eab3a51bfaed9e7fca1bc81d763dc47361e2ff", size = 455589, upload-time = "2026-10-10T16:35:28Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-cp313-cp313-ios_13_0_arm64_iphoneos.whl", hash = "sha256:915d3e7e57194b5cee33f10cf2d9f5c4f7658c8a167236f9ba5501520cf133e8", size = 358662, upload-time = "2026-10-10T16:35:29Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-cp313-cp313-ios_13_0_arm64_iphonesimulator.whl", hash = "sha256:4e6f8483b795a09c0e0fbacca4fa844242bc6d5fc64b8a6ee99f88ad8af27b08", size = 367357, upload-time = "2026-10-10T16:35:31Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-cp313-cp313-ios_13_0_x86_64_iphonesimulator.whl", hash = "sha256:1fe4b06a019aa4cdf87af320eef56a4bdbdb924ead36a7a918645d72edece966", size = 447892, upload-time = "2026-10-10T16:35:33Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:49c4006cdf41c15ffcc74f10d9a6485be841106cd4d5aa7ea7bf1075cc37fb83", size = 439240, upload-time = "2026-10-10T16:35:35Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:4fa862d24b7fb392279a95bc9acc1f0ede8a25de9efbed03fb305ceac2f6abb0", size = 367710, upload-time = "2026-10-10T16:35:37Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-cp313-cp313-manylinux2010_i686.manylinux_2_12_i686.manylinux_2_28_i686.whl", hash = "sha256:9af83a6d7dc67896fd91bcd4c2cd182ba97d7cca2b09a94373a5fef154001d98", size = 508347, upload-time = "2026-10-10T16:35:38Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-cp313-cp313-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:1a808ba1371231c00a2b71f03840a727088e287d0ee1dfb3230958950f21f421", size = 478416, upload-time = "2026-10-10T16:35:40Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-cp313-cp313-manylinux2014_ppc64le.manylinux_2_17_ppc64le.manylinux_2_28_ppc64le.whl", hash = "sha256:6cc15051c282ac2585a2425d22f416ae2deb5afb441b22831b349b02fd58a782", size = 583888, upload-time = "2026-10-10T16:35:42Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-cp313-cp313-manylinux2014_s390x.manylinux_2_17_s390x.manylinux_2_28_s390x.whl", hash = "sha256:7a23d38d7b9ca93403acd3c2c306af6e547a24d150c25ac2d7a8acd751fbd968", size = 644796, upload-time = "2026-10-10T16:35:43Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:44a9004f9e809ea56910d326d21946650369db59eb86edc0c76840f21530704c", size = 493385, upload-time = "2026-11-25T21:54:14Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-cp313-cp313-manylinux_2_34_riscv64.manylinux_2_39_riscv64.whl", hash = "sha256:5ff307f3f0ef3b7f40ccfce42c0704fddc99cd30bca451330f42466db1981be9", size = 568613, upload-time = "2026-10-10T16:35:47Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "sha256:6c8572e27c5f0b9d11020d3f597bf3c35fe0f5ae6f99156dc52b0bd937ba8908", size = 484237, upload-time = "2026-10-10T16:35:49Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-cp313-cp313-musllinux_1_2_i686.whl", hash = "sha256:cc1d9d3660c40abe4095de80f43ce4c955d08f7d9803d3da97176aa61b76d923", size = 511865, upload-time = "2026-10-10T16:35:51Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-cp313-cp313-musllinux_1_2_ppc64le.whl", hash = "sha256:83cea5cdd70e1d74382be6deeeda1db79aedd1a06af4f8a8fbafba9eedae5230", size = 588422, upload-time = "2026-10-10T16:35:53Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-cp313-cp313-musllinux_1_2_riscv64.whl", hash = "sha256:e74eb204b9d7798fc57393202c443fc2ec84283d82387168baeb763f8beb224d", size = 566480, upload-time = "2026-10-10T16:35:55Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-cp313-cp313-musllinux_1_2_s390x.whl", hash = "sha256:515497b3d49dd6d7a84fb16a0a0007bc460b4a7e1f55e70f33315c66d3844e8e", size = 635191, upload-time = "2026-10-10T16:35:57Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:6283c90997038abf46c8a0bb75afb4dc6cbf061421802fda0afc382fe4b348b3", size = 497769, upload-time = "2026-10-10T16:35:59Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-cp313-cp313-win32.whl", hash = "sha256:9d76a3193a3a4a6b1249021e7ecf72e4cabc1dca611c6fb41db1c0b5d2faf741", size = 292645, upload-time = "2026-10-10T16:36:01Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-cp313-cp313-win_amd64.whl", hash = "sha256:b583990d554cc6f6141c5c43b6db3c7da87a214253e08339d917ee3baa3021b6", size = 330247, upload-time = "2026-10-10T16:36:03Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-cp313-cp313-win_arm64.whl", hash = "sha256:0600e166cb00739a26de74ee1696221a53a4d5dc1f96a0bdeb6b307c1626c15c", size = 322066, upload-time = "2026-10-10T16:36:04Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-pp312-pypy312_pp80-macosx_10_15_x86_64.whl", hash = "sha256:f710d03f84d74f11737735f846b44ef1545cadb73ef47bcd3d0e124f253dd763", size = 413972, upload-time = "2026-10-10T16:36:28Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-pp312-pypy312_pp80-macosx_11_0_arm64.whl", hash = "sha256:2b11fb8b9c798657c97ad3165893f146c300e2f7f800e9c54c0d2143052c1486", size = 344652, upload-time = "2026-10-10T16:36:30Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-pp312-pypy312_pp80-manylinux2010_i686.manylinux_2_12_i686.manylinux_2_28_i686.whl", hash = "sha256:ec7351d3e6ea92338dc4e0e53c876d2e2092e07ad3a2083088e0160200efdd15", size = 422892, upload-time = "2026-10-10T16:36:32Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-pp312-pypy312_pp80-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:63ae348b629121eeb967244fecd254f41b4b3a63d074c252f4d7777f5d17c71c", size = 396431, upload-time = "2026-10-10T16:36:34Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-pp312-pypy312_pp80-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:163b5c36321bf5652b6e4aeb04d3644ddbf9c1881a82322e376e5be3532af26b", size = 416398, upload-time = "2026-10-10T16:36:36Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/backports-zstd/1.8/backports_zstd-1.8.0-pp312-pypy312_pp80-win_amd64.whl", hash = "sha256:3f0288db18a64f4f4146f4526456ff62b2edb625b2d43956e764885edd3f1da2", size = 404272, upload-time = "2026-10-10T16:36:38Z" },
 ]
 
 [[package]]
@@ -268,18 +141,6 @@ dependencies = [
 sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/botocore/1.44.12/botocore-1.44.12.tar.gz", hash = "sha256:5806bb66bf167fa3172f4ddf78b088db9b22653702537b19969d02d2c3301ee5", size = 17227950, upload-time = "2026-11-25T20:18:12Z" }
 wheels = [
     { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/botocore/1.44.12/botocore-1.44.12-py3-none-any.whl", hash = "sha256:d5df4cf868f2c4050999a0e6bc94e0a039017e719f4e27b2a8e87053856787b9", size = 16930223, upload-time = "2026-11-25T21:51:24Z" },
-]
-
-[[package]]
-name = "casbin"
-version = "1.43.0"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-dependencies = [
-    { name = "simpleeval" },
-]
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/casbin/1.43/casbin-1.43.0.tar.gz", hash = "sha256:d2e90ce8e72f912877851e94d37999f32c558c6ba7aba0437d483275262e86e0", size = 425727, upload-time = "2025-05-10T06:57:18Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/casbin/1.43/casbin-1.43.0-py3-none-any.whl", hash = "sha256:63a3d1228870250e859ccd94133fe478821093f71dd37f05e0baa0c6fea26623", size = 475059, upload-time = "2026-11-25T21:51:18Z" },
 ]
 
 [[package]]
@@ -409,18 +270,6 @@ wheels = [
 ]
 
 [[package]]
-name = "croniter"
-version = "7.0.0"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-dependencies = [
-    { name = "python-dateutil" },
-]
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/croniter/7/croniter-7.0.0.tar.gz", hash = "sha256:a0b2568303c774f6a4ea2d4ce2e72b1ee911029c7070d64a1befe05cdb107f5a", size = 191123, upload-time = "2026-11-09T06:52:40Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/croniter/7/croniter-7.0.0-py3-none-any.whl", hash = "sha256:92090bce3cef195a037a46b78430c4cdd6250e90671d9d7dcd9e486147daaca4", size = 63225, upload-time = "2026-11-23T05:21:08Z" },
-]
-
-[[package]]
 name = "cryptography"
 version = "50.0.2"
 source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
@@ -477,74 +326,6 @@ source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPy
 sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/distro/1.9/distro-1.9.0.tar.gz", hash = "sha256:2fa77c6fd8940f116ee1d6b94a2f90b13b5ea8d019b98bc8bafdcabcdd9bdbed", size = 60722, upload-time = "2023-12-24T09:54:32Z" }
 wheels = [
     { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/distro/1.9/distro-1.9.0-py3-none-any.whl", hash = "sha256:7bffd925d65168f85027d8da9af6bddab658135b840670a223589bc0c8ef02b2", size = 20277, upload-time = "2024-07-31T21:39:46Z" },
-]
-
-[[package]]
-name = "dnspython"
-version = "2.9.2"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/dnspython/2.9.2/dnspython-2.9.2.tar.gz", hash = "sha256:8d4d39a513e649d634004ce4d39ade2352efcea472a0247535a5c2d18a9d7ba9", size = 455484, upload-time = "2026-11-03T23:56:53Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/dnspython/2.9.2/dnspython-2.9.2-py3-none-any.whl", hash = "sha256:af15f7d385a6ae2fb35a796fde2138004c8c42c7389090e2addc83e3b3340fd8", size = 360455, upload-time = "2026-11-04T08:17:32Z" },
-]
-
-[[package]]
-name = "email-validator"
-version = "2.4.0"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-dependencies = [
-    { name = "dnspython" },
-    { name = "idna" },
-]
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/email-validator/2.4/email_validator-2.4.0.tar.gz", hash = "sha256:be487bc50bc3bd832a98515a55a15649d9bec06d954fa178663190714b6c4ee1", size = 55168, upload-time = "2026-11-14T20:21:28Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/email-validator/2.4/email_validator-2.4.0-py3-none-any.whl", hash = "sha256:4454e41c4e1c6b6caee34a1dc71d5e736791562be8fd179b02e298f796522684", size = 36810, upload-time = "2026-11-15T08:15:49Z" },
-]
-
-[[package]]
-name = "expression"
-version = "5.8.0"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-dependencies = [
-    { name = "typing-extensions" },
-]
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/expression/5.8/expression-5.8.0.tar.gz", hash = "sha256:2286e4ff71802420a69b235fa78fffdd21f404958524c1cb95133419f7f64e5f", size = 216402, upload-time = "2026-10-29T19:32:40Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/expression/5.8/expression-5.8.0-py3-none-any.whl", hash = "sha256:3420f0ed06e2282f1f030ab8eefb70f06ed62365cd1988ad3b7c6525db9df179", size = 80621, upload-time = "2026-11-25T21:51:17Z" },
-]
-
-[[package]]
-name = "fastapi"
-version = "0.165.0"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-dependencies = [
-    { name = "annotated-doc" },
-    { name = "anyio" },
-    { name = "opentelemetry-api" },
-    { name = "pydantic" },
-    { name = "starlette" },
-    { name = "typing-extensions" },
-    { name = "typing-inspection" },
-]
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/fastapi/0.165/fastapi-0.165.0.tar.gz", hash = "sha256:dd94d4128319c1e1d50535ab023ab698f850a4d2822f0e181747b46f4ff3c0ab", size = 557984, upload-time = "2026-11-18T19:15:37Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/fastapi/0.165/fastapi-0.165.0-py3-none-any.whl", hash = "sha256:896f48462042bb4f162147eb8fac7e858753dc1f486765709baf105d70e4fc5b", size = 159475, upload-time = "2026-11-19T07:51:55Z" },
-]
-
-[[package]]
-name = "fastapi-sso"
-version = "0.23.0"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-dependencies = [
-    { name = "fastapi" },
-    { name = "httpx" },
-    { name = "oauthlib" },
-    { name = "pydantic", extra = ["email"] },
-    { name = "pyjwt" },
-]
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/fastapi-sso/0.23/fastapi_sso-0.23.0.tar.gz", hash = "sha256:be2858b30603a6337ad59aba82049099f5536ebc1eb41b036ad498a95f06ce29", size = 21387, upload-time = "2026-09-21T13:21:11Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/fastapi-sso/0.23/fastapi_sso-0.23.0-py3-none-any.whl", hash = "sha256:7dd537adc836142e8b64def86a901fead21c9d42d4001872a18e6f9316bc4ec0", size = 31821, upload-time = "2026-11-25T21:51:17Z" },
 ]
 
 [[package]]
@@ -653,55 +434,12 @@ wheels = [
 ]
 
 [[package]]
-name = "granian"
-version = "2.8.9"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-dependencies = [
-    { name = "click" },
-]
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/granian/2.8.9/granian-2.8.9.tar.gz", hash = "sha256:fb5af2059bc43b9d3ad875eabf987d1fbbcfedfc40f676d65b0a0cdb4cf9319f", size = 131622, upload-time = "2026-11-20T15:33:11Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/granian/2.8.9/granian-2.8.9-cp312-cp312-macosx_10_12_x86_64.whl", hash = "sha256:5d56cab7821ebc50c249f0eca9cdc2909beef059790c82ba55b28f7b760844f7", size = 4729292, upload-time = "2026-11-25T21:51:18Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/granian/2.8.9/granian-2.8.9-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:935f03bc725442492d8f953dc42e73d04b4b483648c2c8989aa5f4831d9685cb", size = 4437510, upload-time = "2026-11-20T15:31:02Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/granian/2.8.9/granian-2.8.9-cp312-cp312-manylinux2014_armv7l.manylinux_2_17_armv7l.whl", hash = "sha256:cc57e828bbacb59393870001d04dae65eddb6c4153ec07e24374dac1bd64a811", size = 5129335, upload-time = "2026-11-20T15:31:08Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/granian/2.8.9/granian-2.8.9-cp312-cp312-manylinux2014_i686.manylinux_2_17_i686.whl", hash = "sha256:2564818b2628db949c2beaf32bd362646d6e1c4882a073e56d2b3ee2b90efdeb", size = 4720505, upload-time = "2026-11-20T15:31:10Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/granian/2.8.9/granian-2.8.9-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:284d50ffc89066fa7d0d622419ea34f81372d7f26e003d194d6bb99f333c42ad", size = 5227833, upload-time = "2026-11-20T15:31:11Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/granian/2.8.9/granian-2.8.9-cp312-cp312-manylinux_2_28_aarch64.whl", hash = "sha256:6f7f4dd40802fa063949ca5620db71d2508b0a565fae354146e1dab342586a0d", size = 5296613, upload-time = "2026-11-20T15:31:13Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/granian/2.8.9/granian-2.8.9-cp312-cp312-musllinux_1_1_aarch64.whl", hash = "sha256:5939e4a4ce84cb73cd17ad710902bd2af40846cadfe4abe79caf813ac470071a", size = 5321779, upload-time = "2026-11-20T15:31:14Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/granian/2.8.9/granian-2.8.9-cp312-cp312-musllinux_1_1_armv7l.whl", hash = "sha256:21d31561bc0ce3925893c78bee4da6c3543a0613321476a6186e3902b6ab7fba", size = 5246730, upload-time = "2026-11-20T15:31:16Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/granian/2.8.9/granian-2.8.9-cp312-cp312-musllinux_1_1_x86_64.whl", hash = "sha256:626c14d436748ba8e01b8ae34fe4145b480d2383e4754e00e5cea1133e3d64b2", size = 5330334, upload-time = "2026-11-20T15:31:17Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/granian/2.8.9/granian-2.8.9-cp312-cp312-win_amd64.whl", hash = "sha256:8c930e7fe1bca7a9eecce151b69ecd094f6c289887373644654deed1f2c76e46", size = 3360154, upload-time = "2026-11-20T15:31:18Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/granian/2.8.9/granian-2.8.9-cp313-cp313-macosx_10_12_x86_64.whl", hash = "sha256:d66de29a0bd556c2b9db2f3425dc64688cbec131009bacccadbca833c768237e", size = 4754100, upload-time = "2026-11-20T15:31:19Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/granian/2.8.9/granian-2.8.9-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:5624597ce9c3c9e55e5817b46a6a48f972e79806cf8a9f826d62ab5522d0b883", size = 4464779, upload-time = "2026-11-20T15:31:21Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/granian/2.8.9/granian-2.8.9-cp313-cp313-manylinux2014_armv7l.manylinux_2_17_armv7l.whl", hash = "sha256:29e60dae813730f21406718f932a0359081b04fa7c5a93ee0e47f049e2243099", size = 5126967, upload-time = "2026-11-20T15:31:22Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/granian/2.8.9/granian-2.8.9-cp313-cp313-manylinux2014_i686.manylinux_2_17_i686.whl", hash = "sha256:143a40469a9b32170c34a3db375089fd02a64d9ad768f6ed23298a7228745669", size = 4727886, upload-time = "2026-11-20T15:31:23Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/granian/2.8.9/granian-2.8.9-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:67291553efa05b6136a006ec3c9a55d3933db9581a4b2dd0464a412beb4f0fd1", size = 5232602, upload-time = "2026-11-25T21:54:15Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/granian/2.8.9/granian-2.8.9-cp313-cp313-manylinux_2_28_aarch64.whl", hash = "sha256:4bf9f83955c730973d1ad3855afb3d59eac3f6faaedb975a1c79b0857ec8809a", size = 5290916, upload-time = "2026-11-20T15:31:34Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/granian/2.8.9/granian-2.8.9-cp313-cp313-musllinux_1_1_aarch64.whl", hash = "sha256:e318e6e8b5f1206acb6580ced9e7801e00598300faae6a58ad2d7b2b8108586a", size = 5315879, upload-time = "2026-11-20T15:31:36Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/granian/2.8.9/granian-2.8.9-cp313-cp313-musllinux_1_1_armv7l.whl", hash = "sha256:6b48ab99b6b98522405e6d2d57d02e1005d069d4f6e3d09c382ebdaeeb9c0285", size = 5234625, upload-time = "2026-11-20T15:31:37Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/granian/2.8.9/granian-2.8.9-cp313-cp313-musllinux_1_1_x86_64.whl", hash = "sha256:3eb6c40e0472e0201ac1a26a8f11134ebd780c17fb05c25f07885d54de7afeb4", size = 5335815, upload-time = "2026-11-20T15:31:39Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/granian/2.8.9/granian-2.8.9-cp313-cp313-win_amd64.whl", hash = "sha256:49ae4656aeff188db5c3bee302270b819eaeb3a72964afcd5d101b1d9cbe9cd0", size = 3322463, upload-time = "2026-11-20T15:31:41Z" },
-]
-
-[[package]]
 name = "griffelib"
 version = "2.4.1"
 source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
 sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/griffelib/2.4.1/griffelib-2.4.1.tar.gz", hash = "sha256:40c028dd2e623f464423f0e11e3c553158f1cf4f1368239a370534d73e1407ff", size = 245153, upload-time = "2026-10-22T11:20:03Z" }
 wheels = [
     { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/griffelib/2.4.1/griffelib-2.4.1-py3-none-any.whl", hash = "sha256:76bc562f936ad1ce198d2cf6d0731bd5c92a7d934b69ef828ef22ee0ffdb62ce", size = 172983, upload-time = "2026-10-29T09:00:23Z" },
-]
-
-[[package]]
-name = "gunicorn"
-version = "23.0.0"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-dependencies = [
-    { name = "packaging" },
-]
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/gunicorn/23/gunicorn-23.0.0.tar.gz", hash = "sha256:f014447a0101dc57e294f6c18ca6b40227a4c90e9bdb586042628030cba004ec", size = 375031, upload-time = "2024-08-10T20:25:27Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/gunicorn/23/gunicorn-23.0.0-py3-none-any.whl", hash = "sha256:ec400d38950de4dfd418cff8328b2c8faed0edb0d517d3394e457c317908ca4d", size = 85029, upload-time = "2024-09-25T16:04:36Z" },
 ]
 
 [[package]]
@@ -740,42 +478,6 @@ wheels = [
     { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/hf-xet/1.8/hf_xet-1.8.0-cp38-abi3-musllinux_1_2_x86_64.whl", hash = "sha256:1ebaf248c9bef8bb0c9d1d8d71db1fdf0cac14f922cc7a936a81adbf12eb5f01", size = 4500689, upload-time = "2026-10-30T10:04:28Z" },
     { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/hf-xet/1.8/hf_xet-1.8.0-cp38-abi3-win_amd64.whl", hash = "sha256:92188598dedc1e1f5609bd718d4db8687a6c89915553912571e2f587892eecec", size = 3911559, upload-time = "2026-10-30T10:04:30Z" },
     { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/hf-xet/1.8/hf_xet-1.8.0-cp38-abi3-win_arm64.whl", hash = "sha256:42b66fdc688eaa4ff3eb77dc9275e5a0f1258ecc9fdd083ddaf43bb49bec925b", size = 3738458, upload-time = "2026-10-30T10:04:31Z" },
-]
-
-[[package]]
-name = "hiredis"
-version = "3.5.0"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/hiredis/3.5/hiredis-3.5.0.tar.gz", hash = "sha256:c227592cc56b7df247abe4755c26723965be68972be2149fa441ac33d82131ba", size = 143423, upload-time = "2026-10-15T18:00:45Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/hiredis/3.5/hiredis-3.5.0-cp312-cp312-macosx_10_15_universal2.whl", hash = "sha256:10dff7baff891c8ec4174e0d228cad7deefaf827a90d89184aa695437557ce70", size = 140904, upload-time = "2026-11-25T21:51:17Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/hiredis/3.5/hiredis-3.5.0-cp312-cp312-macosx_10_15_x86_64.whl", hash = "sha256:2d1c87ba3303efdf259d119fa4ab28a79c8f2edae4b2d04cae7d44f75196864b", size = 75141, upload-time = "2026-10-15T17:58:38Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/hiredis/3.5/hiredis-3.5.0-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:328855d933ad0e25d731374ebb3fdbd18e9e748f8b7e04980ca6c720a59dbdbd", size = 72024, upload-time = "2026-10-15T17:58:39Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/hiredis/3.5/hiredis-3.5.0-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:231ec55363134d1036094b70b039cd2adef45d694deac635d437e9edfb5f2164", size = 308421, upload-time = "2026-10-15T17:58:40Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/hiredis/3.5/hiredis-3.5.0-cp312-cp312-manylinux2014_ppc64le.manylinux_2_17_ppc64le.manylinux_2_28_ppc64le.whl", hash = "sha256:95343058583782388564cd0756089a13c827e34abe938720cba102e756df547f", size = 341662, upload-time = "2026-10-15T17:58:42Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/hiredis/3.5/hiredis-3.5.0-cp312-cp312-manylinux2014_s390x.manylinux_2_17_s390x.manylinux_2_28_s390x.whl", hash = "sha256:a8c6df1dd76b93e94197f7195f4035f7b45ebbd1c89a67887d4f9c19d74fdbe0", size = 353531, upload-time = "2026-10-15T17:58:43Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/hiredis/3.5/hiredis-3.5.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:a59975d62a1f7c55d49828fa3515824cc31993379a8f915cc20b5dd27e4c0d29", size = 314822, upload-time = "2026-10-15T17:58:44Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/hiredis/3.5/hiredis-3.5.0-cp312-cp312-musllinux_1_2_aarch64.whl", hash = "sha256:c043397db3bbb062d275dc3e7adf68544cd1ead1e2c9ab1bc30c616038b3ecd7", size = 302533, upload-time = "2026-10-15T17:58:45Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/hiredis/3.5/hiredis-3.5.0-cp312-cp312-musllinux_1_2_ppc64le.whl", hash = "sha256:879c774ac16276219d7f9013d28851a72338c703ddaf8509c20592537acedb25", size = 333799, upload-time = "2026-10-15T17:58:46Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/hiredis/3.5/hiredis-3.5.0-cp312-cp312-musllinux_1_2_s390x.whl", hash = "sha256:55776bd0c298ddd4c07342e212fa50b3e753353c763b1b112a220ea99d2616a8", size = 334657, upload-time = "2026-10-15T17:58:48Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/hiredis/3.5/hiredis-3.5.0-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:ec5e911cfaa57cba61158839c0079bf9524571b4f03023c236bc86ac79a2c229", size = 313271, upload-time = "2026-10-15T17:58:49Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/hiredis/3.5/hiredis-3.5.0-cp312-cp312-win32.whl", hash = "sha256:cafaf4406d3a6bb1990b8437b94ed592dd81bbb5e99fed6f5290801cac93a8d6", size = 38738, upload-time = "2026-10-15T17:58:50Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/hiredis/3.5/hiredis-3.5.0-cp312-cp312-win_amd64.whl", hash = "sha256:601bfcb5655e85a79e2ded96ab0159cbac3a20ef991c468e8c9d2e374dc8cf54", size = 40605, upload-time = "2026-10-15T17:58:51Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/hiredis/3.5/hiredis-3.5.0-cp312-cp312-win_arm64.whl", hash = "sha256:fc5e619354f5ddc7381d244e0b00125180a7910a747ec3582bd4bc569da8e357", size = 38060, upload-time = "2026-10-15T17:58:52Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/hiredis/3.5/hiredis-3.5.0-cp313-cp313-macosx_10_15_universal2.whl", hash = "sha256:eb9c5d20a593a19a5b9d3a5ce3ff7689adba2cd859cfb49a4aab53154210515f", size = 140915, upload-time = "2026-10-15T17:58:53Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/hiredis/3.5/hiredis-3.5.0-cp313-cp313-macosx_10_15_x86_64.whl", hash = "sha256:1286a8a950b6364ab5f87a173e41b39eaa090294fc120f5cbff9cfcf6d92fad2", size = 75143, upload-time = "2026-10-15T17:58:54Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/hiredis/3.5/hiredis-3.5.0-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:33f988f062da42e167d7887a4cc6df5e48727700d1c9966ee2e761db844a02e8", size = 72023, upload-time = "2026-10-15T17:58:55Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/hiredis/3.5/hiredis-3.5.0-cp313-cp313-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:e1170deb21494371005b4beb9451d904cf3adb2b8b62230b1c51f38267feedf3", size = 308391, upload-time = "2026-10-15T17:58:56Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/hiredis/3.5/hiredis-3.5.0-cp313-cp313-manylinux2014_ppc64le.manylinux_2_17_ppc64le.manylinux_2_28_ppc64le.whl", hash = "sha256:808ca3e2bbaf4e82bc57508b3ac2a662a0317a1b12762b48d8bcaf31c631c966", size = 341603, upload-time = "2026-10-15T17:58:58Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/hiredis/3.5/hiredis-3.5.0-cp313-cp313-manylinux2014_s390x.manylinux_2_17_s390x.manylinux_2_28_s390x.whl", hash = "sha256:c107d375d5a5687297f99669617b2055e375df41f83ac976ac6aca2bc33c415e", size = 353483, upload-time = "2026-10-15T17:58:59Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/hiredis/3.5/hiredis-3.5.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:588d083aace7439afa652e201df7388aeb1a5d3230ffe26fb297cfc6c7f216de", size = 314758, upload-time = "2026-11-25T21:54:14Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/hiredis/3.5/hiredis-3.5.0-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "sha256:2bd58ca4b34f7e86fe1de666073081973f26fc75fc7e2551d76b21f49a235855", size = 302581, upload-time = "2026-10-15T17:59:02Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/hiredis/3.5/hiredis-3.5.0-cp313-cp313-musllinux_1_2_ppc64le.whl", hash = "sha256:b116b8efa40a1789244129bc2dee9f8dc973d6a48d9331c919308034b27520da", size = 333923, upload-time = "2026-10-15T17:59:03Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/hiredis/3.5/hiredis-3.5.0-cp313-cp313-musllinux_1_2_s390x.whl", hash = "sha256:fbd9de72a958fcdc70633d0fbab3b8010555471c746f39ea48976a4da1680e4a", size = 334703, upload-time = "2026-10-15T17:59:05Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/hiredis/3.5/hiredis-3.5.0-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:0037e3af5f457d47d29eb3dda70302758385670a3378be7daf8c5049403a172f", size = 313283, upload-time = "2026-10-15T17:59:06Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/hiredis/3.5/hiredis-3.5.0-cp313-cp313-win32.whl", hash = "sha256:5201151dfc4098f81485aeac651cbfb402c8aea92607a5ddef5bbff5097d10e6", size = 38743, upload-time = "2026-10-15T17:59:07Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/hiredis/3.5/hiredis-3.5.0-cp313-cp313-win_amd64.whl", hash = "sha256:1ad14a185ece13a456dd8da27b7acd4105b4a2fccbdf54d86a3d455d6df7ffae", size = 40615, upload-time = "2026-10-15T17:59:08Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/hiredis/3.5/hiredis-3.5.0-cp313-cp313-win_arm64.whl", hash = "sha256:0f09667f00035ccfb83b942018b5e84dc560774372fb237b9f7f757d72603c37", size = 38070, upload-time = "2026-10-15T17:59:09Z" },
 ]
 
 [[package]]
@@ -919,28 +621,6 @@ wheels = [
 ]
 
 [[package]]
-name = "inquirerpy"
-version = "0.3.4"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-dependencies = [
-    { name = "pfzy" },
-    { name = "prompt-toolkit" },
-]
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/inquirerpy/0.3.4/InquirerPy-0.3.4.tar.gz", hash = "sha256:89d2ada0111f337483cb41ae31073108b2ec1e618a49d7110b0d7ade89fc197e", size = 44431, upload-time = "2022-06-27T23:11:20Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/inquirerpy/0.3.4/InquirerPy-0.3.4-py3-none-any.whl", hash = "sha256:c65fdfbac1fa00e3ee4fb10679f4d3ed7a012abf4833910e63c295827fe2a7d4", size = 67677, upload-time = "2026-07-01T16:55:27Z" },
-]
-
-[[package]]
-name = "isodate"
-version = "0.7.2"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/isodate/0.7.2/isodate-0.7.2.tar.gz", hash = "sha256:4cd1aa0f43ca76f4a6c6c0292a85f40b35ec2e43e315b59f06e6d32171a953e6", size = 29705, upload-time = "2024-10-08T23:04:11Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/isodate/0.7.2/isodate-0.7.2-py3-none-any.whl", hash = "sha256:28009937d8031054830160fce6d409ed342816b543597cece116d966c6d99e15", size = 22320, upload-time = "2024-10-09T17:29:38Z" },
-]
-
-[[package]]
 name = "jinja2"
 version = "3.1.6"
 source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
@@ -1037,6 +717,7 @@ version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "jsonschema" },
+    { name = "litellm" },
     { name = "openai" },
     { name = "openai-agents" },
     { name = "pydantic" },
@@ -1049,13 +730,11 @@ dependencies = [
 dev = [
     { name = "pytest" },
 ]
-proxy = [
-    { name = "litellm", extra = ["proxy"] },
-]
 
 [package.metadata]
 requires-dist = [
     { name = "jsonschema", specifier = ">=4.26.0" },
+    { name = "litellm", specifier = ">=1.63,<2" },
     { name = "openai", specifier = ">=1.68,<3" },
     { name = "openai-agents", specifier = ">=0.20.0" },
     { name = "pydantic", specifier = ">=2.10,<3" },
@@ -1066,7 +745,6 @@ requires-dist = [
 
 [package.metadata.requires-dev]
 dev = [{ name = "pytest", specifier = ">=8,<10" }]
-proxy = [{ name = "litellm", extras = ["proxy"], specifier = ">=1.63,<2" }]
 
 [[package]]
 name = "litellm"
@@ -1104,97 +782,6 @@ wheels = [
     { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/litellm/1.111/litellm-1.111.0-cp310-abi3-musllinux_1_2_aarch64.whl", hash = "sha256:1c741e162ce1df830ca45e1cd740ec5d6dc82cb7b6c17ee9f2cf5ed6d2234c38", size = 47255066, upload-time = "2026-11-25T01:42:04Z" },
     { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/litellm/1.111/litellm-1.111.0-cp310-abi3-musllinux_1_2_x86_64.whl", hash = "sha256:7e9df2e232ce61f2d159e6de3e31abdc15472a109243bfbc66337c0ab53335a8", size = 48535649, upload-time = "2026-11-25T01:42:08Z" },
     { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/litellm/1.111/litellm-1.111.0-cp310-abi3-win_amd64.whl", hash = "sha256:86bc07117680b851ce802318d58ba380b0649624e975eaa3a4058e4cfcd4bf56", size = 49608478, upload-time = "2026-11-25T01:42:12Z" },
-]
-
-[package.optional-dependencies]
-proxy = [
-    { name = "apscheduler" },
-    { name = "azure-identity" },
-    { name = "azure-storage-blob" },
-    { name = "backoff" },
-    { name = "backports-zstd" },
-    { name = "boto3" },
-    { name = "casbin" },
-    { name = "cryptography" },
-    { name = "expression" },
-    { name = "fastapi" },
-    { name = "fastapi-sso" },
-    { name = "granian" },
-    { name = "gunicorn" },
-    { name = "hiredis" },
-    { name = "httpx2" },
-    { name = "inquirerpy" },
-    { name = "litellm-enterprise" },
-    { name = "litellm-proxy" },
-    { name = "litellm-proxy-extras" },
-    { name = "mcp" },
-    { name = "orjson" },
-    { name = "polars" },
-    { name = "pydantic" },
-    { name = "pyjwt" },
-    { name = "pynacl" },
-    { name = "pyroscope-io", marker = "sys_platform != 'win32'" },
-    { name = "python-multipart" },
-    { name = "pyyaml" },
-    { name = "restrictedpython" },
-    { name = "rich" },
-    { name = "rq" },
-    { name = "semver" },
-    { name = "soundfile" },
-    { name = "starlette" },
-    { name = "tomlkit" },
-    { name = "tzdata" },
-    { name = "uvicorn" },
-    { name = "uvloop", marker = "sys_platform != 'win32'" },
-    { name = "websockets" },
-]
-
-[[package]]
-name = "litellm-enterprise"
-version = "0.1.86.post1"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/litellm-enterprise/0.1.86.post1/litellm_enterprise-0.1.86.post1.tar.gz", hash = "sha256:969bf5dc347f4cd7cc0a4884b19c671ec3a2f9d02a0fecc05e5fce4dc68ae502", size = 118562, upload-time = "2026-11-25T01:41:23Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/litellm-enterprise/0.1.86.post1/litellm_enterprise-0.1.86.post1-py3-none-any.whl", hash = "sha256:4ad7a8299fc98a500c2767b709d0eaa3aa8fd40806181243a8e795c12fbb870e", size = 189241, upload-time = "2026-11-25T21:51:17Z" },
-]
-
-[[package]]
-name = "litellm-proxy"
-version = "1.111.0"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/litellm-proxy/1.111/litellm_proxy-1.111.0-py3-none-macosx_10_12_x86_64.whl", hash = "sha256:a7aef897bbb990e7c7ed86100c3b5b68655750211f906ca7f46bb1796b44df45", size = 15708790, upload-time = "2026-11-25T21:51:19Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/litellm-proxy/1.111/litellm_proxy-1.111.0-py3-none-macosx_11_0_arm64.whl", hash = "sha256:737bc630f8688a222102ab7245bd057195edf4cf11f05c474881235971275792", size = 14849277, upload-time = "2026-11-25T01:41:07Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/litellm-proxy/1.111/litellm_proxy-1.111.0-py3-none-manylinux_2_28_aarch64.whl", hash = "sha256:a30b5f73ae513d56b32732ef6e56547f90d13f6b1303707c0f55b51bdcc9875c", size = 15337170, upload-time = "2026-11-25T01:41:09Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/litellm-proxy/1.111/litellm_proxy-1.111.0-py3-none-manylinux_2_28_x86_64.whl", hash = "sha256:35de5813178cbcc201928057c9e26785643a14413c6c9cf3ac897edebc9bbbc5", size = 16176587, upload-time = "2026-11-25T21:54:14Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/litellm-proxy/1.111/litellm_proxy-1.111.0-py3-none-musllinux_1_2_aarch64.whl", hash = "sha256:6a6e7d9c3cd023510754d722c8d76c9a9bb6bf492222cb09c1fce47e93500e7f", size = 15212186, upload-time = "2026-11-25T01:41:14Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/litellm-proxy/1.111/litellm_proxy-1.111.0-py3-none-musllinux_1_2_x86_64.whl", hash = "sha256:b47d5be2dff4cfb0b0306b740aa0c6c799a6f59b322b126512eef1fed334e24e", size = 16291602, upload-time = "2026-11-25T01:41:16Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/litellm-proxy/1.111/litellm_proxy-1.111.0-py3-none-win_amd64.whl", hash = "sha256:28b0c315f312b5930940cde02751df20fc8f4155a78708411325b667811e5675", size = 17035974, upload-time = "2026-11-25T01:41:19Z" },
-]
-
-[[package]]
-name = "litellm-proxy-extras"
-version = "0.4.118.post1"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-dependencies = [
-    { name = "psycopg" },
-    { name = "psycopg-binary" },
-]
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/litellm-proxy-extras/0.4.118.post1/litellm_proxy_extras-0.4.118.post1.tar.gz", hash = "sha256:7636cbbc1da265ec383e33d6123a8cc0c50798650f514e49e562e322690dc5d0", size = 108594, upload-time = "2026-11-25T01:41:24Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/litellm-proxy-extras/0.4.118.post1/litellm_proxy_extras-0.4.118.post1-py3-none-any.whl", hash = "sha256:20c2cdd6af46107705d3cd5fb522ed969a07cb898153b17e6dd039ef3d2aa7f6", size = 262189, upload-time = "2026-11-25T21:51:17Z" },
-]
-
-[[package]]
-name = "markdown-it-py"
-version = "4.3.0"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-dependencies = [
-    { name = "mdurl" },
-]
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/markdown-it-py/4.3/markdown_it_py-4.3.0.tar.gz", hash = "sha256:91a58fa5b72c71a40cf7177250fd767480d7a2bb3ac426ccfb76fb90305fdaaa", size = 242701, upload-time = "2026-11-10T16:18:30Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/markdown-it-py/4.3/markdown_it_py-4.3.0-py3-none-any.whl", hash = "sha256:7aa1511a46c39138de78d9eba92ce47e63124d8003fc98b3a351909e04239efa", size = 96951, upload-time = "2026-11-11T03:06:11Z" },
 ]
 
 [[package]]
@@ -1279,41 +866,6 @@ wheels = [
 ]
 
 [[package]]
-name = "mdurl"
-version = "0.1.2"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/mdurl/0.1.2/mdurl-0.1.2.tar.gz", hash = "sha256:bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba", size = 8729, upload-time = "2022-08-14T12:40:10Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/mdurl/0.1.2/mdurl-0.1.2-py3-none-any.whl", hash = "sha256:84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8", size = 9979, upload-time = "2023-01-24T07:55:16Z" },
-]
-
-[[package]]
-name = "msal"
-version = "1.39.0"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-dependencies = [
-    { name = "cryptography" },
-    { name = "pyjwt", extra = ["crypto"] },
-    { name = "requests" },
-]
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/msal/1.39/msal-1.39.0.tar.gz", hash = "sha256:6ab7de335e6d7f5717e2c7e1dbf86e4dda2f6acf3c56773b78dc53ebc6395b5f", size = 205360, upload-time = "2026-09-17T16:07:45Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/msal/1.39/msal-1.39.0-py3-none-any.whl", hash = "sha256:2d2577886906cd7293850dffa2da29119966c213bfc6ec0cecf8bf7621e1ca77", size = 131629, upload-time = "2026-09-18T08:17:19Z" },
-]
-
-[[package]]
-name = "msal-extensions"
-version = "1.3.1"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-dependencies = [
-    { name = "msal" },
-]
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/msal-extensions/1.3.1/msal_extensions-1.3.1.tar.gz", hash = "sha256:c5b0fd10f65ef62b5f1d62f4251d51cbcaf003fcedae8c91b040a488614be1a4", size = 23315, upload-time = "2025-03-14T23:51:03Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/msal-extensions/1.3.1/msal_extensions-1.3.1-py3-none-any.whl", hash = "sha256:96d3de4d034504e969ac5e85bae8106c8373b5c6568e4c8fa7af2eca9dbe6bca", size = 20583, upload-time = "2025-03-17T09:30:47Z" },
-]
-
-[[package]]
 name = "multidict"
 version = "7.2.1"
 source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
@@ -1366,45 +918,6 @@ wheels = [
 ]
 
 [[package]]
-name = "numpy"
-version = "2.5.5"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/numpy/2.5.5/numpy-2.5.5.tar.gz", hash = "sha256:5cddc243c75114ba845f01b1f87aca1572dbf7b6c2d88636ed3e1d2bccd7f1bf", size = 20873892, upload-time = "2026-11-15T21:32:28Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/numpy/2.5.5/numpy-2.5.5-cp312-cp312-macosx_10_13_x86_64.whl", hash = "sha256:7da9a248f149cfbb220c6da964a59c8d051d516704f7758acfb81eb382a05d97", size = 14750374, upload-time = "2026-11-23T05:21:07Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/numpy/2.5.5/numpy-2.5.5-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:b96e9ee49ccbdb5676359f852a4497f7a9c5df6c377d8877f5330d6fd3ff42e4", size = 10749920, upload-time = "2026-11-15T21:30:13Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/numpy/2.5.5/numpy-2.5.5-cp312-cp312-macosx_14_0_arm64.whl", hash = "sha256:a3856a97e48ed8371c680fb04120b99fbcc29f2076ebe6dc3deb34f77947c5ca", size = 5513680, upload-time = "2026-11-16T03:49:27Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/numpy/2.5.5/numpy-2.5.5-cp312-cp312-macosx_14_0_x86_64.whl", hash = "sha256:f5e8603f0892d1b848e12124863b5b29af72383ee9b25ddc6fe4967d4c1ee6ef", size = 6797540, upload-time = "2026-11-15T21:30:17Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/numpy/2.5.5/numpy-2.5.5-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:a0750f2156d53446caca85663d0b65d67214e1664b9050454a731ea1418d176a", size = 15284117, upload-time = "2026-11-15T21:30:19Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/numpy/2.5.5/numpy-2.5.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:704d819265e5d1064d932968e9ee85fff2103ccc78c05b878c06943ba27b8507", size = 15720599, upload-time = "2026-11-23T05:21:12Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/numpy/2.5.5/numpy-2.5.5-cp312-cp312-musllinux_1_2_aarch64.whl", hash = "sha256:86868185bf4b6c4e5a8628ac42cfa165cd9530266c731f7dd1d11b4ad7e7cd1c", size = 16503566, upload-time = "2026-11-15T21:30:24Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/numpy/2.5.5/numpy-2.5.5-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:7fb87c4bcc73850ef433a0c42f096b010d3d3d284e9d00028bb030b43df3d078", size = 17082560, upload-time = "2026-11-15T21:30:26Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/numpy/2.5.5/numpy-2.5.5-cp312-cp312-win32.whl", hash = "sha256:263b2aa236d752b18f90c5107137d24b2e3856d7db37725609f0ab5bcdb58881", size = 6146378, upload-time = "2026-11-15T21:30:28Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/numpy/2.5.5/numpy-2.5.5-cp312-cp312-win_amd64.whl", hash = "sha256:919eb420662b0b4ba34889df503f3d5329775b0c1d5f7e5f5af4fba8315b1e30", size = 12580189, upload-time = "2026-11-15T21:30:30Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/numpy/2.5.5/numpy-2.5.5-cp312-cp312-win_arm64.whl", hash = "sha256:f6622e32cb46c60bee3b2c7dd7f5c22bdc86fcb8630336b4822ec81c3986111a", size = 10535386, upload-time = "2026-11-15T21:30:32Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/numpy/2.5.5/numpy-2.5.5-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:228e3d90e967495d61ddc79dd64e95267aae3bcf1b1c516a6186429106a0b444", size = 14747053, upload-time = "2026-11-15T21:30:34Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/numpy/2.5.5/numpy-2.5.5-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:7e71ac4284c700afa654e2d15b1b174166710dca932f24045e5dc92001b5bda0", size = 10744599, upload-time = "2026-11-15T21:30:36Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/numpy/2.5.5/numpy-2.5.5-cp313-cp313-macosx_14_0_arm64.whl", hash = "sha256:e0cf407a83118faf0463ade48a4533982f1737c7c58aac29e08855f7d9ad2977", size = 5508218, upload-time = "2026-11-16T14:23:01Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/numpy/2.5.5/numpy-2.5.5-cp313-cp313-macosx_14_0_x86_64.whl", hash = "sha256:ac910558645a4b006f70596b450712b8564730c1b2ac10291fcedd656d321ec0", size = 6794377, upload-time = "2026-11-15T21:30:40Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/numpy/2.5.5/numpy-2.5.5-cp313-cp313-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:ae2b8285d0b4eed24739c3ca9ec0fa424a0247489c01e1d5fe2815a599e11d33", size = 15278148, upload-time = "2026-11-15T21:30:41Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/numpy/2.5.5/numpy-2.5.5-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:824025655df929268bfe6b47ed91a00d14209a6f760847cf150be446829e1ce4", size = 15713899, upload-time = "2026-11-21T08:27:04Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/numpy/2.5.5/numpy-2.5.5-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "sha256:4302902ebf82d37f446664757be59db53587822c8b35f16368ca69fe66ec4315", size = 16501259, upload-time = "2026-11-15T21:30:46Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/numpy/2.5.5/numpy-2.5.5-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:3cedc2980b45794a6a2cfee9c8c3a80f04517082cc1d387e4cc895506c481696", size = 17077101, upload-time = "2026-11-15T21:30:48Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/numpy/2.5.5/numpy-2.5.5-cp313-cp313-win32.whl", hash = "sha256:10396f7c5ebc37d8f3cbdec44e3313912ccc2dc5841cc905de5de54ebbe8e2d3", size = 6141929, upload-time = "2026-11-15T21:30:51Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/numpy/2.5.5/numpy-2.5.5-cp313-cp313-win_amd64.whl", hash = "sha256:e0608d1585557b68dcb6a70a41654f7536567960afad79d91752d2863b242b68", size = 12573354, upload-time = "2026-11-15T21:30:53Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/numpy/2.5.5/numpy-2.5.5-cp313-cp313-win_arm64.whl", hash = "sha256:e0b87886bb45621d9279dad4ab9f2d154b5db0b019d378c107b8f71527b06a4a", size = 10528296, upload-time = "2026-11-15T21:30:55Z" },
-]
-
-[[package]]
-name = "oauthlib"
-version = "4.0.1"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/oauthlib/4.0.1/oauthlib-4.0.1.tar.gz", hash = "sha256:3d73febdb6faa00f277c81fb04be7b7586fb96fc3b7f0b9c772dada69a25ede7", size = 191219, upload-time = "2026-10-31T09:52:58Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/oauthlib/4.0.1/oauthlib-4.0.1-py3-none-any.whl", hash = "sha256:498a298876e996301950a5b053d12c31628bb7b895db03666430c69ce182eb61", size = 161934, upload-time = "2026-11-02T11:19:29Z" },
-]
-
-[[package]]
 name = "openai"
 version = "2.54.0"
 source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
@@ -1454,34 +967,6 @@ wheels = [
 ]
 
 [[package]]
-name = "orjson"
-version = "3.13.0"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/orjson/3.13/orjson-3.13.0.tar.gz", hash = "sha256:d1de5eb04485110c5da4c657e49168995d55e076b1ce60f1a042e254f4186c4f", size = 2732604, upload-time = "2026-10-07T14:09:25Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/orjson/3.13/orjson-3.13.0-cp312-cp312-macosx_10_15_x86_64.macosx_11_0_arm64.macosx_10_15_universal2.whl", hash = "sha256:fb8644dc6d705e1269ed2842bf4dbe2b4e50d670de503bf79d5cef3a5148a4c7", size = 223063, upload-time = "2026-11-10T18:00:34Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/orjson/3.13/orjson-3.13.0-cp312-cp312-macosx_15_0_arm64.whl", hash = "sha256:6ff2a2c67f35202f7d823753d38ad371a9b7fc297567cdfff4420e763cb9f6f8", size = 123364, upload-time = "2026-11-19T01:48:44Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/orjson/3.13/orjson-3.13.0-cp312-cp312-manylinux2014_armv7l.manylinux_2_17_armv7l.whl", hash = "sha256:65c4e0e106ccc7265b488385659117a6805c37d042f737558ecd68aa0c67ad8f", size = 113199, upload-time = "2026-10-07T14:08:25Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/orjson/3.13/orjson-3.13.0-cp312-cp312-manylinux2014_i686.manylinux_2_17_i686.whl", hash = "sha256:fbbad6b9b1da43f25c1f5b20cd5a268e028a2fc95d5a8d1ade6059973bc71584", size = 130329, upload-time = "2026-10-07T14:08:26Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/orjson/3.13/orjson-3.13.0-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:ae1d895cf7bbfd50ef34bb63bb727b14514f259f3e3f8dd010783bd38e864c6e", size = 129072, upload-time = "2026-10-07T14:08:28Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/orjson/3.13/orjson-3.13.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:bceadfd314bd238f584fc229a4bbaf0e573597e7a026dec5429fbf29fd66c641", size = 130612, upload-time = "2026-10-29T07:42:19Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/orjson/3.13/orjson-3.13.0-cp312-cp312-musllinux_1_2_aarch64.whl", hash = "sha256:b74c30e56346aad067937d766846ee74c231d1d18aad3f324e9b9261de3b2d5e", size = 134632, upload-time = "2026-10-07T14:08:31Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/orjson/3.13/orjson-3.13.0-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:4329c19b8a25693f60a77b867c9d2a3ab637b20e36f5b7bea7f5acb492b44b15", size = 126807, upload-time = "2026-10-07T14:08:32Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/orjson/3.13/orjson-3.13.0-cp312-cp312-win_amd64.whl", hash = "sha256:b571236d8393edcd3236e07423f762bfcf571f852aad667a3bce9e7b755e0790", size = 121538, upload-time = "2026-10-07T14:08:34Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/orjson/3.13/orjson-3.13.0-cp312-cp312-win_arm64.whl", hash = "sha256:8594956a75223f657e1e68c568c0eeb3dd145f02cd6b78a47fd9a8095dbc4eae", size = 126259, upload-time = "2026-10-07T14:08:35Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/orjson/3.13/orjson-3.13.0-cp313-cp313-macosx_10_15_x86_64.macosx_11_0_arm64.macosx_10_15_universal2.whl", hash = "sha256:64e8f345048d988c8b68d3882e5d41028fca1219a9939b32e4a77be34c8ae8e3", size = 222892, upload-time = "2026-10-07T14:08:37Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/orjson/3.13/orjson-3.13.0-cp313-cp313-macosx_15_0_arm64.whl", hash = "sha256:ded33b972cffdaf4ca0ac917338ab61d2bb10d68987dbcae641c313fbfdbf499", size = 123319, upload-time = "2026-10-26T08:47:04Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/orjson/3.13/orjson-3.13.0-cp313-cp313-manylinux2014_armv7l.manylinux_2_17_armv7l.whl", hash = "sha256:45e34deb3437509f4ec9888dd9ee5dc426cfe21be10f1eb4ea3a9e4d33034f9e", size = 113196, upload-time = "2026-10-07T14:08:40Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/orjson/3.13/orjson-3.13.0-cp313-cp313-manylinux2014_i686.manylinux_2_17_i686.whl", hash = "sha256:9825b954155b345c4759f24e5f8d652b9aec2261bb5d4e1abe06bba0a1200535", size = 130245, upload-time = "2026-10-07T14:08:41Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/orjson/3.13/orjson-3.13.0-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:b081f0e7b600ff24513dec4ca75507fa05e904607847e386e8310d5b7b96b6c7", size = 128981, upload-time = "2026-10-07T14:08:43Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/orjson/3.13/orjson-3.13.0-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:cbed5f4c4b88d94bcc36115f4c3bb3aa25da1563a5c3328aa3acebce2b083040", size = 130370, upload-time = "2026-11-21T08:27:49Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/orjson/3.13/orjson-3.13.0-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "sha256:e9b61676116f755126b90e740a9cff36b91562f47ec330056cc88cc3b9f02f4b", size = 134595, upload-time = "2026-10-07T14:08:46Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/orjson/3.13/orjson-3.13.0-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:3ef75ed7e81dae34a3649f82df52cd85f9ac839a7d6ec78ab355b33b3b27ef7f", size = 126513, upload-time = "2026-10-07T14:08:48Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/orjson/3.13/orjson-3.13.0-cp313-cp313-win_amd64.whl", hash = "sha256:4ee06e53b998c71ce3eb93b86222912fdd9dcced685ac64d4525d36fac338ea4", size = 121371, upload-time = "2026-10-07T14:08:49Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/orjson/3.13/orjson-3.13.0-cp313-cp313-win_arm64.whl", hash = "sha256:89efecad02515df7f318d0613b5dfd6d2a1acd323a2b8294712789a715945525", size = 126134, upload-time = "2026-10-07T14:08:51Z" },
-]
-
-[[package]]
 name = "packaging"
 version = "26.4"
 source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
@@ -1491,61 +976,12 @@ wheels = [
 ]
 
 [[package]]
-name = "pfzy"
-version = "0.3.4"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/pfzy/0.3.4/pfzy-0.3.4.tar.gz", hash = "sha256:717ea765dd10b63618e7298b2d98efd819e0b30cd5905c9707223dceeb94b3f1", size = 8396, upload-time = "2022-01-28T02:26:17Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/pfzy/0.3.4/pfzy-0.3.4-py3-none-any.whl", hash = "sha256:5f50d5b2b3207fa72e7ec0ef08372ef652685470974a107d0d4999fc5a903a96", size = 8537, upload-time = "2026-07-01T16:55:32Z" },
-]
-
-[[package]]
 name = "pluggy"
 version = "1.7.0"
 source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
 sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/pluggy/1.7/pluggy-1.7.0.tar.gz", hash = "sha256:d1eaa46ebb595891b860ab086b4d09c8588af65ebd4361b8e8f4bb8920b90ba8", size = 123304, upload-time = "2026-10-15T09:50:58Z" }
 wheels = [
     { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/pluggy/1.7/pluggy-1.7.0-py3-none-any.whl", hash = "sha256:7dd7b0d8832ba3cb632c306926ded123429211b83641b35dc5c41ad2d34f9bec", size = 27082, upload-time = "2026-10-15T12:18:51Z" },
-]
-
-[[package]]
-name = "polars"
-version = "1.44.2"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-dependencies = [
-    { name = "polars-runtime-32" },
-]
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/polars/1.44.2/polars-1.44.2.tar.gz", hash = "sha256:86c8e26b6c2de8c8d344bb910b74dfc47b118ac3fe0f19b44909467990a0b281", size = 766272, upload-time = "2026-09-09T07:42:08Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/polars/1.44.2/polars-1.44.2-py3-none-any.whl", hash = "sha256:1bb331f17a40d9d931101533dcd33637b66edc61eb377b07020dac16a0f0377b", size = 865768, upload-time = "2026-10-29T09:00:16Z" },
-]
-
-[[package]]
-name = "polars-runtime-32"
-version = "1.44.2"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/polars-runtime-32/1.44.2/polars_runtime_32-1.44.2.tar.gz", hash = "sha256:b84842f7d621aaca7a52e165e19a24f89db45f8aa13744941430218419a14a67", size = 3172205, upload-time = "2026-09-09T07:42:10Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/polars-runtime-32/1.44.2/polars_runtime_32-1.44.2-cp310-abi3-macosx_10_12_x86_64.whl", hash = "sha256:1fd536720668ba203a16a20b08cd6b23057e407a0279cf36b2f35f879d6e3208", size = 48334014, upload-time = "2026-10-29T09:00:31Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/polars-runtime-32/1.44.2/polars_runtime_32-1.44.2-cp310-abi3-macosx_11_0_arm64.whl", hash = "sha256:e0fd43720c8222ae39919c8ff891636d53b352706087120e62f83544dd3ff782", size = 43331099, upload-time = "2026-09-09T07:40:21Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/polars-runtime-32/1.44.2/polars_runtime_32-1.44.2-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:bbf9b45040291dc1c6c588c837019c33557bde25ec536562a9cca9e1f6dfcc45", size = 46590853, upload-time = "2026-09-09T07:40:24Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/polars-runtime-32/1.44.2/polars_runtime_32-1.44.2-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:a1bafb441e99199a62c63bf1bbdc0ea09ee9776dbac2bf31452b5000fb1df2f7", size = 49912258, upload-time = "2026-10-29T09:01:21Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/polars-runtime-32/1.44.2/polars_runtime_32-1.44.2-cp310-abi3-musllinux_1_2_aarch64.whl", hash = "sha256:10c0c695a418407617b5159db7d9a21074a733e4c6d61275b6762f25cb31ca99", size = 46737310, upload-time = "2026-09-09T07:40:33Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/polars-runtime-32/1.44.2/polars_runtime_32-1.44.2-cp310-abi3-musllinux_1_2_x86_64.whl", hash = "sha256:c4a09fb14aad711526346efc0cb2015c2fd0555ce4118b6524e5debbaea65ff5", size = 49887654, upload-time = "2026-09-09T07:40:37Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/polars-runtime-32/1.44.2/polars_runtime_32-1.44.2-cp310-abi3-win_amd64.whl", hash = "sha256:8598e7a20efba70bb74978c7df7af7c606ff4d79b9b48fdd808250b189bc9a13", size = 51297967, upload-time = "2026-09-09T07:40:41Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/polars-runtime-32/1.44.2/polars_runtime_32-1.44.2-cp310-abi3-win_arm64.whl", hash = "sha256:d51040d3ab40157f6db3c62be59cab5b80fb3c8d158924769c4982a1c8eef730", size = 44303345, upload-time = "2026-09-09T07:40:47Z" },
-]
-
-[[package]]
-name = "prompt-toolkit"
-version = "3.0.53"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-dependencies = [
-    { name = "wcwidth" },
-]
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/prompt-toolkit/3.0.53/prompt_toolkit-3.0.53.tar.gz", hash = "sha256:9ec8a0ad96d5c56148b3f914aa79c1564c3fde5d2e6b876e7bc327e353cf8fa6", size = 435492, upload-time = "2026-07-26T20:56:14Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/prompt-toolkit/3.0.53/prompt_toolkit-3.0.53-py3-none-any.whl", hash = "sha256:01c0891d7f9237d5e339f7d3e42cdae80b7534abb1c7c0e3352efba6231492f2", size = 392288, upload-time = "2026-07-30T15:04:09Z" },
 ]
 
 [[package]]
@@ -1592,48 +1028,6 @@ wheels = [
 ]
 
 [[package]]
-name = "psycopg"
-version = "3.3.9"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-dependencies = [
-    { name = "typing-extensions", marker = "python_full_version < '3.13'" },
-    { name = "tzdata", marker = "sys_platform == 'win32'" },
-]
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/psycopg/3.3.9/psycopg-3.3.9.tar.gz", hash = "sha256:87c1d85c3e0e88e811d3c0b3808f947bd967c6faf34af6cd86fd021f77793d6c", size = 171122, upload-time = "2026-11-12T09:04:06Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/psycopg/3.3.9/psycopg-3.3.9-py3-none-any.whl", hash = "sha256:d2d7d04a1ce6dab4f5b27316bea3b52585cafa2f2d631e5b09dd69823f5c26f6", size = 219041, upload-time = "2026-11-12T13:57:03Z" },
-]
-
-[[package]]
-name = "psycopg-binary"
-version = "3.3.9"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/psycopg-binary/3.3.9/psycopg_binary-3.3.9-cp312-cp312-macosx_10_13_x86_64.whl", hash = "sha256:fcdb76adaab57fdd5b789b13b20699bffaf17000a4bbc0527327581cfdd55e3d", size = 4048935, upload-time = "2026-11-12T13:57:08Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/psycopg-binary/3.3.9/psycopg_binary-3.3.9-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:08689018e9169ca8e6769f5b3f2ce748442bda95b5f1ec260995a8ff63e6d6a4", size = 4111565, upload-time = "2026-11-12T09:00:14Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/psycopg-binary/3.3.9/psycopg_binary-3.3.9-cp312-cp312-manylinux2014_ppc64le.manylinux_2_17_ppc64le.whl", hash = "sha256:e7e2e3543ac17cf5bb3eaf738606fc52bcedf993500b9fc8c55a4475a3731ef9", size = 4207484, upload-time = "2026-11-12T09:00:23Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/psycopg-binary/3.3.9/psycopg_binary-3.3.9-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:a99f0b9a19ed7a56bf5d6776456b8f15f5364db8853b0f5d184db394a45c391d", size = 3913036, upload-time = "2026-11-12T13:57:18Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/psycopg-binary/3.3.9/psycopg_binary-3.3.9-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:b081348d8992af26e9b252f04876c286428418a6b7845d8d4caae2044b259668", size = 4132657, upload-time = "2026-11-12T09:00:34Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/psycopg-binary/3.3.9/psycopg_binary-3.3.9-cp312-cp312-manylinux_2_38_riscv64.manylinux_2_39_riscv64.whl", hash = "sha256:66b20619acbd434e4e46d734a915768a1192db09754c2ad041d391d72f30e5eb", size = 3545187, upload-time = "2026-11-12T09:00:38Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/psycopg-binary/3.3.9/psycopg_binary-3.3.9-cp312-cp312-musllinux_1_2_aarch64.whl", hash = "sha256:b7c4b2039d82f635311e41e7d392ff1bddd94a2447f9668c6531489cc86a8ce2", size = 3897551, upload-time = "2026-11-12T09:00:43Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/psycopg-binary/3.3.9/psycopg_binary-3.3.9-cp312-cp312-musllinux_1_2_ppc64le.whl", hash = "sha256:3efe96cd98081b755ee3b0a50f2d35d9af55cb1ba462440a41048b9e7c6b9caa", size = 3577016, upload-time = "2026-11-12T09:00:49Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/psycopg-binary/3.3.9/psycopg_binary-3.3.9-cp312-cp312-musllinux_1_2_riscv64.whl", hash = "sha256:80ce081d2512ced75f1ca08ff80257a1288a3555079c5fa622164a0f9ed6533a", size = 3305336, upload-time = "2026-11-12T09:00:55Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/psycopg-binary/3.3.9/psycopg_binary-3.3.9-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:30a95cb2b00b94b4ec4fd5d41de047598c60e0db26fd43bd9154152cc380b282", size = 3620366, upload-time = "2026-11-12T09:01:01Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/psycopg-binary/3.3.9/psycopg_binary-3.3.9-cp312-cp312-win_amd64.whl", hash = "sha256:1ce1a6f04211626ca1a3deadee560235e8686e3888fb18f78d2be3e83bceabc4", size = 2907832, upload-time = "2026-11-12T09:01:04Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/psycopg-binary/3.3.9/psycopg_binary-3.3.9-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:b98ecad106cd48998517e03aaee56f9d88f8857e043b8e3dbc2aa7facd475db6", size = 4053851, upload-time = "2026-11-12T09:01:08Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/psycopg-binary/3.3.9/psycopg_binary-3.3.9-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:e835af41e74176041d2290b167af92b74793b916ca3413598c39b535dd3674a5", size = 4114709, upload-time = "2026-11-12T09:01:14Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/psycopg-binary/3.3.9/psycopg_binary-3.3.9-cp313-cp313-manylinux2014_ppc64le.manylinux_2_17_ppc64le.whl", hash = "sha256:4b44a09bb7c92666aec8a00d5d390ff6f4e573d345ccde0f71b45597511449fb", size = 4210297, upload-time = "2026-11-12T09:01:20Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/psycopg-binary/3.3.9/psycopg_binary-3.3.9-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:180e4a99904d7a77f826fbb6dd16834bb3313675d8a6f055e39742fda00c33dc", size = 3915163, upload-time = "2026-11-25T21:54:14Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/psycopg-binary/3.3.9/psycopg_binary-3.3.9-cp313-cp313-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:366e2021a785afed9154f83f64793f662348a9ef244fef9779175c0906e8aacc", size = 4132455, upload-time = "2026-11-12T09:01:35Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/psycopg-binary/3.3.9/psycopg_binary-3.3.9-cp313-cp313-manylinux_2_38_riscv64.manylinux_2_39_riscv64.whl", hash = "sha256:13bfe814718c8a1b9b656c0d754962e0027cc3e43630661825fe197babc99320", size = 3548290, upload-time = "2026-11-12T09:01:41Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/psycopg-binary/3.3.9/psycopg_binary-3.3.9-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "sha256:a0ed63b05046bc40d76109d95c757d3eac38488b17c68ae9e8160040d0ed0f89", size = 3898785, upload-time = "2026-11-12T09:01:45Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/psycopg-binary/3.3.9/psycopg_binary-3.3.9-cp313-cp313-musllinux_1_2_ppc64le.whl", hash = "sha256:f85821eba1f8c27e080eba955eb9dddaa638f61e363b4f3b2266bd9ec4ff73bd", size = 3577036, upload-time = "2026-11-12T09:01:48Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/psycopg-binary/3.3.9/psycopg_binary-3.3.9-cp313-cp313-musllinux_1_2_riscv64.whl", hash = "sha256:eb74f5299501f83f3ad7b8e99405ca451b77c74d65767bac7f46d22c4e9411ae", size = 3309862, upload-time = "2026-11-12T09:01:52Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/psycopg-binary/3.3.9/psycopg_binary-3.3.9-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:14666a85aa330058929e4abedd940f754f0e5589efae6366d95c513288856fb5", size = 3621566, upload-time = "2026-11-12T09:01:56Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/psycopg-binary/3.3.9/psycopg_binary-3.3.9-cp313-cp313-win_amd64.whl", hash = "sha256:417c3fe0ac2079a82a8c72ba214a65c66c22036a5d2d8c24c77c5708a58938b9", size = 2907276, upload-time = "2026-11-12T09:02:01Z" },
-]
-
-[[package]]
 name = "pycparser"
 version = "3.12"
 source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
@@ -1655,11 +1049,6 @@ dependencies = [
 sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/pydantic/2.14.4/pydantic-2.14.4.tar.gz", hash = "sha256:7c19f1d46f8accf55a4617a6116e1ade64840870f397b846a2c53fb9019414ba", size = 927354, upload-time = "2026-11-19T12:57:39Z" }
 wheels = [
     { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/pydantic/2.14.4/pydantic-2.14.4-py3-none-any.whl", hash = "sha256:653a2ad9f6d8858529c77c72717d0ea991d6c6837fe683246b2f4b2bbfc3fadc", size = 494865, upload-time = "2026-11-19T16:49:17Z" },
-]
-
-[package.optional-dependencies]
-email = [
-    { name = "email-validator" },
 ]
 
 [[package]]
@@ -1746,43 +1135,6 @@ wheels = [
 [package.optional-dependencies]
 crypto = [
     { name = "cryptography" },
-]
-
-[[package]]
-name = "pynacl"
-version = "1.6.2"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-dependencies = [
-    { name = "cffi", marker = "platform_python_implementation != 'PyPy'" },
-]
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/pynacl/1.6.2/pynacl-1.6.2.tar.gz", hash = "sha256:018494d6d696ae03c7e656e5e74cdfd8ea1326962cc401bcf018f1ed8436811c", size = 3511692, upload-time = "2026-01-01T17:48:10Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/pynacl/1.6.2/pynacl-1.6.2-cp38-abi3-macosx_10_10_universal2.whl", hash = "sha256:c949ea47e4206af7c8f604b8278093b674f7c79ed0d4719cc836902bf4517465", size = 388458, upload-time = "2026-01-14T10:42:01Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/pynacl/1.6.2/pynacl-1.6.2-cp38-abi3-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:8845c0631c0be43abdd865511c41eab235e0be69c81dc66a50911594198679b0", size = 800020, upload-time = "2026-01-01T17:32:18Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/pynacl/1.6.2/pynacl-1.6.2-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:22de65bb9010a725b0dac248f353bb072969c94fa8d6b1f34b87d7953cf7bbe4", size = 1399174, upload-time = "2026-01-01T17:32:20Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/pynacl/1.6.2/pynacl-1.6.2-cp38-abi3-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:46065496ab748469cdd999246d17e301b2c24ae2fdf739132e580a0e94c94a87", size = 835085, upload-time = "2026-01-01T17:32:22Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/pynacl/1.6.2/pynacl-1.6.2-cp38-abi3-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:8a66d6fb6ae7661c58995f9c6435bda2b1e68b54b598a6a10247bfcdadac996c", size = 1437614, upload-time = "2026-06-23T05:27:08Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/pynacl/1.6.2/pynacl-1.6.2-cp38-abi3-manylinux_2_34_aarch64.whl", hash = "sha256:26bfcd00dcf2cf160f122186af731ae30ab120c18e8375684ec2670dccd28130", size = 818251, upload-time = "2026-04-30T08:26:33Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/pynacl/1.6.2/pynacl-1.6.2-cp38-abi3-manylinux_2_34_x86_64.whl", hash = "sha256:c8a231e36ec2cab018c4ad4358c386e36eede0319a0c41fed24f840b1dac59f6", size = 1402859, upload-time = "2026-01-06T15:26:30Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/pynacl/1.6.2/pynacl-1.6.2-cp38-abi3-musllinux_1_2_aarch64.whl", hash = "sha256:68be3a09455743ff9505491220b64440ced8973fe930f270c8e07ccfa25b1f9e", size = 791926, upload-time = "2026-01-01T17:32:29Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/pynacl/1.6.2/pynacl-1.6.2-cp38-abi3-musllinux_1_2_x86_64.whl", hash = "sha256:8b097553b380236d51ed11356c953bf8ce36a29a3e596e934ecabe76c985a577", size = 1363101, upload-time = "2026-01-01T17:32:31Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/pynacl/1.6.2/pynacl-1.6.2-cp38-abi3-win32.whl", hash = "sha256:5811c72b473b2f38f7e2a3dc4f8642e3a3e9b5e7317266e4ced1fba85cae41aa", size = 227421, upload-time = "2026-01-01T17:32:33Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/pynacl/1.6.2/pynacl-1.6.2-cp38-abi3-win_amd64.whl", hash = "sha256:62985f233210dee6548c223301b6c25440852e13d59a8b81490203c3227c5ba0", size = 239754, upload-time = "2026-01-21T09:43:36Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/pynacl/1.6.2/pynacl-1.6.2-cp38-abi3-win_arm64.whl", hash = "sha256:834a43af110f743a754448463e8fd61259cd4ab5bbedcf70f9dabad1d28a394c", size = 184801, upload-time = "2026-01-01T17:32:36Z" },
-]
-
-[[package]]
-name = "pyroscope-io"
-version = "0.8.16"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-dependencies = [
-    { name = "cffi" },
-]
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/pyroscope-io/0.8.16/pyroscope_io-0.8.16-py2.py3-none-macosx_11_0_arm64.whl", hash = "sha256:e07edcfd59f5bdce42948b92c9b118c824edbd551730305f095a6b9af401a9e8", size = 3138869, upload-time = "2026-11-25T21:51:18Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/pyroscope-io/0.8.16/pyroscope_io-0.8.16-py2.py3-none-macosx_11_0_x86_64.whl", hash = "sha256:dc98355e27c0b7b61f27066500fe1045b70e9459bb8b9a3082bc4755cb6392b6", size = 3375865, upload-time = "2026-01-22T06:23:27Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/pyroscope-io/0.8.16/pyroscope_io-0.8.16-py2.py3-none-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:86f0f047554ff62bd92c3e5a26bc2809ccd467d11fbacb9fef898ba299dbda59", size = 3236172, upload-time = "2026-01-22T06:23:29Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/pyroscope-io/0.8.16/pyroscope_io-0.8.16-py2.py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:6b91ce5b240f8de756c16a17022ca8e25ef8a4eed461c7d074b8a0841cf7b445", size = 3485288, upload-time = "2026-11-25T21:54:14Z" },
 ]
 
 [[package]]
@@ -1873,15 +1225,6 @@ wheels = [
 ]
 
 [[package]]
-name = "redis"
-version = "8.2.0"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/redis/8.2/redis-8.2.0.tar.gz", hash = "sha256:58b1493d83ba8f0e3ffe6bd781194ca5c01c91267ae03d29c1087b0b3c7d79c9", size = 5809579, upload-time = "2026-11-23T08:31:56Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/redis/8.2/redis-8.2.0-py3-none-any.whl", hash = "sha256:4ff649f10fae5e7e97798fb2a84e84a0a66e98310d75cad2b5a572ce0f9f15a7", size = 732892, upload-time = "2026-11-25T21:51:24Z" },
-]
-
-[[package]]
 name = "referencing"
 version = "0.37.0"
 source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
@@ -1951,28 +1294,6 @@ wheels = [
 ]
 
 [[package]]
-name = "restrictedpython"
-version = "8.5"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/restrictedpython/8.5/restrictedpython-8.5.tar.gz", hash = "sha256:4ed1269dbe3caa88db650d1af325198a952aeb1451eca05df0cfa65db4466215", size = 455879, upload-time = "2026-08-19T07:02:10Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/restrictedpython/8.5/restrictedpython-8.5-py3-none-any.whl", hash = "sha256:6c70e0a3af13e830d37225788cdc8ab5804a8df4b500c135086eaef34b5c01e0", size = 30962, upload-time = "2026-11-25T21:51:17Z" },
-]
-
-[[package]]
-name = "rich"
-version = "13.9.4"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-dependencies = [
-    { name = "markdown-it-py" },
-    { name = "pygments" },
-]
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/rich/13.9.4/rich-13.9.4.tar.gz", hash = "sha256:439594978a49a09530cff7ebc4b5c7103ef57baf48d5ea3184f21d9a2befa098", size = 223149, upload-time = "2024-11-01T16:43:57Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/rich/13.9.4/rich-13.9.4-py3-none-any.whl", hash = "sha256:6049d5e6ec054bf2779ab3358186963bac2ea89175919d699e378b99738c2a90", size = 242424, upload-time = "2024-11-02T15:45:22Z" },
-]
-
-[[package]]
 name = "rpds-py"
 version = "2026.9.1"
 source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
@@ -2023,20 +1344,6 @@ wheels = [
 ]
 
 [[package]]
-name = "rq"
-version = "2.12.0"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-dependencies = [
-    { name = "click" },
-    { name = "croniter" },
-    { name = "redis" },
-]
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/rq/2.12/rq-2.12.0.tar.gz", hash = "sha256:78116d0c860f6285817b52d7d6d0b16a726372073ce8ea1d229732ce74ef9378", size = 760892, upload-time = "2026-08-30T12:05:25Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/rq/2.12/rq-2.12.0-py3-none-any.whl", hash = "sha256:97e349a00e9f2a18962102b3dca156cb5ce315d3ef38145e24ba9cabd16a9361", size = 127957, upload-time = "2026-11-25T21:51:17Z" },
-]
-
-[[package]]
 name = "s3transfer"
 version = "0.19.3"
 source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
@@ -2046,24 +1353,6 @@ dependencies = [
 sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/s3transfer/0.19.3/s3transfer-0.19.3.tar.gz", hash = "sha256:8326acc3d056d7f7b8a37110c7d2aea41f67e83f6ae79cd3b5fbcca34c726406", size = 166087, upload-time = "2026-10-19T19:19:49Z" }
 wheels = [
     { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/s3transfer/0.19.3/s3transfer-0.19.3-py3-none-any.whl", hash = "sha256:24eb7535804306355e31c952a90022bf5b2f9d760f9a11062c7493a217c08553", size = 90252, upload-time = "2026-10-29T07:43:11Z" },
-]
-
-[[package]]
-name = "semver"
-version = "3.1.2"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/semver/3.1.2/semver-3.1.2.tar.gz", hash = "sha256:bea193552413194252d33ff26ce0962b76669bd1c6fb17e8e203ac37f072feaf", size = 293659, upload-time = "2026-11-15T17:01:42Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/semver/3.1.2/semver-3.1.2-py3-none-any.whl", hash = "sha256:45d107c3fa880910441dfab9d555046cba2829a25feeadfe4a1566439635c510", size = 19100, upload-time = "2026-11-25T21:51:17Z" },
-]
-
-[[package]]
-name = "simpleeval"
-version = "1.0.8"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/simpleeval/1.0.8/simpleeval-1.0.8.tar.gz", hash = "sha256:b417f869c11f2de034eb919820a825f35d12ce99f63a43971947ce73679eb9ba", size = 31846, upload-time = "2026-09-12T10:16:08Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/simpleeval/1.0.8/simpleeval-1.0.8-py3-none-any.whl", hash = "sha256:c9c4ff42879ebf0c05f6562cb81031869948916be343bcc950b81fcc081fe9ce", size = 18925, upload-time = "2026-11-25T21:51:20Z" },
 ]
 
 [[package]]
@@ -2082,27 +1371,6 @@ source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPy
 sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/sniffio/1.3.1/sniffio-1.3.1.tar.gz", hash = "sha256:f4324edc670a0f49750a81b895f35c3adb843cca46f0530f79fc1babb23789dc", size = 20372, upload-time = "2024-02-25T23:20:04Z" }
 wheels = [
     { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/sniffio/1.3.1/sniffio-1.3.1-py3-none-any.whl", hash = "sha256:2f6da418d1f1e0fddd844478f41680e794e6051915791a034ff65e5f100525a2", size = 10235, upload-time = "2024-02-26T09:40:00Z" },
-]
-
-[[package]]
-name = "soundfile"
-version = "0.14.0"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-dependencies = [
-    { name = "cffi" },
-    { name = "numpy" },
-    { name = "typing-extensions" },
-]
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/soundfile/0.14/soundfile-0.14.0.tar.gz", hash = "sha256:ba1c1a2d618bca5c406647c83b89f07cc8810fa506a50622a6993ba130c1de11", size = 47842, upload-time = "2026-06-06T08:58:47Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/soundfile/0.14/soundfile-0.14.0-py2.py3-none-any.whl", hash = "sha256:8ba81ae3a89fd5ab3bef8a8eb481fbbe794e806309675a89b4df48b8d31908a8", size = 26799, upload-time = "2026-10-05T21:46:23Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/soundfile/0.14/soundfile-0.14.0-py2.py3-none-macosx_10_9_x86_64.whl", hash = "sha256:19be05428da76ed61a4cad29b8e4bcf43a3e5c100089d2ec81dc961eed1b0dd4", size = 1144568, upload-time = "2026-06-06T08:58:35Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/soundfile/0.14/soundfile-0.14.0-py2.py3-none-macosx_11_0_arm64.whl", hash = "sha256:d828d35a059626da52f1415b5faee610aeab393319cb3fc4a9aef47b619fc14c", size = 1103726, upload-time = "2026-10-02T15:09:46Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/soundfile/0.14/soundfile-0.14.0-py2.py3-none-manylinux_2_28_aarch64.whl", hash = "sha256:e85724a90bc99a6e8062c0b4ddf725f53b2a3b70afd4da875e9d2cfc4e92f377", size = 1238050, upload-time = "2026-06-06T08:58:39Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/soundfile/0.14/soundfile-0.14.0-py2.py3-none-manylinux_2_28_x86_64.whl", hash = "sha256:1e38bac1853412871318e82a1ba69a8be677619b56025bbfcccdb41b6cafe82d", size = 1315963, upload-time = "2026-11-25T21:54:14Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/soundfile/0.14/soundfile-0.14.0-py2.py3-none-win32.whl", hash = "sha256:0a6ae43c50c71b4e020cc55382925cb89451c1ed1a0c3d0f5d802da269226849", size = 902199, upload-time = "2026-06-06T08:58:43Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/soundfile/0.14/soundfile-0.14.0-py2.py3-none-win_amd64.whl", hash = "sha256:299491d3499460fb1b74bb4bd78b57ffc2d243a5fafa7b6ec1b264875c78453e", size = 1021480, upload-time = "2026-06-06T08:58:45Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/soundfile/0.14/soundfile-0.14.0-py2.py3-none-win_arm64.whl", hash = "sha256:e090704718e124e7c844695236f1fce8d18a5e761eaf7c82dfcd124620805f98", size = 888858, upload-time = "2026-06-06T08:58:46Z" },
 ]
 
 [[package]]
@@ -2185,15 +1453,6 @@ wheels = [
 ]
 
 [[package]]
-name = "tomlkit"
-version = "0.15.3"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/tomlkit/0.15.3/tomlkit-0.15.3.tar.gz", hash = "sha256:b3c3020ec1a4bd469d12e31fb4da938e7f6ba758cdbec3fd9047db63120eaf81", size = 204435, upload-time = "2026-11-24T07:21:10Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/tomlkit/0.15.3/tomlkit-0.15.3-py3-none-any.whl", hash = "sha256:a83ce6de3b648e68dd9b50aabadad749ba823eb58b1d026f3c0a283c4767a9c1", size = 55467, upload-time = "2026-11-24T09:36:21Z" },
-]
-
-[[package]]
 name = "tqdm"
 version = "4.70.1"
 source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
@@ -2236,27 +1495,6 @@ wheels = [
 ]
 
 [[package]]
-name = "tzdata"
-version = "2026.6"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/tzdata/2026.6/tzdata-2026.6.tar.gz", hash = "sha256:85d2cd9c09f81f0bb29db27759fc83af4f1e620efb814f8c5bf8b4cc4feece6d", size = 201017, upload-time = "2026-10-28T09:57:09Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/tzdata/2026.6/tzdata-2026.6-py2.py3-none-any.whl", hash = "sha256:0a10eec6e13ef16b627fabed9a5f2ba61a62b1c67f327305f4e7e412a70b4aec", size = 348210, upload-time = "2026-10-28T15:35:14Z" },
-]
-
-[[package]]
-name = "tzlocal"
-version = "5.4.5"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-dependencies = [
-    { name = "tzdata", marker = "sys_platform == 'win32'" },
-]
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/tzlocal/5.4.5/tzlocal-5.4.5.tar.gz", hash = "sha256:ba976898bad27945178c9ca25c222c19e322b30c10342b9f40b46714f70d2d5f", size = 31483, upload-time = "2026-10-22T09:09:26Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/tzlocal/5.4.5/tzlocal-5.4.5-py3-none-any.whl", hash = "sha256:ecab534f6d65d9deb4c4ea52c121ab6dd5958e9b878e71dcb102578269752454", size = 18215, upload-time = "2026-10-23T08:17:47Z" },
-]
-
-[[package]]
 name = "urllib3"
 version = "2.8.0"
 source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
@@ -2276,46 +1514,6 @@ dependencies = [
 sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/uvicorn/0.54/uvicorn-0.54.0.tar.gz", hash = "sha256:a2e33cbfaa0306f8e6b0c13e0cb89d7d7a2da3e62b90c66e18c33d9807b28620", size = 112283, upload-time = "2026-09-25T06:52:37Z" }
 wheels = [
     { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/uvicorn/0.54/uvicorn-0.54.0-py3-none-any.whl", hash = "sha256:505bdb0f318731d45f1f712071fc781a8981f6847a31c902c9f5e652d4f67faf", size = 87427, upload-time = "2026-09-25T20:46:57Z" },
-]
-
-[[package]]
-name = "uvloop"
-version = "0.23.0"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/uvloop/0.23/uvloop-0.23.0.tar.gz", hash = "sha256:28d160f51ab4da3b187063652e643dea6831072add4adc1e6d62afbe73b6be27", size = 2559185, upload-time = "2026-10-01T03:17:04Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/uvloop/0.23/uvloop-0.23.0-cp312-cp312-macosx_10_13_universal2.whl", hash = "sha256:93935ab27b6eaef4c3e5489aebc84284f0644592f7ab516df60ee1b27eaf5eb3", size = 1393055, upload-time = "2026-10-19T14:13:26Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/uvloop/0.23/uvloop-0.23.0-cp312-cp312-macosx_10_13_x86_64.whl", hash = "sha256:4448e9124537620f9c25d004c227bb5104440b58955c19bbd312d910af919a63", size = 768909, upload-time = "2026-10-01T03:15:43Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/uvloop/0.23/uvloop-0.23.0-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:f7548ede3ee908cfabc0d068106e303a9a2d811af959cdf6ab85676344cedcda", size = 4419106, upload-time = "2026-10-01T03:15:45Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/uvloop/0.23/uvloop-0.23.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:090865d8ce7a03986755a3ce711b7dd0d4b44eb14ab74368b717f3fad1180208", size = 4532597, upload-time = "2026-10-19T14:13:33Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/uvloop/0.23/uvloop-0.23.0-cp312-cp312-musllinux_1_2_aarch64.whl", hash = "sha256:bd6f2f81c7b9da99d301c0b16b82044e76fe887086e42e1590ecf520b94dbdac", size = 4230048, upload-time = "2026-10-01T03:15:49Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/uvloop/0.23/uvloop-0.23.0-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:a6ac96da66c35bf789bdcde78a88dc7d56b7907d8379648c54adc1c61594575d", size = 4394152, upload-time = "2026-10-01T03:15:50Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/uvloop/0.23/uvloop-0.23.0-cp313-cp313-macosx_10_13_universal2.whl", hash = "sha256:2dcff2d69be43e6559e5dad2c5a7a2dbfb60e05a77311b6c4b7a4a8123d86c65", size = 1412726, upload-time = "2026-10-29T09:01:13Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/uvloop/0.23/uvloop-0.23.0-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:19c64108b507cd0bc140e400e3396bacebd9d504956aa7726272bf6de7d9aabb", size = 779071, upload-time = "2026-10-01T03:15:54Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/uvloop/0.23/uvloop-0.23.0-cp313-cp313-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:1748321e3c59a14a75404b1ae8d5a8d81c4e201803ea0e14c1b6fd84421024b5", size = 4395323, upload-time = "2026-10-01T03:15:55Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/uvloop/0.23/uvloop-0.23.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:e2cba180d6451822763eda8364f342435a873bcfb3849cbd82fdeca248ca65eb", size = 4480449, upload-time = "2026-10-29T09:01:17Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/uvloop/0.23/uvloop-0.23.0-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "sha256:dc61e4f9e37b507069dc7e659ae28bca7adcb04c993c3508214315d12c63f848", size = 4219177, upload-time = "2026-10-01T03:15:59Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/uvloop/0.23/uvloop-0.23.0-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:7337b06a9f9ed9ea3049f04b76f65819db9b19bb832ee598e97b388eadf25e5f", size = 4346132, upload-time = "2026-10-01T03:16:01Z" },
-]
-
-[[package]]
-name = "wcwidth"
-version = "0.9.5"
-source = { registry = "https://basf4dev.pkgs.visualstudio.com/_packaging/ArgusPyPI/pypi/simple/" }
-sdist = { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/wcwidth/0.9.5/wcwidth-0.9.5.tar.gz", hash = "sha256:713534e2ecb16e0fc39f19e0a5dda997da76d010953e9e8f803e7971f8accd80", size = 1020887, upload-time = "2026-11-21T21:40:03Z" }
-wheels = [
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/wcwidth/0.9.5/wcwidth-0.9.5-cp310-abi3-macosx_10_9_x86_64.whl", hash = "sha256:020031ef4b8d11c8f3247103b9fb9ea5adea7474ed2bb0a3beeb1633c6ab00e6", size = 634579, upload-time = "2026-11-25T21:51:26Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/wcwidth/0.9.5/wcwidth-0.9.5-cp310-abi3-macosx_11_0_arm64.whl", hash = "sha256:a7e0ccc62c7171a8f6b47f7127559e8d9fbfa36d36dfffefb409655dd669717d", size = 640980, upload-time = "2026-11-21T21:39:20Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/wcwidth/0.9.5/wcwidth-0.9.5-cp310-abi3-manylinux1_i686.manylinux2014_i686.manylinux_2_17_i686.manylinux_2_5_i686.whl", hash = "sha256:34964815cfb6e11bc1600d0c7e1ae483c8377b88717c2e7f86f243033e10e2ee", size = 814324, upload-time = "2026-11-21T21:39:22Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/wcwidth/0.9.5/wcwidth-0.9.5-cp310-abi3-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:a631629c8a131f7fa58c99bc0630f7011bcdc385146b1ebac9d74becba2b6a90", size = 826581, upload-time = "2026-11-21T21:39:23Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/wcwidth/0.9.5/wcwidth-0.9.5-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:61ffb194ccf2224ff552b46912aa44f1bc841f8ef751b193335b317a286b7c03", size = 822732, upload-time = "2026-11-25T21:54:14Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/wcwidth/0.9.5/wcwidth-0.9.5-cp310-abi3-musllinux_1_2_aarch64.whl", hash = "sha256:6ac35755bb1748b2e36f9ea758e90da251824d530b5fe46fb7a68b9d1ba2d985", size = 836137, upload-time = "2026-11-21T21:39:26Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/wcwidth/0.9.5/wcwidth-0.9.5-cp310-abi3-musllinux_1_2_i686.whl", hash = "sha256:ff7b3f3d69c38a45840349ad8d33e61d7ebaf0f2cd74b659f8baf5660d807f39", size = 830918, upload-time = "2026-11-21T21:39:28Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/wcwidth/0.9.5/wcwidth-0.9.5-cp310-abi3-musllinux_1_2_x86_64.whl", hash = "sha256:76523d4013b1373b74654b19f4c68ce2af2deb00bacdd7ef497403eeeaff2ec6", size = 835962, upload-time = "2026-11-21T21:39:30Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/wcwidth/0.9.5/wcwidth-0.9.5-cp310-abi3-win32.whl", hash = "sha256:f94b1c6d1252013826756c395279738d75386a7a06b3262900ac7c2719fafed4", size = 615657, upload-time = "2026-11-21T21:39:31Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/wcwidth/0.9.5/wcwidth-0.9.5-cp310-abi3-win_amd64.whl", hash = "sha256:83392b339571c9f1161a360079229c65099c96801433fb71757ab183ce9742b0", size = 619979, upload-time = "2026-11-25T12:40:14Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/wcwidth/0.9.5/wcwidth-0.9.5-cp310-abi3-win_arm64.whl", hash = "sha256:775076a8da66a9cea8e135331800ee2aa579d6898c23745ab7f19d1d637388e6", size = 619901, upload-time = "2026-11-21T21:39:34Z" },
-    { url = "https://basf4dev.pkgs.visualstudio.com/_packaging/af930456-9310-433d-9e40-595d61a1e8de/pypi/download/wcwidth/0.9.5/wcwidth-0.9.5-py3-none-any.whl", hash = "sha256:ef205150ff317032d633de2d8ca26d03dc8d5ba6a00294f6acfd1d0cfe1365d6", size = 329353, upload-time = "2026-11-25T12:33:23Z" },
 ]
 
 [[package]]

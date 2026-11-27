@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 
 import pytest
@@ -14,19 +15,17 @@ from ledgerlingo.config import (
 def test_load_settings_from_dotenv_file(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     env_file = tmp_path / ".env"
     env_file.write_text(
-        "LITELLM_PROXY_URL=http://localhost:4000/v1\n"
-        "LITELLM_PROXY_API_KEY=proxy-secret\n"
-        "MODEL_NAME=local-model\n",
+        "OPENAI_API_KEY=provider-secret\n"
+        "MODEL_NAME=openai/gpt-4o-mini\n",
         encoding="utf-8",
     )
-    for key in ("LITELLM_PROXY_URL", "LITELLM_PROXY_API_KEY", "MODEL_NAME"):
+    for key in ("OPENAI_API_KEY", "MODEL_NAME"):
         monkeypatch.delenv(key, raising=False)
 
     settings = load_settings(env_file)
 
-    assert str(settings.proxy_url) == "http://localhost:4000/v1"
-    assert settings.proxy_api_key.get_secret_value() == "proxy-secret"
-    assert settings.model_name == "local-model"
+    assert settings.model_name == "openai/gpt-4o-mini"
+    assert os.environ["OPENAI_API_KEY"] == "provider-secret"
 
 
 def test_load_settings_reports_missing_required_values_safely(
@@ -34,14 +33,12 @@ def test_load_settings_reports_missing_required_values_safely(
 ) -> None:
     env_file = tmp_path / ".env"
     env_file.write_text("", encoding="utf-8")
-    for key in ("LITELLM_PROXY_URL", "LITELLM_PROXY_API_KEY", "MODEL_NAME"):
+    for key in ("OPENAI_API_KEY", "MODEL_NAME"):
         monkeypatch.delenv(key, raising=False)
 
     with pytest.raises(SettingsError) as error:
         load_settings(env_file)
 
-    assert "LITELLM_PROXY_URL" in str(error.value)
-    assert "LITELLM_PROXY_API_KEY" in str(error.value)
     assert "MODEL_NAME" in str(error.value)
     assert "input_value" not in str(error.value)
 
@@ -51,18 +48,17 @@ def test_load_settings_does_not_expose_secret_on_validation_error(
 ) -> None:
     env_file = tmp_path / ".env"
     env_file.write_text(
-        "LITELLM_PROXY_URL=not-a-url\n"
-        "LITELLM_PROXY_API_KEY=must-not-leak\n"
-        "MODEL_NAME=local-model\n",
+        "OPENAI_API_KEY=must-not-leak\n"
+        "MODEL_NAME=\n",
         encoding="utf-8",
     )
-    for key in ("LITELLM_PROXY_URL", "LITELLM_PROXY_API_KEY", "MODEL_NAME"):
+    for key in ("OPENAI_API_KEY", "MODEL_NAME"):
         monkeypatch.delenv(key, raising=False)
 
     with pytest.raises(SettingsError) as error:
         load_settings(env_file)
 
-    assert "LITELLM_PROXY_URL" in str(error.value)
+    assert "MODEL_NAME" in str(error.value)
     assert "must-not-leak" not in str(error.value)
 
 

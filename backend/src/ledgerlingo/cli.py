@@ -3,15 +3,13 @@ import asyncio
 from collections.abc import Sequence
 
 from ledgerlingo.agent import AgentError
-from ledgerlingo.client import create_client
 from ledgerlingo.config import SettingsError, load_settings
 from ledgerlingo.orchestrator import process_question
 
 
 async def _run_question(question: str) -> str:
     settings = load_settings()
-    async with create_client(settings) as client:
-        return await process_question(question, settings, client)
+    return await process_question(question, settings)
 
 
 def main(argv: Sequence[str] | None = None) -> int:

@@ -9,8 +9,8 @@
 ## Layer 2 — LedgerLingoAI
 
 - Pytest units live under `backend/tests/unit/`; run from `backend/` with `uv run --locked python -m pytest`.
-- Keep unit tests offline. Mock model responses and external I/O; do not require a LiteLLM Proxy process or provider credentials.
-- Test async client cleanup and `@function_tool` dispatch, argument validation, failures, and the bounded loop with mocked model calls.
+- Keep unit tests offline. Mock LiteLLM model calls and external I/O; do not require provider credentials or a proxy process.
+- Test configured model routing, `@function_tool` dispatch, argument validation, provider failures, and the bounded loop with mocked model calls.
 - Keep tests and development dependencies in the `dev` group in `backend/pyproject.toml`; `backend/uv.lock` is the authoritative resolution.
 - Test the one-shot caller contract: one English question per invocation, internal tool iterations, one English final response, clarification/unsupported/failure outcomes without waiting for another input, and no reuse of a prior question or response.
-- Use a local proxy health check for proxy configuration; live provider/model calls are optional smoke tests only when credentials and a route are configured.
+- Live provider/model calls are optional smoke tests only when provider credentials are configured.

@@ -32,10 +32,8 @@ def _response(content: str | None = None, tool_calls: tuple = ()) -> SimpleNames
     return SimpleNamespace(choices=[SimpleNamespace(message=message)])
 
 
-def _model_client(*responses: SimpleNamespace) -> Mock:
-    client = Mock()
-    client.chat.completions.create = AsyncMock(side_effect=responses)
-    return client
+def _model_client(*responses: SimpleNamespace) -> AsyncMock:
+    return AsyncMock(side_effect=responses)
 
 
 @function_tool
@@ -51,7 +49,7 @@ def test_run_agent_returns_final_model_output() -> None:
     answer = asyncio.run(run_agent("What is the answer?", settings, client))
 
     assert answer == "The answer is 42."
-    client.chat.completions.create.assert_awaited_once()
+    client.assert_awaited_once()
 
 
 def test_run_agent_dispatches_decorated_tool_and_sends_result() -> None:
@@ -61,7 +59,7 @@ def test_run_agent_dispatches_decorated_tool_and_sends_result() -> None:
     answer = asyncio.run(run_agent("Find this value.", settings, client, tools=(lookup,)))
 
     assert answer == "Found it."
-    calls = client.chat.completions.create.call_args_list
+    calls = client.call_args_list
     advertised = calls[0].kwargs["tools"][0]["function"]
     assert advertised["name"] == "lookup"
     assert advertised["description"] == lookup.description
@@ -84,7 +82,7 @@ def test_run_agent_converts_structured_text_tool_output() -> None:
         run_agent("Question?", SimpleNamespace(model_name="test-model"), client, tools=(text_tool,))
     )
 
-    assert client.chat.completions.create.call_args_list[1].kwargs["messages"][-1]["content"] == "value"
+    assert client.call_args_list[1].kwargs["messages"][-1]["content"] == "value"
 
 
 def test_run_agent_passes_sdk_tool_context_and_serializes_dict() -> None:
@@ -99,7 +97,7 @@ def test_run_agent_passes_sdk_tool_context_and_serializes_dict() -> None:
     asyncio.run(
         run_agent("Question?", SimpleNamespace(model_name="test-model"), client, tools=(contextual,))
     )
-    result = client.chat.completions.create.call_args_list[1].kwargs["messages"][-1]["content"]
+    result = client.call_args_list[1].kwargs["messages"][-1]["content"]
     assert json.loads(result) == {"key": "value", "call_id": "call-1"}
 
 
@@ -191,7 +189,7 @@ def test_tool_failure_is_raised_not_returned_as_model_result() -> None:
         asyncio.run(
             run_agent("Question?", SimpleNamespace(model_name="test-model"), client, tools=(broken,))
         )
-    client.chat.completions.create.assert_awaited_once()
+    client.assert_awaited_once()
 
 
 def test_run_agent_rejects_unsupported_runner_features() -> None:

@@ -1,10 +1,11 @@
 import asyncio
 from types import SimpleNamespace
-from unittest.mock import AsyncMock, Mock
+from unittest.mock import AsyncMock
 
 from agents import function_tool
 
 from ledgerlingo.agent import PROCESSING_FAILURE_RESPONSE, answer_question, run_agent
+from ledgerlingo.client import ModelProviderError
 
 
 def _response(content: str | None = None, tool_calls: tuple = ()) -> SimpleNamespace:
@@ -12,10 +13,8 @@ def _response(content: str | None = None, tool_calls: tuple = ()) -> SimpleNames
     return SimpleNamespace(choices=[SimpleNamespace(message=message)])
 
 
-def _model_client(*responses: SimpleNamespace) -> Mock:
-    client = Mock()
-    client.chat.completions.create = AsyncMock(side_effect=responses)
-    return client
+def _model_client(*responses: SimpleNamespace) -> AsyncMock:
+    return AsyncMock(side_effect=responses)
 
 
 def test_invocation_sends_english_instruction_and_returns_english_fixture() -> None:
@@ -27,11 +26,11 @@ def test_invocation_sends_english_instruction_and_returns_english_fixture() -> N
     answer = asyncio.run(run_agent(question, settings, client))
 
     assert answer == fixture
-    messages = client.chat.completions.create.call_args.kwargs["messages"]
+    messages = client.call_args.kwargs["messages"]
     assert messages[0]["role"] == "system"
     assert "English" in messages[0]["content"]
     assert messages[1] == {"role": "user", "content": question}
-    assert client.chat.completions.create.await_count == 1
+    assert client.await_count == 1
 
 
 def _tool_call(
@@ -71,13 +70,13 @@ def test_multiple_internal_tool_steps_return_one_caller_result() -> None:
         _response(fixture),
     ]
     captured_messages = []
-    client = Mock()
+    client = AsyncMock()
 
-    async def create(**kwargs):
-        captured_messages.append(list(kwargs["messages"]))
+    async def create(settings, messages, **kwargs):
+        captured_messages.append(list(messages))
         return responses[len(captured_messages) - 1]
 
-    client.chat.completions.create = AsyncMock(side_effect=create)
+    client.side_effect = create
     settings = SimpleNamespace(model_name="test-model")
 
     answer = asyncio.run(
@@ -117,7 +116,7 @@ def test_clarification_returns_one_english_response_without_waiting() -> None:
     )
 
     assert answer == fixture
-    assert client.chat.completions.create.await_count == 1
+    assert client.await_count == 1
 
 
 def test_unsupported_question_returns_one_english_response_without_waiting() -> None:
@@ -133,7 +132,7 @@ def test_unsupported_question_returns_one_english_response_without_waiting() -> 
     )
 
     assert answer == fixture
-    assert client.chat.completions.create.await_count == 1
+    assert client.await_count == 1
 
 
 def test_processing_failure_returns_english_outcome_not_unvalidated_answer() -> None:
@@ -147,7 +146,22 @@ def test_processing_failure_returns_english_outcome_not_unvalidated_answer() -> 
 
     assert answer == PROCESSING_FAILURE_RESPONSE
     assert "EBITDA" not in answer
-    assert client.chat.completions.create.await_count == 1
+    assert client.await_count == 1
+
+
+def test_provider_failure_returns_safe_processing_outcome() -> None:
+    client = AsyncMock(side_effect=ModelProviderError("provider details"))
+
+    answer = asyncio.run(
+        answer_question(
+            "What is EBITDA?",
+            SimpleNamespace(model_name="test-model"),
+            client,
+        )
+    )
+
+    assert answer == PROCESSING_FAILURE_RESPONSE
+    assert "provider details" not in answer
 
 
 def test_consecutive_invocations_do_not_reuse_prior_question_or_response() -> None:
@@ -157,13 +171,13 @@ def test_consecutive_invocations_do_not_reuse_prior_question_or_response() -> No
     second_fixture = "EBITDA for 2024 is 10."
     captured_messages = []
     responses = [_response(first_fixture), _response(second_fixture)]
-    client = Mock()
+    client = AsyncMock()
 
-    async def create(**kwargs):
-        captured_messages.append(list(kwargs["messages"]))
+    async def create(settings, messages, **kwargs):
+        captured_messages.append(list(messages))
         return responses[len(captured_messages) - 1]
 
-    client.chat.completions.create = AsyncMock(side_effect=create)
+    client.side_effect = create
     settings = SimpleNamespace(model_name="test-model")
 
     first_answer = asyncio.run(answer_question(first_question, settings, client))

@@ -1,21 +1,43 @@
-from unittest.mock import patch
+import asyncio
+from unittest.mock import AsyncMock
 
-from ledgerlingo.client import create_client
+import pytest
+from openai import OpenAIError
+
+from ledgerlingo.client import ModelProviderError, complete_model
 from ledgerlingo.config import Settings
 
 
-def test_create_client_uses_proxy_endpoint_and_credential() -> None:
-    settings = Settings(
-        proxy_url="http://localhost:4000/v1",
-        proxy_api_key="local-proxy-key",
-        model_name="ledgerlingo-local",
+def test_complete_model_uses_configured_provider_and_model() -> None:
+    settings = Settings(model_name="openai/gpt-4o-mini")
+    messages = [{"role": "user", "content": "What is the answer?"}]
+    response = object()
+    completion = AsyncMock(return_value=response)
+
+    result = asyncio.run(
+        complete_model(settings, messages, completion=completion)
     )
 
-    with patch("ledgerlingo.client.AsyncOpenAI") as openai_client:
-        client = create_client(settings)
-
-    openai_client.assert_called_once_with(
-        base_url="http://localhost:4000/v1",
-        api_key="local-proxy-key",
+    completion.assert_awaited_once_with(
+        model="openai/gpt-4o-mini",
+        messages=messages,
     )
-    assert client is openai_client.return_value
+    assert result is response
+
+
+def test_complete_model_redacts_provider_error_details() -> None:
+    completion = AsyncMock(side_effect=OpenAIError("provider-secret-detail"))
+
+    with pytest.raises(
+        ModelProviderError,
+        match="The configured model provider request failed.",
+    ) as error:
+        asyncio.run(
+            complete_model(
+                Settings(model_name="openai/gpt-4o-mini"),
+                [{"role": "user", "content": "Question?"}],
+                completion=completion,
+            )
+        )
+
+    assert "provider-secret-detail" not in str(error.value)

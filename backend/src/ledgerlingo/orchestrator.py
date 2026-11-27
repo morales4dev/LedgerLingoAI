@@ -1,5 +1,3 @@
-from openai import AsyncOpenAI
-
 from ledgerlingo.agent import (
     AgentConfigurationError,
     AgentError,
@@ -8,6 +6,7 @@ from ledgerlingo.agent import (
     interpret_query,
 )
 from ledgerlingo.calculator import calculate
+from ledgerlingo.client import CompletionCall, complete_model
 from ledgerlingo.config import Settings
 from ledgerlingo.models import QueryInterpretation
 from ledgerlingo.reporting import report_result
@@ -17,7 +16,7 @@ from ledgerlingo.validation import validate_query
 async def process_question(
     question: str,
     settings: Settings,
-    client: AsyncOpenAI,
+    client: CompletionCall = complete_model,
 ) -> str:
     """Orchestrate one independent question and return one English response."""
     try:

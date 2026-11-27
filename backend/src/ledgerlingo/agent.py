@@ -8,7 +8,6 @@ from agents.tool import set_function_tool_failure_error_function
 from agents.tool_context import ToolContext
 from jsonschema import Draft202012Validator
 from jsonschema.exceptions import SchemaError
-from openai import AsyncOpenAI
 from openai.types.chat import (
     ChatCompletionAssistantMessageParam,
     ChatCompletionMessageFunctionToolCallParam,
@@ -17,6 +16,7 @@ from openai.types.chat import (
 )
 from pydantic import ValidationError
 
+from ledgerlingo.client import CompletionCall, complete_model
 from ledgerlingo.config import Settings
 from ledgerlingo.models import QueryInterpretation
 
@@ -66,7 +66,7 @@ class AgentLoopLimitError(AgentError):
 async def interpret_query(
     question: str,
     settings: Settings,
-    client: AsyncOpenAI,
+    client: CompletionCall = complete_model,
 ) -> QueryInterpretation:
     """Return a structured query or a clarification for one question."""
     content = await run_agent(
@@ -86,7 +86,7 @@ async def interpret_query(
 async def answer_question(
     question: str,
     settings: Settings,
-    client: AsyncOpenAI,
+    client: CompletionCall = complete_model,
     tools: Sequence[FunctionTool] = (),
 ) -> str:
     """Return one English result for an independent MVP invocation."""
@@ -107,7 +107,7 @@ async def answer_question(
 async def run_agent(
     question: str,
     settings: Settings,
-    client: AsyncOpenAI,
+    client: CompletionCall = complete_model,
     tools: Sequence[FunctionTool] = (),
     *,
     system_prompt: str = DEFAULT_SYSTEM_PROMPT,
@@ -180,16 +180,14 @@ async def run_agent(
                 }
                 for tool in tools
             ]
-            completion = await client.chat.completions.create(
-                model=settings.model_name,
+            completion = await client(
+                settings,
                 messages=messages,
                 tools=advertised_tools,
                 tool_choice="auto",
             )
         else:
-            completion = await client.chat.completions.create(
-                model=settings.model_name, messages=messages
-            )
+            completion = await client(settings, messages=messages)
         choices = getattr(completion, "choices", None)
         if not choices:
             raise InvalidModelResponseError("The model response contained no choices.")

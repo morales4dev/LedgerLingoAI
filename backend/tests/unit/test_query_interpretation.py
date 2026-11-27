@@ -1,6 +1,6 @@
 import asyncio
 from types import SimpleNamespace
-from unittest.mock import AsyncMock, Mock
+from unittest.mock import AsyncMock
 
 import pytest
 
@@ -11,12 +11,10 @@ from ledgerlingo.models import (
 )
 
 
-def _client(content: str) -> Mock:
+def _client(content: str) -> AsyncMock:
     message = SimpleNamespace(content=content, tool_calls=None)
     completion = SimpleNamespace(choices=[SimpleNamespace(message=message)])
-    client = Mock()
-    client.chat.completions.create = AsyncMock(return_value=completion)
-    return client
+    return AsyncMock(return_value=completion)
 
 
 def test_interpret_query_returns_structured_query_from_model_json() -> None:
@@ -33,7 +31,7 @@ def test_interpret_query_returns_structured_query_from_model_json() -> None:
         kind="query",
         query=StructuredQuery(metric="revenue", period="2024"),
     )
-    request = client.chat.completions.create.call_args.kwargs
+    request = client.call_args.kwargs
     assert request["messages"][1] == {"role": "user", "content": question}
     assert "tools" not in request
 

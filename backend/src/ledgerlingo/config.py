@@ -3,7 +3,7 @@ from typing import TypeVar
 
 import yaml
 from dotenv import load_dotenv
-from pydantic import AnyHttpUrl, BaseModel, Field, SecretStr, ValidationError
+from pydantic import BaseModel, Field, ValidationError
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -21,14 +21,10 @@ class Settings(BaseSettings):
         populate_by_name=True,
     )
 
-    proxy_url: AnyHttpUrl = Field(validation_alias="LITELLM_PROXY_URL")
-    proxy_api_key: SecretStr = Field(validation_alias="LITELLM_PROXY_API_KEY")
     model_name: str = Field(min_length=1, validation_alias="MODEL_NAME")
 
 
 _SETTING_ENV_NAMES = {
-    "proxy_url": "LITELLM_PROXY_URL",
-    "proxy_api_key": "LITELLM_PROXY_API_KEY",
     "model_name": "MODEL_NAME",
 }
 

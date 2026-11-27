@@ -17,7 +17,7 @@
 - Layout: importable core under `backend/src/ledgerlingo/`, tests under `backend/tests/unit/`, environment at `backend/.venv`.
 - Declare direct dependencies and supported Python versions in `backend/pyproject.toml`; keep `backend/uv.lock` committed and use `uv sync --locked`.
 - Supported Python range is `>=3.12,<3.14`.
-- Use `AsyncOpenAI` against the LiteLLM Proxy. Close the client before the event loop exits; the CLI starts the loop once. Keep provider-specific routing and provider credentials on the proxy side.
+- Use LiteLLM's async Python SDK directly for model calls, with a provider/model identifier in runtime configuration and provider credentials in environment variables. The CLI starts the event loop once; no separate proxy client lifecycle is required.
 - Use `pydantic-settings` and `python-dotenv` for environment-backed settings; use PyYAML's safe loader before Pydantic validation.
 - Keep orchestration explicit in Python, without the Agents SDK Runner. Define typed tools with the Agents SDK's `@function_tool`, dispatch only registered tools, and bound model/tool iterations. Validate each batch before dispatch and propagate tool failures from `run_agent`. The MVP caller uses `answer_question` so one English question yields one English result, including clarification, unsupported, and processing-failure outcomes.
 - Runner-managed approvals, guardrails, dynamic enablement, timeouts, and deferred loading are not supported by the current tool adapter.

@@ -8,9 +8,10 @@ context: |
   and locked in backend/uv.lock; the local environment is backend/.venv.
   The MVP caller submits one English text question per invocation and returns one
   English text response without carrying history between invocations.
-  AsyncOpenAI connects through a separate LiteLLM Proxy. The application owns the
-  bounded orchestration loop and uses Agents SDK @function_tool definitions
-  without the SDK Runner.
+  LiteLLM's async Python SDK calls configured providers directly. Provider/model
+  selection and provider credentials come from environment-backed configuration.
+  The application owns the bounded orchestration loop and uses Agents SDK
+  @function_tool definitions without the SDK Runner.
   Backend unit tests live under backend/tests/unit/ and must run offline.
   Agent constitution: ai-specs/AGENTS.md. Standards: ai-specs/standards/python.md, ai-specs/standards/testing.md, ai-specs/standards/context7.md.
   Product specs: openspec/specs/. Do not invent product specs for tooling-only work.
@@ -18,8 +19,9 @@ context: |
 
 rules:
   proposal:
-    - Stay within the script-first async Python/OpenAI SDK/LiteLLM Proxy architecture;
-      use Agents SDK function tools without delegating orchestration to its Runner.
+    - Stay within the script-first async Python architecture; use LiteLLM's Python
+      SDK directly for provider abstraction and Agents SDK function tools without
+      delegating orchestration to its Runner.
       Do not invent product specs for tooling-only changes.
     - "OS-only / tooling-only changes set skip_specs: true and must not invent product specs."
     - Always include a Non-goals section.

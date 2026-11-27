@@ -11,12 +11,9 @@ def test_main_runs_question_invokes_core_once_and_prints_one_response(
     capsys: pytest.CaptureFixture[str],
 ) -> None:
     settings = object()
-    client = AsyncMock()
-    client.__aenter__.return_value = client
 
     with (
         patch("ledgerlingo.cli.load_settings", return_value=settings),
-        patch("ledgerlingo.cli.create_client", return_value=client),
         patch(
             "ledgerlingo.cli.process_question",
             new_callable=AsyncMock,
@@ -27,19 +24,14 @@ def test_main_runs_question_invokes_core_once_and_prints_one_response(
 
     assert exit_code == 0
     assert capsys.readouterr().out == "The result is 42.\n"
-    process_question.assert_awaited_once_with("What is the result?", settings, client)
-    client.__aexit__.assert_awaited_once()
+    process_question.assert_awaited_once_with("What is the result?", settings)
 
 
-def test_main_prints_one_processing_failure_response_and_closes_client(
+def test_main_prints_one_processing_failure_response(
     capsys: pytest.CaptureFixture[str],
 ) -> None:
-    client = AsyncMock()
-    client.__aenter__.return_value = client
-
     with (
         patch("ledgerlingo.cli.load_settings", return_value=object()),
-        patch("ledgerlingo.cli.create_client", return_value=client),
         patch(
             "ledgerlingo.cli.process_question",
             new_callable=AsyncMock,
@@ -50,14 +42,11 @@ def test_main_prints_one_processing_failure_response_and_closes_client(
 
     assert exit_code == 0
     assert capsys.readouterr().out == f"{PROCESSING_FAILURE_RESPONSE}\n"
-    client.__aexit__.assert_awaited_once()
 
 
-def test_main_closes_client_when_settings_fail(
+def test_main_reports_settings_failure_without_running_core(
     capsys: pytest.CaptureFixture[str],
 ) -> None:
-    client = AsyncMock()
-    client.__aenter__.return_value = client
     with (
         patch(
             "ledgerlingo.cli.load_settings",
@@ -65,13 +54,17 @@ def test_main_closes_client_when_settings_fail(
                 "Invalid settings; check required values: MODEL_NAME."
             ),
         ),
+        patch(
+            "ledgerlingo.cli.process_question",
+            new_callable=AsyncMock,
+        ) as process_question,
         pytest.raises(SystemExit) as error,
     ):
         main(["Question?"])
 
     assert error.value.code == 1
     assert "MODEL_NAME" in capsys.readouterr().err
-    client.__aenter__.assert_not_awaited()
+    process_question.assert_not_awaited()
 
 
 def test_main_requires_a_question(capsys: pytest.CaptureFixture[str]) -> None:
