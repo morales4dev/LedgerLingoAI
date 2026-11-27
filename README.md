@@ -5,42 +5,49 @@ An analytics assistant for turning accounting and general ledger data into actio
 
 LedgerLingoAI is an analytics assistant designed for senior finance professionals, including accounting managers and CFOs. The MVP Python script submits one English text question per invocation and prints one English text response. Internal agent and tool iterations stay inside that invocation; requests do not share question history or interaction state.
 
-It bridges complex accounting and general ledger data with natural-language questions, enabling finance professionals to ask about their financial data and receive directly usable answers and insights.
+The MVP interpreter is limited to a configured catalog of 20 financial metrics, approved dimensions, and normalized reporting periods. It does not yet execute calculations against journal data.
 
-It supports financial data retrieval, period-over-period analysis, financial metric calculation, variance and driver analysis, aging analysis, and dimensional analysis across customers, vendors, business units, and general ledger accounts.
+## MVP analytics scope
+The MVP is designed to interpret supported questions such as:
 
-## What LedgerLingoAI Can Answer
-LedgerLingoAI is designed to answer questions such as:
+1. **Working capital and liquidity**
+   - What are working capital, the current ratio, and the quick ratio for ACME in FY2024?
 
-1. **Accounts Receivable**
-   - What is the current accounts receivable balance, and how has it changed over time?
+2. **Customer receivables**
+   - (*) Which customers have the highest outstanding receivables, and what is the aging of those balances?
 
-2. **Customer Receivables**
-   - Which customers have the highest outstanding receivables, and what is the aging of those balances?
-
-3. **Balance Sheet**
-   - What are the company’s total assets, liabilities, and equity, and how have they evolved over the past few years?
+3. **Balance sheet**
+   - What are net assets and net debt for ACME at the end of FY2024?
 
 4. **EBITDA**
-   - What is the company’s EBITDA, and how has EBITDA changed compared with previous periods?
+   - What is EBITDA for ACME in Q1 2024?
+   - (*) How has EBITDA changed compared with previous periods?
 
 5. **EBITDA Drivers**
-   - What are the main drivers of the change in EBITDA between two periods?
+   - (*) What are the main drivers of the change in EBITDA between two periods?
 
 6. **Cash Flow**
-   - What are the company’s operating, investing, and financing cash flows, and what are the main drivers of change?
+   - What are the company’s operating, investing, and financing cash flows?
+   - (*) What are the main drivers of change?
 
 7. **General Ledger Movements**
-   - Which general ledger accounts have experienced the largest increases or decreases during the current period?
+   - (*) Which general ledger accounts have experienced the largest increases or decreases during the current period?
 
 8. **Revenue and Expenses**
-   - What are the company’s total revenue and operating expenses by month, quarter, or business unit?
+   - What are gross profit, operating profit, and EBITDA by month, quarter, or profit center?
 
 9. **Customer, Vendor, and Business Unit Analysis**
-   - Which customers, vendors, or business units account for the largest share of revenue or expenses?
+   - (*) Which customers or vendors account for the largest share of revenue or expenses?
 
 10. **Financial Indicators**
-    - What are the company’s key financial indicators — such as working capital, current ratio, debt-to-equity, gross margin, and EBITDA margin — based on the accounting data?
+    - What are gross margin, operating margin, EBITDA margin, net profit margin, debt-to-equity, ROA, or ROE for ACME in FY2024?
+
+11. **P&L reconciliation**
+    - What is the untagged P&L reconciliation check for ACME in FY2024?
+
+(*) out of scope of the MVP
+
+Approved dimensions are `company_code`, `cost_center`, `profit_center`, `tax_code`, `fiscal_year`, `fiscal_period`, `posting_date`, and `document_date`. Currency is not an approved dimension; currency treatment remains unresolved.
 
 ## Developer setup
 

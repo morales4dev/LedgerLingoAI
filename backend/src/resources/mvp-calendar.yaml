@@ -1,0 +1,19 @@
+version: "1.0.0"
+
+fiscal_year:
+  start:
+    month: 1
+    day: 1
+  label_year: start
+
+quarter_starts:
+  - month: 1
+    day: 1
+  - month: 4
+    day: 1
+  - month: 7
+    day: 1
+  - month: 10
+    day: 1
+
+default_reporting_period: null

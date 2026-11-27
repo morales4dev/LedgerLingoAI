@@ -1,0 +1,215 @@
+version: "1.0.0"
+
+metrics:
+  gross_profit:
+    name: "Gross Profit"
+    aliases: ["gross profit", "gross operating profit"]
+    kind: derived
+  total_operating_costs:
+    name: "Total Operating Costs"
+    aliases: ["total operating costs", "operating costs"]
+    kind: derived
+  operating_profit:
+    name: "Operating Profit (EBIT)"
+    aliases: ["operating profit", "EBIT", "operating result"]
+    kind: derived
+  ebitda:
+    name: "EBITDA"
+    aliases: ["EBITDA", "earnings before interest, taxes, depreciation and amortization"]
+    kind: derived
+  net_finance_result:
+    name: "Net Finance Income / (Cost)"
+    aliases: ["net finance result", "net finance income", "net finance cost"]
+    kind: derived
+  profit_before_tax:
+    name: "Profit Before Tax (EBT)"
+    aliases: ["profit before tax", "EBT"]
+    kind: derived
+  net_income:
+    name: "Net Income (Profit or Loss)"
+    aliases: ["net income", "profit or loss"]
+    kind: derived
+  net_assets:
+    name: "Net Assets (Total Equity)"
+    aliases: ["net assets", "total equity"]
+    kind: derived
+  working_capital:
+    name: "Net Working Capital"
+    aliases: ["working capital", "net working capital"]
+    kind: derived
+  net_debt:
+    name: "Net Financial Debt"
+    aliases: ["net debt", "net financial debt"]
+    kind: derived
+  gross_margin_pct:
+    name: "Gross Margin (%)"
+    aliases: ["gross margin", "gross margin percentage"]
+    kind: ratio
+  operating_margin_pct:
+    name: "Operating Margin (EBIT %)"
+    aliases: ["operating margin", "EBIT margin"]
+    kind: ratio
+  ebitda_margin_pct:
+    name: "EBITDA Margin (%)"
+    aliases: ["EBITDA margin", "EBITDA margin percentage"]
+    kind: ratio
+  net_profit_margin_pct:
+    name: "Net Profit Margin (%)"
+    aliases: ["net profit margin", "net profit margin percentage"]
+    kind: ratio
+  current_ratio:
+    name: "Current Ratio"
+    aliases: ["current ratio", "current assets ratio"]
+    kind: ratio
+  quick_ratio:
+    name: "Quick Ratio (Acid-Test)"
+    aliases: ["quick ratio", "acid-test ratio"]
+    kind: ratio
+  debt_to_equity:
+    name: "Debt-to-Equity Ratio"
+    aliases: ["debt-to-equity", "debt to equity ratio"]
+    kind: ratio
+  roa_pct:
+    name: "Return on Assets (ROA %)"
+    aliases: ["return on assets", "ROA"]
+    kind: ratio
+  roe_pct:
+    name: "Return on Equity (ROE %)"
+    aliases: ["return on equity", "ROE"]
+    kind: ratio
+  untagged_pnl_check:
+    name: "Untagged P&L Reconciliation Check"
+    aliases: ["untagged P&L check", "P&L reconciliation check"]
+    kind: control
+
+base_concepts:
+  total_revenue:
+    name: "Total Revenue"
+    aliases: ["revenue"]
+    account_class: revenue
+    tag_ids: []
+    time_behavior: flow
+  total_expense:
+    name: "Total Expense"
+    aliases: ["total expenses"]
+    account_class: expense
+    tag_ids: []
+    time_behavior: flow
+  total_assets:
+    name: "Total Assets"
+    aliases: ["assets"]
+    account_class: asset
+    tag_ids: []
+    time_behavior: point_in_time
+  total_liabilities:
+    name: "Total Liabilities"
+    aliases: ["liabilities"]
+    account_class: liability
+    tag_ids: []
+    time_behavior: point_in_time
+  operating_revenue:
+    name: "Operating Revenue"
+    aliases: ["operating income"]
+    account_class: revenue
+    tag_ids: [operating_revenue]
+    time_behavior: flow
+  cost_of_goods_sold:
+    name: "Cost of Goods Sold"
+    aliases: ["COGS", "direct costs"]
+    account_class: expense
+    tag_ids: [cogs]
+    time_behavior: flow
+  operating_expenses_excl_cogs:
+    name: "Operating Expenses Excluding COGS"
+    aliases: ["operating expenses", "OPEX"]
+    account_class: expense
+    tag_ids: [opex]
+    time_behavior: flow
+  depreciation_amortization:
+    name: "Depreciation and Amortization"
+    aliases: ["D&A", "depreciation", "amortization"]
+    account_class: expense
+    tag_ids: [depreciation_amortization]
+    time_behavior: flow
+  other_non_operating_income:
+    name: "Other Non-Operating Income"
+    aliases: ["non-operating income", "financial income"]
+    account_class: revenue
+    tag_ids: [non_operating_income]
+    time_behavior: flow
+  finance_costs:
+    name: "Finance Costs"
+    aliases: ["financial costs", "interest expense"]
+    account_class: expense
+    tag_ids: [finance_cost]
+    time_behavior: flow
+  income_tax_expense:
+    name: "Income Tax Expense"
+    aliases: ["income tax"]
+    account_class: expense
+    tag_ids: [income_tax]
+    time_behavior: flow
+  current_assets:
+    name: "Current Assets"
+    aliases: ["short-term assets"]
+    account_class: asset
+    tag_ids: [current_asset]
+    time_behavior: point_in_time
+  current_liabilities:
+    name: "Current Liabilities"
+    aliases: ["short-term liabilities"]
+    account_class: liability
+    tag_ids: [current_liability]
+    time_behavior: point_in_time
+  financial_debt:
+    name: "Financial Debt"
+    aliases: ["interest-bearing debt"]
+    account_class: liability
+    tag_ids: [financial_debt]
+    time_behavior: point_in_time
+  cash_and_equivalents:
+    name: "Cash and Cash Equivalents"
+    aliases: ["cash"]
+    account_class: asset
+    tag_ids: [cash_and_equivalents]
+    time_behavior: point_in_time
+  inventory:
+    name: "Inventory"
+    aliases: ["inventories"]
+    account_class: asset
+    tag_ids: [inventory]
+    time_behavior: point_in_time
+
+dimensions:
+  company_code:
+    name: "Company"
+    aliases: ["company", "legal entity"]
+    role: dimension
+  cost_center:
+    name: "Cost Center"
+    aliases: ["department"]
+    role: dimension
+  profit_center:
+    name: "Profit Center"
+    aliases: ["business unit"]
+    role: dimension
+  tax_code:
+    name: "Tax Code"
+    aliases: ["tax classification"]
+    role: dimension
+  fiscal_year:
+    name: "Fiscal Year"
+    aliases: ["financial year"]
+    role: time_dimension
+  fiscal_period:
+    name: "Fiscal Period"
+    aliases: ["accounting period"]
+    role: time_dimension
+  posting_date:
+    name: "Posting Date"
+    aliases: ["ledger date"]
+    role: time_dimension
+  document_date:
+    name: "Document Date"
+    aliases: ["invoice date"]
+    role: time_dimension

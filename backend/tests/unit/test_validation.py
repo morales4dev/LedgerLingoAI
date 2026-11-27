@@ -2,8 +2,10 @@ from ledgerlingo.models import QueryValidation, StructuredQuery
 from ledgerlingo.validation import validate_query
 
 
-def test_validate_query_returns_typed_valid_result() -> None:
-    query = StructuredQuery(metric="revenue", period="2024")
+def test_validate_query_returns_typed_valid_result(
+    valid_structured_query: StructuredQuery,
+) -> None:
+    query = valid_structured_query
 
     validation = validate_query(query)
 

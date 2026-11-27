@@ -18,6 +18,7 @@ from pydantic import ValidationError
 
 from ledgerlingo.client import CompletionCall, complete_model
 from ledgerlingo.config import Settings
+from ledgerlingo.discovery_tools import create_discovery_tools
 from ledgerlingo.models import QueryInterpretation
 
 DEFAULT_SYSTEM_PROMPT = (
@@ -34,12 +35,25 @@ PROCESSING_FAILURE_RESPONSE = (
 )
 
 QUERY_INTERPRETATION_SYSTEM_PROMPT = (
-    "Interpret the user's financial question in English. Return exactly one JSON "
-    "object and no other text. For an answerable question, use "
-    '{"kind":"query","query":{"metric":"...","period":null,"filters":{}}}. '
-    "For an ambiguous question that cannot safely be represented as a query, use "
-    '{"kind":"clarification","clarification":"..."} and ask one concise question. '
-    "Do not claim access to journal data or calculation results."
+    "Interpret one financial question in English using the registered discovery "
+    "tools. Search the logical catalog for requested metrics and dimensions, "
+    "normalize the period, and resolve explicit dimension members. If company "
+    "scope is omitted, use the company-scope tool and proceed only when exactly "
+    "one company is returned. Use exact logical IDs and returned member values. "
+    "Use only approved dimensions; use document_date only when explicitly asked. "
+    "For grouped time series, set time_grain to month, quarter, or year as asked "
+    "and use group_by only for approved dimensions. "
+    "Never generate SQL, physical table/column names, or calculation results. "
+    "Clarify missing or ambiguous period/company/member values. Return an "
+    "unsupported outcome for ranking, driver analysis, receivables aging, "
+    "customer/vendor breakdowns, or period-over-period comparisons. "
+    "Return exactly one JSON object and no other text. Query shape: "
+    '{"kind":"query","query":{"metrics":["..."],"period":{"kind":"calendar_quarter",'
+    '"label":"Q1 2025","start_date":"2025-01-01","end_date_exclusive":"2025-04-01"},'
+    '"group_by":[],"filters":{"company_code":"..."},"time_grain":null}}. '
+    "Clarification shape: "
+    '{"kind":"clarification","clarification":"..."}; unsupported shape: '
+    '{"kind":"unsupported","unsupported":"..."} .'
 )
 
 
@@ -67,12 +81,15 @@ async def interpret_query(
     question: str,
     settings: Settings,
     client: CompletionCall = complete_model,
+    tools: Sequence[FunctionTool] | None = None,
 ) -> QueryInterpretation:
     """Return a structured query or a clarification for one question."""
+    discovery_tools = tuple(tools) if tools is not None else create_discovery_tools()
     content = await run_agent(
         question,
         settings,
         client,
+        discovery_tools,
         system_prompt=QUERY_INTERPRETATION_SYSTEM_PROMPT,
     )
     try:
@@ -205,7 +222,9 @@ async def run_agent(
             if calls_used + len(tool_calls) > max_tool_calls:
                 raise AgentLoopLimitError("The model exceeded the tool call limit.")
 
-            assistant_message: ChatCompletionAssistantMessageParam = {"role": "assistant"}
+            assistant_message: ChatCompletionAssistantMessageParam = {
+                "role": "assistant"
+            }
             content = getattr(message, "content", None)
             if content is not None:
                 if not isinstance(content, str):
@@ -243,13 +262,11 @@ async def run_agent(
                     arguments = json.loads(arguments_json)
                 except json.JSONDecodeError:
                     raise InvalidModelResponseError(
-                        f"The model returned invalid JSON arguments "
-                        f"for tool '{name}'."
+                        f"The model returned invalid JSON arguments for tool '{name}'."
                     ) from None
                 if not isinstance(arguments, dict):
                     raise InvalidModelResponseError(
-                        f"The model arguments for tool '{name}' "
-                        "must be an object."
+                        f"The model arguments for tool '{name}' must be an object."
                     )
 
                 if not validators[name].is_valid(arguments):
@@ -289,13 +306,13 @@ async def run_agent(
                     output = output.text
                 try:
                     result = (
-                        output if isinstance(output, str)
+                        output
+                        if isinstance(output, str)
                         else json.dumps(output, ensure_ascii=False)
                     )
                 except (TypeError, ValueError) as error:
                     raise InvalidToolResultError(
-                        f"Tool '{name}' returned a value that is not JSON "
-                        "serializable."
+                        f"Tool '{name}' returned a value that is not JSON serializable."
                     ) from error
                 messages.append(
                     {

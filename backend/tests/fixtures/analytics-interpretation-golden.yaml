@@ -1,0 +1,378 @@
+version: "1.0.0"
+cases:
+  - id: gross-profit-alias
+    question: "What was gross profit for ACME in Q1 2024?"
+    metric_id: gross_profit
+    matched_alias: "gross profit"
+    expected:
+      kind: query
+      query:
+        metrics: [gross_profit]
+        period:
+          kind: calendar_quarter
+          label: "Q1 2024"
+          start_date: "2024-01-01"
+          end_date_exclusive: "2024-04-01"
+        group_by: []
+        filters: {company_code: ACME}
+        time_grain: null
+  - id: total-operating-costs-alias
+    question: "What were total operating costs for ACME in Q1 2024?"
+    metric_id: total_operating_costs
+    matched_alias: "total operating costs"
+    expected:
+      kind: query
+      query:
+        metrics: [total_operating_costs]
+        period:
+          kind: calendar_quarter
+          label: "Q1 2024"
+          start_date: "2024-01-01"
+          end_date_exclusive: "2024-04-01"
+        group_by: []
+        filters: {company_code: ACME}
+        time_grain: null
+  - id: operating-profit-alias
+    question: "What was operating result for ACME in Q1 2024?"
+    metric_id: operating_profit
+    matched_alias: "operating result"
+    expected:
+      kind: query
+      query:
+        metrics: [operating_profit]
+        period:
+          kind: calendar_quarter
+          label: "Q1 2024"
+          start_date: "2024-01-01"
+          end_date_exclusive: "2024-04-01"
+        group_by: []
+        filters: {company_code: ACME}
+        time_grain: null
+  - id: ebitda-alias
+    question: "What was EBITDA for ACME in Q1 2024?"
+    metric_id: ebitda
+    matched_alias: EBITDA
+    expected:
+      kind: query
+      query:
+        metrics: [ebitda]
+        period:
+          kind: calendar_quarter
+          label: "Q1 2024"
+          start_date: "2024-01-01"
+          end_date_exclusive: "2024-04-01"
+        group_by: []
+        filters: {company_code: ACME}
+        time_grain: null
+  - id: net-finance-result-alias
+    question: "What was net finance income for ACME in Q1 2024?"
+    metric_id: net_finance_result
+    matched_alias: "net finance income"
+    expected:
+      kind: query
+      query:
+        metrics: [net_finance_result]
+        period:
+          kind: calendar_quarter
+          label: "Q1 2024"
+          start_date: "2024-01-01"
+          end_date_exclusive: "2024-04-01"
+        group_by: []
+        filters: {company_code: ACME}
+        time_grain: null
+  - id: profit-before-tax-alias
+    question: "What was EBT for ACME in Q1 2024?"
+    metric_id: profit_before_tax
+    matched_alias: EBT
+    expected:
+      kind: query
+      query:
+        metrics: [profit_before_tax]
+        period:
+          kind: calendar_quarter
+          label: "Q1 2024"
+          start_date: "2024-01-01"
+          end_date_exclusive: "2024-04-01"
+        group_by: []
+        filters: {company_code: ACME}
+        time_grain: null
+  - id: net-income-alias
+    question: "What was profit or loss for ACME in Q1 2024?"
+    metric_id: net_income
+    matched_alias: "profit or loss"
+    expected:
+      kind: query
+      query:
+        metrics: [net_income]
+        period:
+          kind: calendar_quarter
+          label: "Q1 2024"
+          start_date: "2024-01-01"
+          end_date_exclusive: "2024-04-01"
+        group_by: []
+        filters: {company_code: ACME}
+        time_grain: null
+  - id: net-assets-alias
+    question: "What were net assets for ACME in FY2024?"
+    metric_id: net_assets
+    matched_alias: "net assets"
+    expected:
+      kind: query
+      query:
+        metrics: [net_assets]
+        period:
+          kind: fiscal_year
+          label: FY2024
+          start_date: "2024-01-01"
+          end_date_exclusive: "2025-01-01"
+        group_by: []
+        filters: {company_code: ACME}
+        time_grain: null
+  - id: working-capital-alias
+    question: "What was net working capital for ACME in FY2024?"
+    metric_id: working_capital
+    matched_alias: "net working capital"
+    expected:
+      kind: query
+      query:
+        metrics: [working_capital]
+        period:
+          kind: fiscal_year
+          label: FY2024
+          start_date: "2024-01-01"
+          end_date_exclusive: "2025-01-01"
+        group_by: []
+        filters: {company_code: ACME}
+        time_grain: null
+  - id: net-debt-alias
+    question: "What was net financial debt for ACME in FY2024?"
+    metric_id: net_debt
+    matched_alias: "net financial debt"
+    expected:
+      kind: query
+      query:
+        metrics: [net_debt]
+        period:
+          kind: fiscal_year
+          label: FY2024
+          start_date: "2024-01-01"
+          end_date_exclusive: "2025-01-01"
+        group_by: []
+        filters: {company_code: ACME}
+        time_grain: null
+  - id: gross-margin-alias
+    question: "What was gross margin percentage for ACME in Q1 2024?"
+    metric_id: gross_margin_pct
+    matched_alias: "gross margin percentage"
+    expected:
+      kind: query
+      query:
+        metrics: [gross_margin_pct]
+        period:
+          kind: calendar_quarter
+          label: "Q1 2024"
+          start_date: "2024-01-01"
+          end_date_exclusive: "2024-04-01"
+        group_by: []
+        filters: {company_code: ACME}
+        time_grain: null
+  - id: operating-margin-alias
+    question: "What was EBIT margin for ACME in Q1 2024?"
+    metric_id: operating_margin_pct
+    matched_alias: "EBIT margin"
+    expected:
+      kind: query
+      query:
+        metrics: [operating_margin_pct]
+        period:
+          kind: calendar_quarter
+          label: "Q1 2024"
+          start_date: "2024-01-01"
+          end_date_exclusive: "2024-04-01"
+        group_by: []
+        filters: {company_code: ACME}
+        time_grain: null
+  - id: ebitda-margin-alias
+    question: "What was EBITDA margin for ACME in Q1 2024?"
+    metric_id: ebitda_margin_pct
+    matched_alias: "EBITDA margin"
+    expected:
+      kind: query
+      query:
+        metrics: [ebitda_margin_pct]
+        period:
+          kind: calendar_quarter
+          label: "Q1 2024"
+          start_date: "2024-01-01"
+          end_date_exclusive: "2024-04-01"
+        group_by: []
+        filters: {company_code: ACME}
+        time_grain: null
+  - id: net-profit-margin-alias
+    question: "What was net profit margin for ACME in Q1 2024?"
+    metric_id: net_profit_margin_pct
+    matched_alias: "net profit margin"
+    expected:
+      kind: query
+      query:
+        metrics: [net_profit_margin_pct]
+        period:
+          kind: calendar_quarter
+          label: "Q1 2024"
+          start_date: "2024-01-01"
+          end_date_exclusive: "2024-04-01"
+        group_by: []
+        filters: {company_code: ACME}
+        time_grain: null
+  - id: current-ratio-alias
+    question: "What was the current ratio for ACME in FY2024?"
+    metric_id: current_ratio
+    matched_alias: "current ratio"
+    expected:
+      kind: query
+      query:
+        metrics: [current_ratio]
+        period:
+          kind: fiscal_year
+          label: FY2024
+          start_date: "2024-01-01"
+          end_date_exclusive: "2025-01-01"
+        group_by: []
+        filters: {company_code: ACME}
+        time_grain: null
+  - id: quick-ratio-alias
+    question: "What was the acid-test ratio for ACME in FY2024?"
+    metric_id: quick_ratio
+    matched_alias: "acid-test ratio"
+    expected:
+      kind: query
+      query:
+        metrics: [quick_ratio]
+        period:
+          kind: fiscal_year
+          label: FY2024
+          start_date: "2024-01-01"
+          end_date_exclusive: "2025-01-01"
+        group_by: []
+        filters: {company_code: ACME}
+        time_grain: null
+  - id: debt-to-equity-alias
+    question: "What was the debt to equity ratio for ACME in FY2024?"
+    metric_id: debt_to_equity
+    matched_alias: "debt to equity ratio"
+    expected:
+      kind: query
+      query:
+        metrics: [debt_to_equity]
+        period:
+          kind: fiscal_year
+          label: FY2024
+          start_date: "2024-01-01"
+          end_date_exclusive: "2025-01-01"
+        group_by: []
+        filters: {company_code: ACME}
+        time_grain: null
+  - id: roa-alias
+    question: "What was return on assets for ACME in FY2024?"
+    metric_id: roa_pct
+    matched_alias: "return on assets"
+    expected:
+      kind: query
+      query:
+        metrics: [roa_pct]
+        period:
+          kind: fiscal_year
+          label: FY2024
+          start_date: "2024-01-01"
+          end_date_exclusive: "2025-01-01"
+        group_by: []
+        filters: {company_code: ACME}
+        time_grain: null
+  - id: roe-alias
+    question: "What was return on equity for ACME in FY2024?"
+    metric_id: roe_pct
+    matched_alias: "return on equity"
+    expected:
+      kind: query
+      query:
+        metrics: [roe_pct]
+        period:
+          kind: fiscal_year
+          label: FY2024
+          start_date: "2024-01-01"
+          end_date_exclusive: "2025-01-01"
+        group_by: []
+        filters: {company_code: ACME}
+        time_grain: null
+  - id: untagged-pnl-check-alias
+    question: "Run the P&L reconciliation check for ACME in FY2024."
+    metric_id: untagged_pnl_check
+    matched_alias: "P&L reconciliation check"
+    expected:
+      kind: query
+      query:
+        metrics: [untagged_pnl_check]
+        period:
+          kind: fiscal_year
+          label: FY2024
+          start_date: "2024-01-01"
+          end_date_exclusive: "2025-01-01"
+        group_by: []
+        filters: {company_code: ACME}
+        time_grain: null
+  - id: single-company-defaulting
+    question: "What was gross profit in Q1 2024?"
+    expected:
+      kind: query
+      query:
+        metrics: [gross_profit]
+        period:
+          kind: calendar_quarter
+          label: "Q1 2024"
+          start_date: "2024-01-01"
+          end_date_exclusive: "2024-04-01"
+        group_by: []
+        filters: {company_code: ACME}
+        time_grain: null
+  - id: grouped-time-series
+    question: "Show EBITDA by month for ACME in Q1 2024."
+    expected:
+      kind: query
+      query:
+        metrics: [ebitda]
+        period:
+          kind: calendar_quarter
+          label: "Q1 2024"
+          start_date: "2024-01-01"
+          end_date_exclusive: "2024-04-01"
+        group_by: []
+        filters: {company_code: ACME}
+        time_grain: month
+  - id: missing-period
+    question: "What was gross profit for ACME?"
+    expected:
+      kind: clarification
+  - id: ambiguous-cost-center
+    question: "What was gross profit for North cost center for ACME in Q1 2024?"
+    expected:
+      kind: clarification
+  - id: customer-ranking
+    question: "Rank customers by revenue for ACME in Q1 2024."
+    expected:
+      kind: unsupported
+  - id: ebitda-drivers
+    question: "What drove EBITDA for ACME in Q1 2024?"
+    expected:
+      kind: unsupported
+  - id: receivables-aging
+    question: "Show customer receivables aging for ACME in Q1 2024."
+    expected:
+      kind: unsupported
+  - id: customer-financial-breakdown
+    question: "Show revenue by customer for ACME in Q1 2024."
+    expected:
+      kind: unsupported
+  - id: period-over-period-comparison
+    question: "Compare gross profit quarter over quarter for ACME."
+    expected:
+      kind: unsupported
