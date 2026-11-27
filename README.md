@@ -1,11 +1,11 @@
 # LedgerLingoAI
-Conversational AI for turning accounting and general ledger data into actionable financial answers and insights.
+An analytics assistant for turning accounting and general ledger data into actionable financial answers and insights.
 
 ## Introduction
 
-LedgerLingoAI is an analytics assistant designed for senior finance professionals, including accounting managers and CFOs. The MVP caller submits one text question per script invocation and receives one text response; requests do not share interaction history.
+LedgerLingoAI is an analytics assistant designed for senior finance professionals, including accounting managers and CFOs. The MVP Python script submits one English text question per invocation and prints one English text response. Internal agent and tool iterations stay inside that invocation; requests do not share question history or interaction state.
 
-It bridges complex accounting and general ledger data with natural-language interaction, enabling finance professionals to ask questions about their financial data and receive directly usable answers and insights.
+It bridges complex accounting and general ledger data with natural-language questions, enabling finance professionals to ask about their financial data and receive directly usable answers and insights.
 
 It supports financial data retrieval, period-over-period analysis, financial metric calculation, variance and driver analysis, aging analysis, and dimensional analysis across customers, vendors, business units, and general ledger accounts.
 

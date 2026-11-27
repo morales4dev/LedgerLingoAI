@@ -6,8 +6,8 @@ context: |
   LedgerLingoAI uses a script-first Python agent core under backend/src/ledgerlingo/.
   Supported Python: >=3.12,<3.14. Dependencies are declared in backend/pyproject.toml
   and locked in backend/uv.lock; the local environment is backend/.venv.
-  The MVP caller submits one text question per invocation and returns one text
-  response without carrying history between invocations.
+  The MVP caller submits one English text question per invocation and returns one
+  English text response without carrying history between invocations.
   AsyncOpenAI connects through a separate LiteLLM Proxy. The application owns the
   bounded orchestration loop and uses Agents SDK @function_tool definitions
   without the SDK Runner.

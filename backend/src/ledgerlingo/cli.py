@@ -2,7 +2,7 @@ import argparse
 import asyncio
 from collections.abc import Sequence
 
-from ledgerlingo.agent import AgentError, run_agent
+from ledgerlingo.agent import AgentError, answer_question
 from ledgerlingo.client import create_client
 from ledgerlingo.config import SettingsError, load_settings
 
@@ -10,7 +10,7 @@ from ledgerlingo.config import SettingsError, load_settings
 async def _run_question(question: str) -> str:
     settings = load_settings()
     async with create_client(settings) as client:
-        return await run_agent(question, settings, client)
+        return await answer_question(question, settings, client)
 
 
 def main(argv: Sequence[str] | None = None) -> int:

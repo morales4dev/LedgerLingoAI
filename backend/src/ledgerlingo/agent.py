@@ -19,6 +19,19 @@ from pydantic import ValidationError
 
 from ledgerlingo.config import Settings
 
+DEFAULT_SYSTEM_PROMPT = (
+    "Answer the user's question in English. "
+    "Return one complete response for this invocation. "
+    "If the question is ambiguous, state the clarification needed as the final "
+    "response and do not wait for another input. "
+    "If the question is unsupported or cannot be answered safely, describe that "
+    "outcome in English without presenting an unvalidated answer."
+)
+
+PROCESSING_FAILURE_RESPONSE = (
+    "Processing could not complete safely. No unvalidated answer is available."
+)
+
 
 class AgentError(RuntimeError):
     """Base error for explicit orchestration failures."""
@@ -40,16 +53,37 @@ class AgentLoopLimitError(AgentError):
     """Raised when the model exceeds the configured tool-call limit."""
 
 
+async def answer_question(
+    question: str,
+    settings: Settings,
+    client: AsyncOpenAI,
+    tools: Sequence[FunctionTool] = (),
+) -> str:
+    """Return one English result for an independent MVP invocation."""
+    try:
+        return await run_agent(
+            question,
+            settings,
+            client,
+            tools,
+            system_prompt=DEFAULT_SYSTEM_PROMPT,
+        )
+    except AgentConfigurationError:
+        raise
+    except (AgentError, RuntimeError):
+        return PROCESSING_FAILURE_RESPONSE
+
+
 async def run_agent(
     question: str,
     settings: Settings,
     client: AsyncOpenAI,
     tools: Sequence[FunctionTool] = (),
     *,
-    system_prompt: str = "Answer clearly and use the provided tools when appropriate.",
+    system_prompt: str = DEFAULT_SYSTEM_PROMPT,
     max_tool_calls: int = 5,
 ) -> str:
-    """Run a bounded model/tool conversation and return its final text."""
+    """Run a bounded model/tool loop and return its final text."""
     if not question.strip():
         raise AgentConfigurationError("The question must not be empty.")
     if max_tool_calls < 0:

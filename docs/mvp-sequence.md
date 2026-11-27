@@ -1,6 +1,6 @@
 # LedgerLingoAI MVP Sequence
 
-This sequence keeps the first MVP caller small and testable: one Python script submits one independent text question and prints one text response. The architecture boundary is described in [architecture-proposal.md](./architecture-proposal.md).
+This sequence keeps the first MVP caller small and testable: one Python script submits one independent English text question and prints one English text response. The architecture boundary is described in [architecture-proposal.md](./architecture-proposal.md).
 
 ## 1. Establish the script-first runtime
 
@@ -10,7 +10,7 @@ Tracked by `script-first-agent-stack`.
 
 ## 2. Define the one-shot request contract
 
-Treat each CLI invocation as an independent request with one question and one final response. Internal model and tool iterations stay within the invocation. Do not retain earlier questions, responses, or conversation history.
+Treat each CLI invocation as an independent request: one English question in, internal agent and tool iterations, one English result out. Clarification, unsupported, and processing-failure outcomes are returned as that result; the invocation does not wait for another input. Do not retain earlier questions or responses, and do not assign a request-history or multi-question interaction identifier.
 
 Tracked by `mvp-one-shot-analytics-contract`.
 
@@ -20,7 +20,7 @@ Introduce analytics behavior through separate product changes. Keep business def
 
 ## 4. Verify the MVP workflow
 
-Use offline tests for configuration, orchestration, tool dispatch, failure outcomes, and request isolation. Add deterministic analytics fixtures when the relevant product contracts and tools are implemented. A provider smoke test is optional and requires local credentials and a configured route.
+Use offline tests for configuration, orchestration, tool dispatch, English success/clarification/unsupported/failure outcomes, internal tool iteration, and isolation across consecutive invocations. Add deterministic analytics fixtures when the relevant product contracts and tools are implemented. A provider smoke test is optional and requires local credentials and a configured route.
 
 ## 5. Consider a future caller
 
@@ -28,8 +28,9 @@ After the script workflow and governed analytics behavior are validated, decide 
 
 ## MVP Boundary
 
-- One text question and one text response per invocation.
-- No request-history state or multi-question interaction.
+- One English text question and one English text response per invocation.
+- Internal model and tool iterations stay inside that invocation.
+- No request-history identifier, retained user context, or multi-question interaction.
 - No web UI, API, hosted runtime, or user-level access control.
 - No framework-managed orchestration or direct provider-specific logic in the orchestrator.
 - No analytics behavior outside separately approved product contracts.

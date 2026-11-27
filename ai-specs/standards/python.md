@@ -19,6 +19,6 @@
 - Supported Python range is `>=3.12,<3.14`.
 - Use `AsyncOpenAI` against the LiteLLM Proxy. Close the client before the event loop exits; the CLI starts the loop once. Keep provider-specific routing and provider credentials on the proxy side.
 - Use `pydantic-settings` and `python-dotenv` for environment-backed settings; use PyYAML's safe loader before Pydantic validation.
-- Keep orchestration explicit in Python, without the Agents SDK Runner. Define typed tools with the Agents SDK's `@function_tool`, dispatch only registered tools, and bound model/tool iterations. Validate each batch before dispatch and propagate tool failures.
+- Keep orchestration explicit in Python, without the Agents SDK Runner. Define typed tools with the Agents SDK's `@function_tool`, dispatch only registered tools, and bound model/tool iterations. Validate each batch before dispatch and propagate tool failures from `run_agent`. The MVP caller uses `answer_question` so one English question yields one English result, including clarification, unsupported, and processing-failure outcomes.
 - Runner-managed approvals, guardrails, dynamic enablement, timeouts, and deferred loading are not supported by the current tool adapter.
 - Store secrets in environment variables (`.env` is gitignored); `.env.example` contains names and non-secret placeholders only.

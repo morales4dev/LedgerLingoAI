@@ -27,7 +27,7 @@ Load OpenSpec CLI skills from `.agents/skills/` when proposing, applying, updati
 
 ## MVP request contract
 
-Each MVP invocation accepts one text question and returns one text response. Model and tool iterations stay within that invocation; do not retain question history or interaction state.
+Each MVP invocation accepts one English text question and returns one English text response. Model and tool iterations stay within that invocation; do not retain question history or interaction state.
 
 ## Stack and testing
 

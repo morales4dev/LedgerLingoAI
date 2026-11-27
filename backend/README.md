@@ -37,10 +37,10 @@ The example sets `LITELLM_PROXY_URL=http://localhost:4000/v1`, the OpenAI-compat
 From this directory:
 
 ```bash
-uv run --locked ledgerlingo "Ask one question here"
+uv run --locked ledgerlingo "Ask one English question here"
 ```
 
-The CLI starts and closes the async client for each invocation. It does not register analytics tools yet. Python callers can pass an explicit sequence of `@function_tool`-decorated functions to `run_agent`; the loop validates arguments and propagates tool failures. Runner-managed approvals, guardrails, dynamic enablement, tool timeouts, and deferred loading are not supported.
+The CLI is the MVP caller: one invocation submits one English question, runs the core once, and prints one English result. The async client is started and closed for that invocation. Clarification, unsupported, and processing-failure outcomes are returned as that result rather than waiting for another input. It does not register analytics tools yet. Python callers can pass an explicit sequence of `@function_tool`-decorated functions to `answer_question`; the loop validates arguments and maps unsafe processing failures to an English outcome instead of an unvalidated answer. Runner-managed approvals, guardrails, dynamic enablement, tool timeouts, and deferred loading are not supported.
 
 ## Test
 
@@ -50,4 +50,4 @@ From this directory:
 uv run --locked python -m pytest
 ```
 
-Offline unit tests live in `tests/unit/` and mock model responses; they do not require provider credentials or network access.
+Offline unit tests live in `tests/unit/` and mock model responses; they do not require provider credentials or network access. They cover the one-shot English contract: a successful response, clarification, unsupported and failure outcomes, internal tool iteration, and isolation across consecutive invocations.
