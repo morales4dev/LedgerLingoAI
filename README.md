@@ -3,7 +3,7 @@ Conversational AI for turning accounting and general ledger data into actionable
 
 ## Introduction
 
-LedgerLingoAI is a conversational AI assistant designed for senior finance professionals, including accounting managers and CFOs.
+LedgerLingoAI is an analytics assistant designed for senior finance professionals, including accounting managers and CFOs. The MVP caller submits one text question per script invocation and receives one text response; requests do not share interaction history.
 
 It bridges complex accounting and general ledger data with natural-language interaction, enabling finance professionals to ask questions about their financial data and receive directly usable answers and insights.
 
@@ -44,42 +44,54 @@ LedgerLingoAI is designed to answer questions such as:
 
 ## Stack
 
-Python 3.13.3. Pins are in `backend/requirements.txt` (runtime) and `backend/requirements-dev.txt` (pytest, Playwright). Do not copy pin lists into this README by hand after that.
+Python 3.12-3.13. Dependencies and supported Python versions are declared in `backend/pyproject.toml`, with exact resolutions in `backend/uv.lock`. The local environment is `backend/.venv`.
 
-App entry: `backend/src/app.py` (`gr.ChatInterface`, MiniMax-M2.5 via the OpenAI-compatible client).
+The importable async agent core and CLI live under `backend/src/ledgerlingo/`. The async OpenAI SDK client connects to the separately run LiteLLM Proxy. Tools are defined with the OpenAI Agents SDK's `@function_tool`; an explicit Python loop dispatches them without the SDK Runner.
 
 ## Setup
 
-Package installs use `uv pip install --python backend/.venv/bin/python` (from repo root) or `uv pip install --python .venv/bin/python` (from `backend/`). Do not use bare `pip install`.
+The backend environment lives at `backend/.venv` and is managed by uv. From the repository root:
 
 ```bash
 cd backend
-uv venv .venv --python 3.13.3
-uv pip install --python .venv/bin/python -r requirements.txt
-uv pip install --python .venv/bin/python -r requirements-dev.txt
+uv sync --locked
 ```
 
-Copy `.env.example` to `.env` at the **repo root** and fill values. `.env` is gitignored.
+To run the local model proxy as well, sync its separate dependency group:
+
+```bash
+uv sync --locked --group proxy
+```
+
+Copy `.env.example` to `.env` at the **repo root** and set the provider key. `.env` is gitignored.
+
+Start the LiteLLM Proxy from `backend/`:
+
+```bash
+uv run --locked --group proxy --env-file ../.env litellm --config litellm_config.yaml --port 4000
+```
+
+The example sets `LITELLM_PROXY_URL=http://localhost:4000/v1`, the OpenAI-compatible endpoint used by the app. Check that the proxy is live with `curl http://localhost:4000/health/liveliness`.
 
 ## Run
 
 From `backend/`:
 
 ```bash
-.venv/bin/python src/app.py
+uv run --locked ledgerlingo "Ask one question here"
 ```
 
-VS Code launch config `Twin backend` uses `${workspaceFolder}/backend` and loads `${workspaceFolder}/.env`.
+The CLI starts and closes the async client for each invocation. It does not register analytics tools yet. Python callers can pass an explicit sequence of `@function_tool`-decorated functions to `run_agent`; the loop validates arguments and propagates tool failures. Runner-managed approvals, guardrails, dynamic enablement, tool timeouts, and deferred loading are not supported.
 
 ## Test
 
 From `backend/`:
 
 ```bash
-.venv/bin/python -m pytest
+uv run --locked python -m pytest
 ```
 
-Units: `backend/tests/unit/`. Playwright E2E against Gradio chat is a later slot under `backend/tests/e2e/` (not a live MiniMax suite in v1).
+Offline unit tests live in `backend/tests/unit/` and mock model responses; they do not require provider credentials or network access.
 
 ## Agent OS vs product specs
 

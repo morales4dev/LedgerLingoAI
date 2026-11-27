@@ -3,22 +3,29 @@ githubCopilot:
   cloudAgent: false
 
 context: |
-  Twin is a Python 3.12.12 Gradio ChatInterface app under backend/src/ (MiniMax-M2.5 via OpenAI-compatible client).
-  Pins: backend/requirements.txt (runtime) and backend/requirements-dev.txt (pytest, Playwright).
-  Tests: pytest units under backend/tests/unit/; Playwright drives Gradio chat, not a live MiniMax suite in v1.
+  LedgerLingoAI uses a script-first Python agent core under backend/src/ledgerlingo/.
+  Supported Python: >=3.12,<3.14. Dependencies are declared in backend/pyproject.toml
+  and locked in backend/uv.lock; the local environment is backend/.venv.
+  The MVP caller submits one text question per invocation and returns one text
+  response without carrying history between invocations.
+  AsyncOpenAI connects through a separate LiteLLM Proxy. The application owns the
+  bounded orchestration loop and uses Agents SDK @function_tool definitions
+  without the SDK Runner.
+  Backend unit tests live under backend/tests/unit/ and must run offline.
   Agent constitution: ai-specs/AGENTS.md. Standards: ai-specs/standards/python.md, ai-specs/standards/testing.md, ai-specs/standards/context7.md.
   Product specs: openspec/specs/. Do not invent product specs for tooling-only work.
   Language: English for repo content and for chat with the user.
 
 rules:
   proposal:
-    - Stay twin-native (Python/Gradio/MiniMax). Do not invent product specs for
-      tooling-only changes.
+    - Stay within the script-first async Python/OpenAI SDK/LiteLLM Proxy architecture;
+      use Agents SDK function tools without delegating orchestration to its Runner.
+      Do not invent product specs for tooling-only changes.
     - "OS-only / tooling-only changes set skip_specs: true and must not invent product specs."
     - Always include a Non-goals section.
   design:
-    - Stay twin-native. File layout and apply order must match existing
-      backend/.venv + requirements.txt.
+    - Match the backend/src/ledgerlingo package, uv-managed backend/.venv,
+      pyproject.toml, and uv.lock.
     - Project skills live under ai-specs/skills/. OpenSpec CLI skills stay under
       .agents/skills/.
   tasks:

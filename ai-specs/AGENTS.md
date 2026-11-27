@@ -15,17 +15,19 @@ Read this file first. Product specs live in `openspec/specs/`. Agent standards l
 - OpenSpec CLI skills: `.agents/skills/` (do not move them into `ai-specs`).
 - Product specs: `openspec/specs/`.
 
-### Project Architecture & Sub-Module Directory Map
+### Project Architecture
 
-This repository is split into specific micro-domains. When working inside these folders, respect their local architectures and internal rule files:
-
-- `backend/src/` — Core Python backend entry points, API routes, and configuration wrappers.
-- `backend/src/greeting/` — CrewAI Greeting Module. Contains the localized multi-agent workflows, task definitions, and UI interfaces.
-	- Local rules pointer: Refer to [backend/src/greeting/AGENTS.md](../backend/src/greeting/AGENTS.md) before making edits or otherwise working in this module.
+- `backend/` — uv-managed Python project; local environment is `backend/.venv`.
+- `backend/src/ledgerlingo/` — Importable agent core, configuration boundaries, and script CLI.
+- `backend/tests/unit/` — Offline tests using mocked model responses.
 
 ## Load skills
 
 Load OpenSpec CLI skills from `.agents/skills/` when proposing, applying, updating, syncing, or archiving a change. Load project skills from `ai-specs/skills/` when the user asks for that workflow (for example `adversarial-review` before archive).
+
+## MVP request contract
+
+Each MVP invocation accepts one text question and returns one text response. Model and tool iterations stay within that invocation; do not retain question history or interaction state.
 
 ## Stack and testing
 
@@ -43,7 +45,7 @@ Write or update a failing test before production code when the work is testable.
 
 ### Do not change product behavior without an OpenSpec change
 
-Do not edit visitor-facing Gradio chat or `backend/src/**` unless a product change (with artifacts) says so.
+Do not add analytics behavior, new callers, or stateful interactions unless an OpenSpec product change (with artifacts) says so. Keep tool access explicit and enforce analytics governance outside the model.
 
 ### Product docs vs OS docs
 
