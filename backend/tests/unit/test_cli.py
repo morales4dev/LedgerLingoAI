@@ -18,16 +18,16 @@ def test_main_runs_question_invokes_core_once_and_prints_one_response(
         patch("ledgerlingo.cli.load_settings", return_value=settings),
         patch("ledgerlingo.cli.create_client", return_value=client),
         patch(
-            "ledgerlingo.cli.answer_question",
+            "ledgerlingo.cli.process_question",
             new_callable=AsyncMock,
             return_value="The result is 42.",
-        ) as answer_question,
+        ) as process_question,
     ):
         exit_code = main(["What is the result?"])
 
     assert exit_code == 0
     assert capsys.readouterr().out == "The result is 42.\n"
-    answer_question.assert_awaited_once_with("What is the result?", settings, client)
+    process_question.assert_awaited_once_with("What is the result?", settings, client)
     client.__aexit__.assert_awaited_once()
 
 
@@ -41,7 +41,7 @@ def test_main_prints_one_processing_failure_response_and_closes_client(
         patch("ledgerlingo.cli.load_settings", return_value=object()),
         patch("ledgerlingo.cli.create_client", return_value=client),
         patch(
-            "ledgerlingo.cli.answer_question",
+            "ledgerlingo.cli.process_question",
             new_callable=AsyncMock,
             return_value=PROCESSING_FAILURE_RESPONSE,
         ),

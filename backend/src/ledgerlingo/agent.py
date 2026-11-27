@@ -18,6 +18,7 @@ from openai.types.chat import (
 from pydantic import ValidationError
 
 from ledgerlingo.config import Settings
+from ledgerlingo.models import QueryInterpretation
 
 DEFAULT_SYSTEM_PROMPT = (
     "Answer the user's question in English. "
@@ -30,6 +31,15 @@ DEFAULT_SYSTEM_PROMPT = (
 
 PROCESSING_FAILURE_RESPONSE = (
     "Processing could not complete safely. No unvalidated answer is available."
+)
+
+QUERY_INTERPRETATION_SYSTEM_PROMPT = (
+    "Interpret the user's financial question in English. Return exactly one JSON "
+    "object and no other text. For an answerable question, use "
+    '{"kind":"query","query":{"metric":"...","period":null,"filters":{}}}. '
+    "For an ambiguous question that cannot safely be represented as a query, use "
+    '{"kind":"clarification","clarification":"..."} and ask one concise question. '
+    "Do not claim access to journal data or calculation results."
 )
 
 
@@ -51,6 +61,26 @@ class InvalidToolResultError(AgentError):
 
 class AgentLoopLimitError(AgentError):
     """Raised when the model exceeds the configured tool-call limit."""
+
+
+async def interpret_query(
+    question: str,
+    settings: Settings,
+    client: AsyncOpenAI,
+) -> QueryInterpretation:
+    """Return a structured query or a clarification for one question."""
+    content = await run_agent(
+        question,
+        settings,
+        client,
+        system_prompt=QUERY_INTERPRETATION_SYSTEM_PROMPT,
+    )
+    try:
+        return QueryInterpretation.model_validate(json.loads(content))
+    except (json.JSONDecodeError, ValidationError):
+        raise InvalidModelResponseError(
+            "The model returned an invalid query interpretation."
+        ) from None
 
 
 async def answer_question(

@@ -40,7 +40,11 @@ From this directory:
 uv run --locked ledgerlingo "Ask one English question here"
 ```
 
-The CLI is the MVP caller: one invocation submits one English question, runs the core once, and prints one English result. The async client is started and closed for that invocation. Clarification, unsupported, and processing-failure outcomes are returned as that result rather than waiting for another input. It does not register analytics tools yet. Python callers can pass an explicit sequence of `@function_tool`-decorated functions to `answer_question`; the loop validates arguments and maps unsafe processing failures to an English outcome instead of an unvalidated answer. Runner-managed approvals, guardrails, dynamic enablement, tool timeouts, and deferred loading are not supported.
+The CLI is the MVP caller: one invocation submits one English question, calls the application orchestrator, and prints one English result. The async client is started and closed for that invocation. The query interpreter returns either a structured query or a clarification; the orchestrator returns clarifications directly and otherwise validates the query, calls the deterministic calculator, and reports its result.
+
+The current validator is a stub that always returns valid, and the calculator is a stub that always returns `68`. These results are demonstrative and are not calculated from journal data. The query interpreter receives the question but no journal data or calculator result; the natural-language question is sent to the configured model. Clarification and safe processing-failure outcomes are returned without waiting for another input. The validator is not yet exposed as an agent tool.
+
+The lower-level agent loop can still dispatch explicit `@function_tool`-decorated functions, validates their arguments, and bounds tool iterations. Runner-managed approvals, guardrails, dynamic enablement, tool timeouts, and deferred loading are not supported.
 
 ## Test
 
